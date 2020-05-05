@@ -222,7 +222,9 @@ addInputHandler('cor_menu_select', function(input){
             contact.vars.account_failures = contact.vars.account_failures + 1;
             promptDigits('cor_continue', {'submitOnHash' : false, 'maxDigits' : max_digits_for_input, 'timeout' : timeout_length})
         }
-        else if(client.vars.finalized == 1 && client.vars.geo !== 'Ruhango'){ //fix next tine for generallity
+        var get_district_bundles =require('./lib/get-district-bundles')
+        get_district_bundles(state.vars.client_districtId);
+        if(client.vars.finalized == 1 && client.vars.geo !== 'Ruhango'){ //fix next tine for generallity
             sayText(msgs('enr_order_already_finalized', {}, lang));
             promptDigits('cor_continue', {'submitOnHash' : false, 'maxDigits' : max_digits_for_input, 'timeout' : timeout_length});
         }
