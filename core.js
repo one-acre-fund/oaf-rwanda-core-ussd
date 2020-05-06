@@ -1163,23 +1163,16 @@ addInputHandler('enr_finalize_verify', function (input) {
     state.vars.current_step = 'enr_finalize_verify';
     input = parseInt(input.replace(/\D/g, ''));
     if (input == 1) {
-        sayText(msgs('enr_finalized', {}, lang));
-        var client = get_client(state.vars.session_account_number, an_pool)
-        client.vars.finalized = 1;
-        client.save();
         var enroll_in_roster = require('./lib/enr-order-in-roster');
-        if(state.vars.groupId == null){
-            var tableA = project.getOrCreateDataTable(an_pool);
-            var cursor = tableA.queryRows({vars:{'account_number':state.vars.account_number}});
-            if(cursor.hasNext()){
-                var row = cursor.next();
-                state.vars.groupId = row.vars.glus.split('-')[2];
-            }
-
-        }
-        if(state.vars.groupId != null){
-            enroll_in_roster(state.vars.session_account_number, state.vars.client_districtId, state.vars.client_SiteId, state.vars.groupId, state.vars.client_id);
-         }
+        var success = enroll_in_roster(state.vars.session_account_number, state.vars.client_id, an_pool);
+        if(success){
+            sayText(msgs('enr_finalized', {}, lang));
+            var client = get_client(state.vars.session_account_number, an_pool)
+            client.vars.finalized = 1;
+            client.save();
+        };
+       
+        
         }
     else {
         sayText(msgs('enr_not_finalized', {}, lang));
