@@ -244,16 +244,17 @@ addInputHandler('cor_menu_select', function(input){
         var is_gl = gl_check(state.vars.account_number, state.vars.glus, an_pool, glus_pool);
         // continue with order steps
         var check_live = require('./lib/enr-check-geo-active');
-        if(!check_live(client.vars.geo, geo_menu_map)){
-            sayText(msgs('enr_order_already_finalized', {}, lang));
-            promptDigits('cor_continue', {'submitOnHash' : false, 'maxDigits' : max_digits_for_input, 'timeout' : timeout_length});
-            return 0;
-        }
+        // if(!check_live(client.vars.geo, geo_menu_map)){
+        //     sayText(msgs('enr_order_already_finalized', {}, lang));
+        //     promptDigits('cor_continue', {'submitOnHash' : false, 'maxDigits' : max_digits_for_input, 'timeout' : timeout_length});
+        //     return 0;
+        // }
         state.vars.session_authorized = true;
         state.vars.session_account_number = state.vars.account_number;
         state.vars.client_geo = client.vars.geo;
-        var prod_menu_select = require('./lib/enr-select-product-menu');
-        var product_menu_table_name = prod_menu_select(state.vars.client_geo, geo_menu_map);
+        //var prod_menu_select = require('./lib/enr-select-product-menu');
+        //var product_menu_table_name = prod_menu_select(state.vars.client_geo, geo_menu_map);
+        var product_menu_table_name = project.vars.input21ATable;
         state.vars.product_menu_table_name = product_menu_table_name;
         var menu = populate_menu(product_menu_table_name, lang);
         if(typeof(menu) == 'string'){
@@ -1054,10 +1055,12 @@ addInputHandler('enr_confirm_input_order', function(input){ //input ordering con
     }
     else if(input === 1){
         var log_input_order = require('./lib/enr-log-input-order');
+        // var add_input_to_orders_table = require('./lib/add_input_to_orders_table');
         var product_deets = JSON.parse(state.vars.product_deets)
         console.log('product deets : ' + JSON.stringify(product_deets));
         var input_name = product_deets.input_name;
         log_input_order(state.vars.session_account_number, an_pool, input_name, state.vars.current_input_quantity)
+        // add_input_to_orders_table(account_number,bundleId, bundleInputId)
         sayText(msgs('enr_input_order_success', {'$NAME' : product_deets[lang]}, lang));
         promptDigits('enr_input_order_continue', {'submitOnHash' : false, 'maxDigits' : max_digits_for_input,'timeout' : timeout_length});
     }
