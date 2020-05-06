@@ -8,7 +8,7 @@
 var msgs = require('./lib/msg-retrieve');
 var messager = require('./lib/enr-messager');
 var settings_table = project.getOrCreateDataTable('ussd_settings');
-var client_table = project.getOrCreateDataTable('20b_client_data');
+var client_table = project.getOrCreateDataTable('21a_client_data');
 
 // save constants
 const last_order = parseInt(settings_table.queryRows({'vars' : {'settings' : 'enr_last_order'}}).next().vars.value); 

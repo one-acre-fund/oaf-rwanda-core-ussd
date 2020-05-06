@@ -24,7 +24,7 @@ const max_digits_for_account_number = project.vars.max_digits_an;
 //const max_digits_for_serial = 7;
 const core_splash_map = project.getOrCreateDataTable(project.vars.core_enr_splash_map);
 //const chicken_client_table = project.vars.chicken_client_table;
-const an_pool = project.vars.enr_client_pool;
+const an_pool = project.vars.season_clients_table;
 const glus_pool = project.vars.glus_pool;
 const geo_menu_map = project.vars.geo_menu_map;
 const timeout_length = 180;
@@ -236,7 +236,7 @@ addInputHandler('cor_menu_select', function (input) {
             glvv_check = client.vars.glus || state.vars.glus;
             if (glvv_check == null || glvv_check == 0) {
                 sayText(msgs('enr_missing_glvv', {}, lang));
-                promptDigits('enr_glvv_id', { 'submitOnHash': false, 'maxDigits': 8, 'timeout': timeout_length });
+                promptDigits('enr_glvv_id', { 'submitOnHash': false, 'maxDigits': max_digits_for_glus, 'timeout': timeout_length });
                 return null;
             }
             // save glvv in client row
@@ -907,12 +907,43 @@ addInputHandler('enr_group_id_confirmation', function (input) { //enr group lead
 addInputHandler('enr_glvv_id', function (input) {
     state.vars.current_step = 'entered_glvv';
     // check if glvv is valid
-    var check_glus = require('./lib/enr-check-glus');
+    //var check_glus = require('./lib/enr-check-glus');
     input = input.replace(/\W/g, ''); //added some quick sanitation to this input
-    if (check_glus(input, glus_pool)) {
-        state.vars.glus = input;
+    var groupCheck = require('./lib/enr-check-gid');
+    var group_information = groupCheck(input, 'group_codes', lang);
+
+    // if the info about the id is not null, ask for confirmation with the group info
+    // if (group_information != null) {
+    //     var confirmation_menu = msgs('enr_confirmation_menu', {}, lang);
+    //     var current_menu = msgs('enr_group_id_confirmation', { '$ENR_GROUP_ID': input, '$LOCATION_INFO': group_information, '$ENR_CONFIRMATION_MENU': confirmation_menu }, lang);
+    //     state.vars.current_menu_str = current_menu;
+    //     sayText(current_menu);
+    //     promptDigits('enr_group_id_confirmation', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
+
+    // }
+   
+   
+    if (group_information != null) {
+        var confirmation_menu = msgs('enr_confirmation_menu', {}, lang);
+        var current_menu = msgs('enr_group_id_confirmation', { '$ENR_GROUP_ID': input, '$LOCATION_INFO': group_information, '$ENR_CONFIRMATION_MENU': confirmation_menu }, lang);
+        state.vars.current_menu_str = current_menu;
+        sayText(current_menu);
+        
+        var districtId = parseInt(input.slice(0,5),10);
+        var siteId = parseInt(input.slice(5,8),10);
+        var groupId = parseInt(input.slice(8,(input.length)),10);
+        var id = districtId + '-' + siteId + '-'+ groupId;
         var gl_check = require('./lib/enr-group-leader-check');
         var is_gl = gl_check(state.vars.account_number, state.vars.glus, an_pool);
+        var tableA = project.getOrCreateDataTable(an_pool);
+        var cursor = tableA.queryRows({vars:{'account_number':state.vars.account_number}});
+        if(cursor.hasNext()){
+            var row = cursor.next();
+            row.vars.glus = id;
+            row.save();
+        }
+
+
         console.log('is gl? : ' + is_gl);
         // return to enr_order_start - give the client their account number in the message?
         sayText(msgs('enr_continue', { '$GROUP': state.vars.glus }, lang));
@@ -921,7 +952,7 @@ addInputHandler('enr_glvv_id', function (input) {
     }
     else {
         sayText(msgs('enr_incorrect_glvv', {}, lang));
-        promptDigits('enr_glvv_id', { 'submitOnHash': false, 'maxDigits': 8, 'timeout': timeout_length });
+        promptDigits('enr_glvv_id', { 'submitOnHash': false, 'maxDigits': max_digits_for_glus, 'timeout': timeout_length });
         return null;
     }
 });
@@ -1137,8 +1168,19 @@ addInputHandler('enr_finalize_verify', function (input) {
         client.vars.finalized = 1;
         client.save();
         var enroll_in_roster = require('./lib/enr-order-in-roster');
-        enroll_in_roster(state.vars.session_account_number, state.vars.client_districtId, state.vars.client_SiteId, state.vars.groupId, state.vars.client_id);
-    }
+        if(state.vars.groupId == null){
+            var tableA = project.getOrCreateDataTable(an_pool);
+            var cursor = tableA.queryRows({vars:{'account_number':state.vars.account_number}});
+            if(cursor.hasNext()){
+                var row = cursor.next();
+                state.vars.groupId = row.vars.glus.split('-')[2];
+            }
+
+        }
+        if(state.vars.groupId != null){
+            enroll_in_roster(state.vars.session_account_number, state.vars.client_districtId, state.vars.client_SiteId, state.vars.groupId, state.vars.client_id);
+         }
+        }
     else {
         sayText(msgs('enr_not_finalized', {}, lang));
     }
