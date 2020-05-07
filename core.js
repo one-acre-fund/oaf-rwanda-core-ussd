@@ -289,7 +289,7 @@ addInputHandler('cor_menu_select', function (input) {
         else {
             var prod_menu_select = require('./lib/enr-select-product-menu');
             var gen_input_review = require('./lib/enr-gen-order-review'); //todo: add prepayment calc
-            var input_review_menu = gen_input_review(state.vars.account_number, prod_menu_select(client.vars.geo, geo_menu_map), an_pool, lang);
+            var input_review_menu = gen_input_review(state.vars.account_number, project.vars.input21ATable, an_pool, lang);
             if (typeof (input_review_menu) == 'string') {
                 sayText(input_review_menu);
                 promptDigits('cor_continue', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
