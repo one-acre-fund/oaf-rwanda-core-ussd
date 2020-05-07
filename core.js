@@ -246,12 +246,6 @@ addInputHandler('cor_menu_select', function (input) {
             var gl_check = require('./lib/enr-group-leader-check');
             var is_gl = gl_check(state.vars.account_number, state.vars.glus, an_pool, glus_pool);
             // continue with order steps
-            var check_live = require('./lib/enr-check-geo-active');
-            // if(!check_live(client.vars.geo, geo_menu_map)){
-            //     sayText(msgs('enr_order_already_finalized', {}, lang));
-            //     promptDigits('cor_continue', {'submitOnHash' : false, 'maxDigits' : max_digits_for_input, 'timeout' : timeout_length});
-            //     return 0;
-            // }
             state.vars.session_authorized = true;
             state.vars.session_account_number = state.vars.account_number;
             state.vars.client_geo = client.vars.geo;
@@ -813,22 +807,7 @@ addInputHandler('enr_group_id_confirmation', function (input) { //enr group lead
     }
     else if (input == 1) { // if the user chooses yes, that the id is correct, save the info
         var geo = state.vars.districtName;
-        var check_live = require('./lib/enr-check-geo-active');
         if (geo) {
-            try { // get this out of a try block as soon as bandwidth
-                if (!check_live(geo, geo_menu_map)) {
-                    console.log(geo);
-                    console.log(geo_menu_map);
-                    sayText(msgs('enr_order_period_finished', {}, lang));
-                    promptDigits('enr_glus', { 'submitOnHash': false, 'maxDigits': max_digits_for_glus, 'timeout': timeout_length });
-                    return 0;
-                }
-            }
-            catch (error) {
-                console.log(error);
-                var admin_alert = require('./lib/admin-alert');
-                admin_alert('error on live - dead check\n' + error);
-            }
             // if there isn't already an account number, get one
             if (state.vars.account_number == null) {
                 var client_log = require('./lib/enr-client-logger');
