@@ -930,8 +930,6 @@ addInputHandler('enr_glvv_id_confirmation', function (input) {
     input = input.replace(/\W/g, '');
     if (input == 1) {
         if (state.vars.group_information != null) {
-            var confirmation_menu = msgs('enr_confirmation_menu', {}, lang);
-            state.vars.current_menu_str = current_menu;
             var gl_check = require('./lib/enr-group-leader-check');
             var is_gl = gl_check(state.vars.account_number, state.vars.glus, an_pool);
             var tableA = project.getOrCreateDataTable(an_pool);
