@@ -755,7 +755,7 @@ addInputHandler('enr_pn', function (input) { //enr phone number step
 
 addInputHandler('enr_glus', function (input) {
 
-    input = input.replace(/\W/g, '');
+    //input = input.replace(/\W/g, '');
     state.vars.current_step = 'enr_glus';
 
     if (input == 99) {
