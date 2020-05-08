@@ -930,22 +930,13 @@ addInputHandler('enr_glvv_id_confirmation', function (input) {
     input = input.replace(/\W/g, '');
     if (input == 1) {
         if (state.vars.group_information != null) {
-            var confirmation_menu = msgs('enr_confirmation_menu', {}, lang);
-            var current_menu = msgs('enr_group_id_confirmation', { '$ENR_GROUP_ID': input, '$LOCATION_INFO': state.vars.group_information, '$ENR_CONFIRMATION_MENU': confirmation_menu }, lang);
-            state.vars.current_menu_str = current_menu;
-            sayText(current_menu);
-
-            var districtId = parseInt(input.slice(0, 5), 10);
-            var siteId = parseInt(input.slice(5, 8), 10);
-            var groupId = parseInt(input.slice(8, (input.length)), 10);
-            var id = districtId + '-' + siteId + '-' + groupId;
             var gl_check = require('./lib/enr-group-leader-check');
             var is_gl = gl_check(state.vars.account_number, state.vars.glus, an_pool);
             var tableA = project.getOrCreateDataTable(an_pool);
             var cursor = tableA.queryRows({ vars: { 'account_number': state.vars.account_number } });
             if (cursor.hasNext()) {
                 var row = cursor.next();
-                row.vars.glus = id;
+                row.vars.glus = state.vars.glus;
                 row.save();
             }
 
