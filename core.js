@@ -809,61 +809,68 @@ addInputHandler('enr_group_id_confirmation', function (input) { //enr group lead
         var geo = state.vars.districtName;
         if (geo) {
             // if there isn't already an account number, get one
+            var client_log_result ={};
             if (state.vars.account_number == null) {
                 var client_log = require('./lib/enr-client-logger');
-                client_log(state.vars.reg_nid, state.vars.reg_name_1, state.vars.reg_name_2, state.vars.reg_pn, state.vars.glus, geo, an_pool);
-            }
-            //check if group leader here
-            var gl_check = require('./lib/enr-group-leader-check');
-            var is_gl = gl_check(state.vars.account_number, state.vars.glus, an_pool, glus_pool);
-            console.log('is gl? : ' + is_gl);
-            var enr_msg = msgs('enr_reg_complete', { '$ACCOUNT_NUMBER': state.vars.account_number, '$NAME': state.vars.reg_name_2 }, lang);
-            sayText(enr_msg);
-            //retreive ads per district entered by the user
-            var retrieveAd = require('./lib/enr-retrieve-ad-by-district');
-            var districtId = state.vars.districtId;
-            var sms_ad = retrieveAd(districtId, lang);
-            var enr_msg_sms = msgs('enr_reg_complete_sms', { '$ACCOUNT_NUMBER': state.vars.account_number, '$NAME': state.vars.reg_name_2, '$AD_MESSAGE': sms_ad }, lang);
-            var messager = require('./lib/enr-messager');
-            messager(contact.phone_number, enr_msg_sms);
-            messager(state.vars.reg_pn, enr_msg_sms);
-            try {
-                var verify = require('./lib/account-verify')
-                var client_verified = verify(state.vars.account_number);
-                if (client_verified) {
-                    sayText(msgs('account_number_verified'));
-                    var splash = core_splash_map.queryRows({ 'vars': { 'district': state.vars.client_district } }).next().vars.splash_menu;
-                    if (splash === null || splash === undefined) {
-                        admin_alert(state.vars.client_district + ' not found in district database');
-                        throw 'ERROR : DISTRICT NOT FOUND';
-                    }
-                    state.vars.splash = splash;
-                    var menu = populate_menu(splash, lang);
-                    if (typeof (menu) == 'string') {
-                        state.vars.current_menu_str = menu;
-                        sayText(menu);
-                        state.vars.multiple_input_menus = 0;
-                        state.vars.input_menu = menu;
-                        promptDigits('cor_menu_select', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': 180 });
-                    }
-                    else if (typeof (menu) == 'object') {
-                        state.vars.input_menu_loc = 0; //watch for off by 1 errors - consider moving this to start at 1
-                        state.vars.multiple_input_menus = 1;
-                        state.vars.input_menu_length = Object.keys(menu).length; //this will be 1 greater than max possible loc
-                        state.vars.current_menu_str = menu[state.vars.input_menu_loc];
-                        sayText(menu[state.vars.input_menu_loc]);
-                        state.vars.input_menu = JSON.stringify(menu);
-                        promptDigits('cor_menu_select', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': 180 });
-                    }
-                }
-                else {
-                    sayText(msgs('account_number_not_found'));
+                client_log_result = client_log(state.vars.reg_nid, state.vars.reg_name_1, state.vars.reg_name_2, state.vars.reg_pn, state.vars.glus, geo, an_pool,lang);
+                if(client_log_result === null){
+                    stopRules();
+                    return null;
                 }
             }
-            catch (error) {
-                console.log(error);
-                admin_alert('Error on USSD test integration : ' + error + '\nAccount number: ' + response, "ERROR, ERROR, ERROR", 'marisa')
-                stopRules();
+            if(client_log_result !=null){
+                //check if group leader here
+                var gl_check = require('./lib/enr-group-leader-check');
+                var is_gl = gl_check(state.vars.account_number, state.vars.glus, an_pool, glus_pool);
+                console.log('is gl? : ' + is_gl);
+                var enr_msg = msgs('enr_reg_complete', { '$ACCOUNT_NUMBER': state.vars.account_number, '$NAME': state.vars.reg_name_2 }, lang);
+                sayText(enr_msg);
+                //retreive ads per district entered by the user
+                var retrieveAd = require('./lib/enr-retrieve-ad-by-district');
+                var districtId = state.vars.districtId;
+                var sms_ad = retrieveAd(districtId, lang);
+                var enr_msg_sms = msgs('enr_reg_complete_sms', { '$ACCOUNT_NUMBER': state.vars.account_number, '$NAME': state.vars.reg_name_2, '$AD_MESSAGE': sms_ad }, lang);
+                var messager = require('./lib/enr-messager');
+                messager(contact.phone_number, enr_msg_sms);
+                messager(state.vars.reg_pn, enr_msg_sms);
+                try {
+                    var verify = require('./lib/account-verify')
+                    var client_verified = verify(state.vars.account_number);
+                    if (client_verified) {
+                        sayText(msgs('account_number_verified'));
+                        var splash = core_splash_map.queryRows({ 'vars': { 'district': state.vars.client_district } }).next().vars.splash_menu;
+                        if (splash === null || splash === undefined) {
+                            admin_alert(state.vars.client_district + ' not found in district database');
+                            throw 'ERROR : DISTRICT NOT FOUND';
+                        }
+                        state.vars.splash = splash;
+                        var menu = populate_menu(splash, lang);
+                        if (typeof (menu) == 'string') {
+                            state.vars.current_menu_str = menu;
+                            sayText(menu);
+                            state.vars.multiple_input_menus = 0;
+                            state.vars.input_menu = menu;
+                            promptDigits('cor_menu_select', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': 180 });
+                        }
+                        else if (typeof (menu) == 'object') {
+                            state.vars.input_menu_loc = 0; //watch for off by 1 errors - consider moving this to start at 1
+                            state.vars.multiple_input_menus = 1;
+                            state.vars.input_menu_length = Object.keys(menu).length; //this will be 1 greater than max possible loc
+                            state.vars.current_menu_str = menu[state.vars.input_menu_loc];
+                            sayText(menu[state.vars.input_menu_loc]);
+                            state.vars.input_menu = JSON.stringify(menu);
+                            promptDigits('cor_menu_select', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': 180 });
+                        }
+                    }
+                    else {
+                        sayText(msgs('account_number_not_found'));
+                    }
+                }
+                catch (error) {
+                    console.log(error);
+                    admin_alert('Error on USSD test integration : ' + error + '\nAccount number: ' + response, "ERROR, ERROR, ERROR", 'marisa')
+                    stopRules();
+                }                
             }
 
         }
