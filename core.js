@@ -314,8 +314,9 @@ addInputHandler('cor_menu_select', function (input) {
         }
         else if (client.vars.finalized !== 1 || client.vars.finalized === undefined) {
             state.vars.session_account_number = state.vars.account_number;
-            sayText(msgs('enr_finalize_verify', {}, lang));
-            promptDigits('enr_finalize_verify', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
+            sayText('ENR_FINALIZE_TERMS_AND_CONDITION',{},lang);
+            promptDigits('enr_terms_and_conditions', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
+            
         }
         else if (client.vars.finalized == 1) {
             sayText(msgs('enr_already_finalized', {}, lang));
@@ -651,10 +652,8 @@ addInputHandler('enr_nid_client_confirmation', function (input) {
         }
         // start registration process by asking them to enter their id again
         else {
-            var current_menu = msgs('enr_nid_confirm', {}, lang);
-            state.vars.current_menu_str = current_menu;
-            sayText(current_menu);// contains the menu that ask the user to reenter the id(after confirmation)
-            promptDigits('enr_nid_confirm', { 'submitOnHash': false, 'maxDigits': max_digits_for_nid, 'timeout': timeout_length });
+            sayText(msgs('enr_name_1', {}, lang));
+            promptDigits('enr_name_1', { 'submitOnHash': false, 'maxDigits': max_digits_for_name, 'timeout': timeout_length });    
         }
         get_time();
     }
@@ -667,24 +666,6 @@ addInputHandler('enr_nid_client_confirmation', function (input) {
 });
 
 
-addInputHandler('enr_nid_confirm', function (input) { //step for dd of nid. input here should match stored nid nee
-    state.vars.current_step = 'enr_nid_confirm';// need to add section to check if nid registerd already
-    input = String(input.replace(/\D/g, ''));
-    if (input == 99) {
-        sayText(msgs('exit', {}, lang));
-        stopRules();
-        return null;
-    }
-    else if (state.vars.reg_nid == input) {
-        sayText(msgs('enr_name_1', {}, lang));
-        promptDigits('enr_name_1', { 'submitOnHash': false, 'maxDigits': max_digits_for_name, 'timeout': timeout_length });
-    }
-    else {
-        sayText(msgs('enr_unmatched_nid', {}, lang));
-        promptDigits('enr_reg_start', { 'submitOnHash': false, 'maxDigits': max_digits_for_nid, 'timeout': timeout_length });
-    }
-    get_time();
-});
 
 addInputHandler('enr_name_1', function (input) { //enr name 1 step
     state.vars.current_step = 'enr_name_1';
@@ -1189,3 +1170,16 @@ addInputHandler('enr_finalize_verify', function (input) {
 
 //end finalize order
 
+
+
+addInputHandler('enr_terms_and_conditions',function(input){
+    input = parseInt(input.replace(/\D/g, ''));
+    if(input == 1){
+        sayText(msgs('enr_finalize_verify', {}, lang));
+        promptDigits('enr_finalize_verify', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
+    }
+    else{
+        sayText(msgs('enr_not_finalized', {}, lang));
+    }
+    promptDigits('cor_continue', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
+});
