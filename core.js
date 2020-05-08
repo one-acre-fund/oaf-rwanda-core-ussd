@@ -314,7 +314,7 @@ addInputHandler('cor_menu_select', function (input) {
         }
         else if (client.vars.finalized !== 1 || client.vars.finalized === undefined) {
             state.vars.session_account_number = state.vars.account_number;
-            sayText('ENR_FINALIZE_TERMS_AND_CONDITION',{},lang);
+            sayText(msgs('ENR_FINALIZE_TERMS_AND_CONDITION'),{},lang);
             promptDigits('enr_terms_and_conditions', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
             
         }
