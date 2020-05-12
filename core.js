@@ -113,6 +113,7 @@ addInputHandler('cor_menu_select', function (input) {
             state.vars.current_menu_str = menu;
             sayText(menu);
             promptDigits('cor_menu_select', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
+            return null;
         }
         else if (input == 77 && (state.vars.input_menu_loc < state.vars.input_menu_length - 1)) {
             state.vars.input_menu_loc = state.vars.input_menu_loc + 1;
@@ -120,10 +121,12 @@ addInputHandler('cor_menu_select', function (input) {
             state.vars.current_menu_str = menu;
             sayText(menu);
             promptDigits('cor_menu_select', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
+            return null;
         }
         else if (input == 44 && state.vars.input_menu_loc == 0) {
             sayText(msgs('invalid_input', {}, lang));
             promptDigits('invalid_input', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
+            return null;
         }
     }
 
