@@ -798,7 +798,7 @@ addInputHandler('enr_group_id_confirmation', function (input) { //enr group lead
     get_time();
 });//end registration steps input handlers
 
-addInputHandler('reg-group-consitution-confirm',function(input){
+addInputHandler('reg_group_consitution_confirm',function(input){
     input = input.replace(/\W/g, '');
     if (input == 99) {
         sayText(msgs('exit', {}, lang));
