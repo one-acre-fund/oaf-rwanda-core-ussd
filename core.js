@@ -788,7 +788,7 @@ addInputHandler('enr_group_id_confirmation', function (input) { //enr group lead
     }
     else if (input == 1) { // if the user chooses yes, that the id is correct, save the info
         sayText(msgs('enr-group-constitution-approvement',{},lang));
-        promptDigits('reg-group-consitution-confirm',{ 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
+        promptDigits('reg_group_consitution_confirm',{ 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
     }
     else {// If there is an invalid input(not one or two)
         sayText(msgs('invalid_input', {}, lang));
