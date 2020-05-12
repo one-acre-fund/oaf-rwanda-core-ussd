@@ -131,6 +131,7 @@ addInputHandler('cor_menu_select', function (input) {
     state.vars.selected_core_input = input;
     if (selection === null || selection === undefined) {
         sayText(msgs('invalid_input', {}, lang));
+        console.log('############################ I was called #####################');
         promptDigits('invalid_input', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
         return null;
     }
