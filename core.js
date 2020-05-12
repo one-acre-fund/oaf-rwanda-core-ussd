@@ -1176,6 +1176,8 @@ addInputHandler('enr_finalize_verify', function (input) {
             var client = get_client(state.vars.session_account_number, an_pool)
             client.vars.finalized = 1;
             client.save();
+
+            //send an sms of orders once they choose to finalize
             var gen_sms_review = require('./lib/enr-send-order-sms');
             gen_sms_review(state.vars.account_number, project.vars.input21ATable, an_pool, lang);
         };
