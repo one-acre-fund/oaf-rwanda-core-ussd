@@ -827,7 +827,7 @@ addInputHandler('reg_group_consitution_confirm',function(input){
             //retreive ads per district entered by the user
             var retrieveAd = require('./lib/enr-retrieve-ad-by-district');
             var districtId = state.vars.districtId;
-            var sms_ad = retrieveAd(districtId, lang);
+            var sms_ad = retrieveAd(districtId, lang) || ' ';
             var enr_msg_sms = msgs('enr_reg_complete_sms', { '$ACCOUNT_NUMBER': state.vars.account_number, '$NAME': state.vars.reg_name_2, '$AD_MESSAGE': sms_ad }, lang);
             var messager = require('./lib/enr-messager');
             messager(contact.phone_number, enr_msg_sms);
