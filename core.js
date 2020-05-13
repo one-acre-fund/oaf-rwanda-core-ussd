@@ -788,7 +788,7 @@ addInputHandler('enr_group_id_confirmation', function (input) { //enr group lead
     }
     else if (input == 1) { // if the user chooses yes, that the id is correct, save the info
         sayText(msgs('enr-group-constitution-approvement',{},lang));
-        promptDigits('reg_group_consitution_confirm',{ 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
+        promptDigits('reg_group_constitution_confirm',{ 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
     }
     else {// If there is an invalid input(not one or two)
         sayText(msgs('invalid_input', {}, lang));
@@ -798,7 +798,7 @@ addInputHandler('enr_group_id_confirmation', function (input) { //enr group lead
     get_time();
 });//end registration steps input handlers
 
-addInputHandler('reg_group_consitution_confirm',function(input){
+addInputHandler('reg_group_constitution_confirm',function(input){
     input = input.replace(/\W/g, '');
     if (input == 99) {
         sayText(msgs('exit', {}, lang));
