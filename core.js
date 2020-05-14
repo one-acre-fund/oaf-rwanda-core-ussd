@@ -1102,8 +1102,8 @@ addInputHandler('enr_confirm_input_order', function (input) { //input ordering c
         var add_input_to_orders_table = require('./lib/add_input_to_orders_table');
         var product_deets = JSON.parse(state.vars.product_deets)
         console.log('product deets : ' + JSON.stringify(product_deets));
-        var input_name = product_deets.input_name;
-        log_input_order(state.vars.session_account_number, an_pool, input_name, state.vars.current_input_quantity)
+        var bundle_name = product_deets.bundle_name;
+        log_input_order(state.vars.session_account_number, an_pool, bundle_name, state.vars.current_input_quantity)
         add_input_to_orders_table(state.vars.session_account_number, product_deets.bundleId, product_deets.bundleInputId, state.vars.current_input_quantity)
         sayText(msgs('enr_input_order_success', { '$NAME': product_deets[lang] }, lang));
         promptDigits('enr_input_order_continue', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
