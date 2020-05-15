@@ -1191,9 +1191,10 @@ addInputHandler('enr_finalize_verify', function (input) {
     }
     else {
         sayText(msgs('enr_not_finalized', {}, lang));
+        promptDigits('cor_continue', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
+        get_time();
     }
-    promptDigits('cor_continue', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
-    get_time();
+  
 });
 
 //end finalize order
