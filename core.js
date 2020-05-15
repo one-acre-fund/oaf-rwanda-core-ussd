@@ -14,6 +14,7 @@ var geo_process = require('./lib/cta-geo-string-processer');
 var geo_mm_data = require('./dat/mm-agent-geography');
 var get_time = require('./lib/enr-timestamp');
 var get_client = require('./lib/enr-retrieve-client-row');
+var regSessionManager = require('./lib/enr-resume-registration');
 
 //options
 //var settings_table = project.getOrCreateDataTable('ussd_settings'); //removing this to account for project variable preference
@@ -32,14 +33,18 @@ const max_digits_for_nid = project.vars.max_digits_nid;
 const max_digits_for_pn = project.vars.max_digits_pn;
 const max_digits_for_glus = project.vars.max_digits_glvv;
 const max_digits_for_name = project.vars.max_digits_name;
+const inputHandlers = {}
 
 global.main = function () {
-    sayText(msgs('cor_enr_main_splash'));
-    promptDigits('account_number_splash', {
-        'submitOnHash': false,
-        'maxDigits': max_digits_for_account_number,
-        'timeout': 180
-    });
+    const resumedSession = regSessionManager.resume(contact.phone_number, inputHandlers)
+    if(!resumedSession){
+        sayText(msgs('cor_enr_main_splash'));
+        promptDigits('account_number_splash', {
+            'submitOnHash': false,
+            'maxDigits': max_digits_for_account_number,
+            'timeout': 180
+        });
+    }
 };
 
 /*
@@ -205,7 +210,7 @@ addInputHandler('cor_menu_select', function (input) {
         // translate variables into indices
         var district = Object.keys(geo_mm_data).indexOf(state.vars.client_district);
         var site = Object.keys(geo_select(district, geo_mm_data)).indexOf(state.vars.client_site);
-        // generate list of agents within client's site
+        // generate list of agents within client's sites
         var geo_data = geo_select(site, geo_select(district, geo_mm_data));
         var k = Object.keys(geo_data);
         var agent_display = '';
@@ -563,6 +568,7 @@ addInputHandler('enr_reg_start', function (input) {
     if (input == 99) {
         sayText(msgs('exit', {}, lang));
         stopRules();
+        // Todo: clear resume state
         return null;
     }
     else if (!check_if_nid(input)) {
@@ -570,6 +576,8 @@ addInputHandler('enr_reg_start', function (input) {
         promptDigits('enr_reg_start', { 'submitOnHash': false, 'maxDigits': max_digits_for_nid, 'timeout': timeout_length })
     }
     else {
+        // TODO: Add resume checkpoint with input, and this handler
+        // TODO: Save Current State Vars
         state.vars.reg_nid = input;
         var confirmation_menu = msgs('enr_confirmation_menu', {}, lang);
         var current_menu = msgs('enr_nid_client_confirmation', { '$ENR_NID_CONFIRM': input, '$ENR_CONFIRMATION_MENU': confirmation_menu }, lang);
@@ -588,11 +596,13 @@ addInputHandler('enr_nid_client_confirmation', function (input) {
     if (input == 99) {
         sayText(msgs('exit', {}, lang));
         stopRules();
+        // Todo: clear resume state
         return null;
     }
 
     // If the user does not confirm(chooses no)
     else if (input == 2) {
+        // Todo: clear resume state
         var current_menu = msgs('enr_reg_start', {}, lang);
         state.vars.current_menu_str = current_menu; // set the current menu to what the user choosed(yes/no)
         sayText(current_menu);
@@ -601,6 +611,7 @@ addInputHandler('enr_nid_client_confirmation', function (input) {
     //If the user confirms (chooses yes)
     else if (input == 1) {
         // Check if the client is already registered 
+        // TODO Add this handler to the resume checkpoint with this input
         var is_already_reg = require('./lib/enr-check-dup-nid');
         if (is_already_reg(state.vars.reg_nid, an_pool)) {
             var get_client_by_nid = require('./lib/dpm-get-client-by-nid');
@@ -687,6 +698,7 @@ addInputHandler('enr_name_1', function (input) { //enr name 1 step
         promptDigits('enr_name_1', { 'submitOnHash': false, 'maxDigits': max_digits_for_name, 'timeout': timeout_length });
     }
     else {
+        // TODO: Add this handler to the checkpoint
         state.vars.reg_name_1 = input;
         sayText(msgs('enr_name_2', {}, lang));
         promptDigits('enr_name_2', { 'submitOnHash': false, 'maxDigits': max_digits_for_name, 'timeout': timeout_length });
