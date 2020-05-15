@@ -1171,6 +1171,7 @@ input handlers for finalize order
 */
 addInputHandler('enr_finalize_verify', function (input) {
     state.vars.current_step = 'enr_finalize_verify';
+    state.vars.splash = state.vars.current_step;
     input = parseInt(input.replace(/\D/g, ''));
     if (input == 1) {
         var enroll_in_roster = require('./lib/enr-order-in-roster');
@@ -1207,6 +1208,8 @@ addInputHandler('enr_terms_and_conditions',function(input){
     }
     else{
         sayText(msgs('enr_not_finalized', {}, lang));
+        sayText(msgs('ENR_FINALIZE_TERMS_AND_CONDITION'),{},lang);
+        promptDigits('enr_terms_and_conditions', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
     }
-    promptDigits('cor_continue', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
+    
 });
