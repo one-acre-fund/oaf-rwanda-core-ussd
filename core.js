@@ -682,7 +682,7 @@ addInputHandler('enr_nid_client_confirmation', function (input) {
 
 
 
-addInputHandler('enr_name_1', function (input) { //enr name 1 step
+inputHandlers['name1InputHandler'] = function (input) {
     state.vars.current_step = 'enr_name_1';
     if (input == 99) {
         sayText(msgs('exit', {}, lang));
@@ -691,20 +691,21 @@ addInputHandler('enr_name_1', function (input) { //enr name 1 step
     }
     input = input.replace(/[^a-z_]/ig, '');
     if (contact.phone_number == '5550123') { // allows for testing on the online testing env
-        input = 'TEST1'
+        input = 'TEST1';
     }
     if (input === undefined || input == '') {
         sayText(msgs('enr_invalid_name_input', {}, lang));
         promptDigits('enr_name_1', { 'submitOnHash': false, 'maxDigits': max_digits_for_name, 'timeout': timeout_length });
     }
     else {
-        // TODO: Add this handler to the checkpoint
+        regSessionManager.save(contact.phone_number, state.vars, 'name1InputHandler', input);
         state.vars.reg_name_1 = input;
         sayText(msgs('enr_name_2', {}, lang));
         promptDigits('enr_name_2', { 'submitOnHash': false, 'maxDigits': max_digits_for_name, 'timeout': timeout_length });
     }
     get_time();
-});
+};
+addInputHandler('enr_name_1', inputHandlers['name1InputHandler']);
 
 addInputHandler('enr_name_2', function (input) { //enr name 2 step
     state.vars.current_step = 'enr_name_2';
