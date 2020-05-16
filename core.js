@@ -38,7 +38,7 @@ const inputHandlers = {}
 global.main = function () {
     const resumedSession = regSessionManager.resume(contact.phone_number, inputHandlers);
     if(!resumedSession){
-    sayText(msgs('cor_enr_main_splash'));
+        sayText(msgs('cor_enr_main_splash'));
         promptDigits('account_number_splash', {
             'submitOnHash': false,
             'maxDigits': max_digits_for_account_number,
@@ -561,32 +561,32 @@ input handlers for registration steps
 */
 
 //prompt for national Id then Show them the national id they have entered and ask for confirmation
-addInputHandler('enr_reg_start', function (input) {
+inputHandlers['registration_start'] = function (input) {
     state.vars.current_step = 'enr_reg_start';
     input = String(input.replace(/\D/g, ''));
     var check_if_nid = require('./lib/enr-check-nid');
     if (input == 99) {
         sayText(msgs('exit', {}, lang));
         stopRules();
-        // Todo: clear resume state
+        regSessionManager.clear(contact.phone_number)
         return null;
     }
     else if (!check_if_nid(input)) {
         sayText(msgs('enr_invalid_nid', {}, lang));
-        promptDigits('enr_reg_start', { 'submitOnHash': false, 'maxDigits': max_digits_for_nid, 'timeout': timeout_length })
+        promptDigits('enr_reg_start', { 'submitOnHash': false, 'maxDigits': max_digits_for_nid, 'timeout': timeout_length });
     }
     else {
-        // TODO: Add resume checkpoint with input, and this handler
-        // TODO: Save Current State Vars
+        regSessionManager.save(contact.phone_number,state.vars,'registration_start',input);
         state.vars.reg_nid = input;
         var confirmation_menu = msgs('enr_confirmation_menu', {}, lang);
         var current_menu = msgs('enr_nid_client_confirmation', { '$ENR_NID_CONFIRM': input, '$ENR_CONFIRMATION_MENU': confirmation_menu }, lang);
         state.vars.current_menu_str = current_menu;
         sayText(current_menu);
         promptDigits('enr_nid_client_confirmation', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
-
     }
-});
+};
+
+addInputHandler('enr_reg_start', inputHandlers['registration_start']);
 
 // Checking confirmation from the user
 addInputHandler('enr_nid_client_confirmation', function (input) {
