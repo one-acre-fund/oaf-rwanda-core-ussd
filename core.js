@@ -734,17 +734,19 @@ inputHandlers['name2InputHandler'] = function (input) {
 };
 addInputHandler('enr_name_2', inputHandlers['name2InputHandler']);
 
-addInputHandler('enr_pn', function (input) { //enr phone number step
+inputHandlers['phoneInputHandler'] = function (input) {
     state.vars.current_step = 'enr_pn';
     input = input.replace(/\D/g, '');
     var check_pn = require('./lib/phone-format-check');
     if (input == 99) {
+        regSessionManager.clear(contact.phone_number);
         sayText(msgs('exit', {}, lang));
         stopRules();
         return null;
     }
     if (check_pn(input)) {
         state.vars.reg_pn = input;
+        regSessionManager.save(contact.phone_number, state.vars, 'phoneInputHandler', input);
         sayText(msgs('enr_glus', {}, lang));
         promptDigits('enr_glus', { 'submitOnHash': false, 'maxDigits': max_digits_for_glus, 'timeout': timeout_length });
     }
@@ -753,7 +755,8 @@ addInputHandler('enr_pn', function (input) { //enr phone number step
         promptDigits('enr_pn', { 'submitOnHash': false, 'maxDigits': max_digits_for_pn, 'timeout': timeout_length });
     }
     get_time();
-});
+};
+addInputHandler('enr_pn', inputHandlers['phoneInputHandler']);
 
 addInputHandler('enr_glus', function (input) {
 
