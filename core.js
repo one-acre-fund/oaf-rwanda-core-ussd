@@ -596,13 +596,13 @@ addInputHandler('enr_nid_client_confirmation', function (input) {
     if (input == 99) {
         sayText(msgs('exit', {}, lang));
         stopRules();
-        // Todo: clear resume state
+        regSessionManager.clear(contact.phone_number);
         return null;
     }
 
     // If the user does not confirm(chooses no)
     else if (input == 2) {
-        // Todo: clear resume state
+        regSessionManager.clear(contact.phone_number);
         var current_menu = msgs('enr_reg_start', {}, lang);
         state.vars.current_menu_str = current_menu; // set the current menu to what the user choosed(yes/no)
         sayText(current_menu);
