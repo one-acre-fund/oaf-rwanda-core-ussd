@@ -758,12 +758,11 @@ inputHandlers['phoneInputHandler'] = function (input) {
 };
 addInputHandler('enr_pn', inputHandlers['phoneInputHandler']);
 
-addInputHandler('enr_glus', function (input) {
-
+inputHandlers['groupCodeInputHandler'] = function (input) {
     //input = input.replace(/\W/g, '');
     state.vars.current_step = 'enr_glus';
-
     if (input == 99) {
+        regSessionManager.clear(contact.phone_number);
         sayText(msgs('exit', {}, lang));
         stopRules();
         return null;
@@ -773,15 +772,14 @@ addInputHandler('enr_glus', function (input) {
         // checking and retreiving info about the entered id
         var groupCheck = require('./lib/enr-check-gid');
         var group_information = groupCheck(input, 'group_codes', lang);
-
         // if the info about the id is not null, ask for confirmation with the group info
         if (group_information != null) {
+            regSessionManager.save(contact.phone_number, state.vars, 'groupCodeInputHandler', input);
             var confirmation_menu = msgs('enr_confirmation_menu', {}, lang);
             var current_menu = msgs('enr_group_id_confirmation', { '$ENR_GROUP_ID': input, '$LOCATION_INFO': group_information, '$ENR_CONFIRMATION_MENU': confirmation_menu }, lang);
             state.vars.current_menu_str = current_menu;
             sayText(current_menu);
             promptDigits('enr_group_id_confirmation', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
-
         }
         // if the group id is not valid, prompt them again
         else {
@@ -790,8 +788,8 @@ addInputHandler('enr_glus', function (input) {
             promptDigits('enr_glus', { 'submitOnHash': false, 'maxDigits': max_digits_for_glus, 'timeout': timeout_length });
         }
     }
-
-});
+};
+addInputHandler('enr_glus', inputHandlers['groupCodeInputHandler']);
 
 addInputHandler('enr_group_id_confirmation', function (input) { //enr group leader / umudugudu support id step. last registration step
 
