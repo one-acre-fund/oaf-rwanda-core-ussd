@@ -12,7 +12,7 @@ const timeout_length = project.vars.timeout_length;
 
 
 global.main = function () {
-    reinit();
+    //reinit();
 
     var survey_table = project.getOrCreateDataTable('Surveys');
         var survey_cursor = survey_table.queryRows({
