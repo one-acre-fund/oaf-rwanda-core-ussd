@@ -12,7 +12,7 @@ const timeout_length = project.vars.timeout_length;
 
 
 global.main = function () {
-    //reinit();
+    reinit();
 
     console.log('*************************i am called*********************')
     var survey_table = project.getOrCreateDataTable('Surveys');
@@ -36,8 +36,7 @@ global.main = function () {
     }
 
     state.vars.current_menu = surveys_obj;
-    //sayText(msgs('train_type_splash', {'$Type_MENU' : state.vars.current_menu},lang));
-    sayText('hello');
+    sayText(msgs('train_type_splash', {'$Type_MENU' : state.vars.current_menu},lang));
     promptDigits('surveyType_selection', { 'submitOnHash' : false,
     'maxDigits'    : max_digits,
     'timeout'      : 180 });
