@@ -742,16 +742,16 @@ addInputHandler('enr_glus', function (input) {
 
     //input = input.replace(/\W/g, '');
     state.vars.current_step = 'enr_glus';
-
-    if(input.length != 13){
-        input = '0'+ input;
-    }
     if (input == 99) {
         sayText(msgs('exit', {}, lang));
         stopRules();
         return null;
     }
     else {
+        // If the user forget the leading zero
+        if(input.length != 13){
+            input = '0'+ input;
+        }
         state.vars.glus = input;
         // checking and retreiving info about the entered id
         var groupCheck = require('./lib/enr-check-gid');
