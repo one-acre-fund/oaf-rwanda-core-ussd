@@ -12,15 +12,33 @@ const timeout_length = project.vars.timeout_length;
 
 
  global.main = function () {
-    //reinit();
+    reinit();
 
 
     var getmenu = require('./lib/training-populate-menu');
     var surveys_obj= getmenu('Surveys',lang);
     console.log("*****************"+ surveys_obj);
     if(surveys_obj != null){
-        state.vars.current_menu = surveys_obj;
-        sayText(msgs('train_type_splash', {'$Type_MENU' : surveys_obj},lang));
+       
+        if (typeof (surveys_obj) == 'string') {
+            state.vars.current_menu_str = surveys_obj;
+            menu  = surveys_obj
+            //sayText(surveys_obj);
+            state.vars.multiple_input_menus = 0;
+            state.vars.input_menu = menu;
+            //promptDigits('cor_menu_select', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': 180 });
+        }
+        else if (typeof (surveys_obj) == 'object') {
+            state.vars.input_menu_loc = 0; //watch for off by 1 errors - consider moving this to start at 1
+            state.vars.multiple_input_menus = 1;
+            state.vars.input_menu_length = Object.keys(surveys_obj).length; //this will be 1 greater than max possible loc
+            state.vars.current_menu_str = surveys_obj[state.vars.input_menu_loc];
+            //sayText(surveys_obj[state.vars.input_menu_loc]);
+            menu = surveys_obj[state.vars.input_menu_loc];
+            state.vars.input_menu = JSON.stringify(surveys_obj);
+            //promptDigits('cor_menu_select', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': 180 });
+        }
+        sayText(msgs('train_type_splash', {'$Type_MENU' : menu},lang));
         promptDigits('surveyType_selection', { 'submitOnHash' : false,
         'maxDigits'    : max_digits,
         'timeout'      : 180 });
@@ -44,6 +62,31 @@ addInputHandler('surveyType_selection',function(input){
         vars        : { 'option_number': input},
         sort_dir    : 'desc'
     });
+    
+    if (state.vars.multiple_input_menus) {
+        if (input == 44 && state.vars.input_menu_loc > 0) {
+            state.vars.input_menu_loc = state.vars.input_menu_loc - 1;
+            var menu = JSON.parse(state.vars.input_menu)[state.vars.input_menu_loc];
+            state.vars.current_menu_str = menu;
+            sayText(menu);
+            promptDigits('surveyType_selection', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
+            return null;
+        }
+        else if (input == 77 && (state.vars.input_menu_loc < state.vars.input_menu_length - 1)) {
+            state.vars.input_menu_loc = state.vars.input_menu_loc + 1;
+            var menu = JSON.parse(state.vars.input_menu)[state.vars.input_menu_loc]
+            state.vars.current_menu_str = menu;
+            sayText(menu);
+            promptDigits('surveyType_selection', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
+            return null;
+        }
+        else if (input == 44 && state.vars.input_menu_loc == 0) {
+            sayText(msgs('invalid_input', {}, lang));
+            promptDigits('invalid_input', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
+            return null;
+        }
+    }
+
     if(survey_cursor.hasNext()){
         var row = survey_cursor.next();
         survey_type = row.vars.survey_code;
