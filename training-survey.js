@@ -17,10 +17,10 @@ const timeout_length = project.vars.timeout_length;
 
     var getmenu = require('./lib/training-populate-menu');
     var surveys_obj= getmenu('Surveys',lang);
+    console.log("*****************"+ surveys_obj);
     if(surveys_obj != null){
         state.vars.current_menu = surveys_obj;
         sayText(msgs('train_type_splash', {'$Type_MENU' : surveys_obj},lang));
-        sayText('choose a survey');
         promptDigits('surveyType_selection', { 'submitOnHash' : false,
         'maxDigits'    : max_digits,
         'timeout'      : 180 });
