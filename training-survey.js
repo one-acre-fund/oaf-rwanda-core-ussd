@@ -36,7 +36,8 @@ const timeout_length = project.vars.timeout_length;
     }
 
     state.vars.current_menu = surveys_obj;
-    sayText(msgs('train_type_splash', {'$Type_MENU' : state.vars.current_menu},lang));
+    //sayText(msgs('train_type_splash', {'$Type_MENU' : state.vars.current_menu},lang));
+    sayText('choose a survey');
     promptDigits('surveyType_selection', { 'submitOnHash' : false,
     'maxDigits'    : max_digits,
     'timeout'      : 180 });
