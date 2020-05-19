@@ -12,7 +12,7 @@ const timeout_length = project.vars.timeout_length;
 
 
 global.main = function () {
-    reinit();
+    //reinit();
 
     console.log('*************************i am called*********************')
     var survey_table = project.getOrCreateDataTable('Surveys');
