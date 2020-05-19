@@ -14,34 +14,21 @@ const timeout_length = project.vars.timeout_length;
  global.main = function () {
     //reinit();
 
-    console.log('*************************i am called*********************')
-    var survey_table = project.getOrCreateDataTable('Surveys');
-        var survey_cursor = survey_table.queryRows({
-        vars        : { 'status':"Active"},
-        sort_dir    : 'desc'
-    });
 
-    var surveys_obj;
-    while(survey_cursor.hasNext()){  
-        try{
-            var row = survey_cursor.next();
-            var survey_type = row.vars.survey_type;
-            var option_number = row.vars.option_number;
-            surveys_obj = surveys_obj + String(option_number) + ")" + survey_type + '\n';
-        }
-        catch(error){
-            console.log("error"+error);
-            break;
-        }
+    var getmenu = require('./lib/training-populate-menu');
+    var surveys_obj= getmenu('Surveys',lang);
+    if(surveys_obj != null){
+        state.vars.current_menu = surveys_obj;
+        sayText(msgs('train_type_splash', {'$Type_MENU' : surveys_obj},lang));
+        sayText('choose a survey');
+        promptDigits('surveyType_selection', { 'submitOnHash' : false,
+        'maxDigits'    : max_digits,
+        'timeout'      : 180 });
+
     }
-
-    state.vars.current_menu = surveys_obj;
-    sayText(msgs('train_type_splash', {'$Type_MENU' : surveys_obj},lang));
-    sayText('choose a survey');
-    promptDigits('surveyType_selection', { 'submitOnHash' : false,
-    'maxDigits'    : max_digits,
-    'timeout'      : 180 });
-
+    else{
+        sayText(msgs('no_quiz_menu',{},lang));
+    }
 
 };
 
