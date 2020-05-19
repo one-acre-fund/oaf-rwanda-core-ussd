@@ -748,6 +748,7 @@ addInputHandler('enr_glus', function (input) {
         return null;
     }
     else {
+        // If the user forgot the leading zero
         if(input.length != 13){
             input = '0'+ input;
         }
