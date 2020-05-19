@@ -743,6 +743,9 @@ addInputHandler('enr_glus', function (input) {
     //input = input.replace(/\W/g, '');
     state.vars.current_step = 'enr_glus';
 
+    if(input.length != 13){
+        input = '0'+ input;
+    }
     if (input == 99) {
         sayText(msgs('exit', {}, lang));
         stopRules();
@@ -889,6 +892,9 @@ addInputHandler('reg_group_constitution_confirm',function(input){
 //Called when the user ordering does not have a group id
 addInputHandler('enr_glvv_id', function (input) {
     state.vars.current_step = 'entered_glvv';
+    if(input.length != 13){
+        input = '0'+ input;
+    }
     // check if glvv is valid
     //var check_glus = require('./lib/enr-check-glus');
     input = input.replace(/\W/g, ''); //added some quick sanitation to this input
