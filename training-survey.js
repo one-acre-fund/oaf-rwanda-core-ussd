@@ -4,7 +4,7 @@ var geo_data = require('./dat/rwanda-training-geography');
 var msgs = require('./lib/msg-retrieve');
 var reinit = require('./lib/training-reinitialization');
 
-
+const max_digits_for_input = 2;
 
 const lang = project.vars.trainings_language;
 const max_digits = project.vars.max_digits;
@@ -12,20 +12,25 @@ const timeout_length = project.vars.timeout_length;
 
 
  global.main = function () {
-    reinit();
+    //reinit();
 
 
     var getmenu = require('./lib/training-populate-menu');
     var surveys_obj= getmenu('Surveys',lang);
     console.log("*****************"+ surveys_obj);
     if(surveys_obj != null){
-       
+       var menu;
         if (typeof (surveys_obj) == 'string') {
             state.vars.current_menu_str = surveys_obj;
-            menu  = surveys_obj
+            menu  = surveys_obj;
             //sayText(surveys_obj);
             state.vars.multiple_input_menus = 0;
             state.vars.input_menu = menu;
+            console.log("----------------------------"+ surveys_obj);
+            sayText(surveys_obj);
+            promptDigits('surveyType_selection', { 'submitOnHash' : false,
+            'maxDigits'    : max_digits,
+            'timeout'      : 180 });
             //promptDigits('cor_menu_select', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': 180 });
         }
         else if (typeof (surveys_obj) == 'object') {
@@ -33,15 +38,17 @@ const timeout_length = project.vars.timeout_length;
             state.vars.multiple_input_menus = 1;
             state.vars.input_menu_length = Object.keys(surveys_obj).length; //this will be 1 greater than max possible loc
             state.vars.current_menu_str = surveys_obj[state.vars.input_menu_loc];
-            //sayText(surveys_obj[state.vars.input_menu_loc]);
-            menu = surveys_obj[state.vars.input_menu_loc];
+            console.log(state.vars.current_menu_str)
+            console.log("!!!!!!!!!!!!!!!!!!!"+surveys_obj[0])
+            sayText( surveys_obj[0]);
             state.vars.input_menu = JSON.stringify(surveys_obj);
+            console.log("^^^^^^^^^^^^^^^^^^^^^^" + surveys_obj);
+            promptDigits('surveyType_selection', { 'submitOnHash' : false,
+            'maxDigits'    : max_digits,
+            'timeout'      : 180 });
             //promptDigits('cor_menu_select', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': 180 });
         }
-        sayText(msgs('train_type_splash', {'$Type_MENU' : menu},lang));
-        promptDigits('surveyType_selection', { 'submitOnHash' : false,
-        'maxDigits'    : max_digits,
-        'timeout'      : 180 });
+       
 
     }
     else{
