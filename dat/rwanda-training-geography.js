@@ -3,1578 +3,2555 @@ rw site geography 2020
 */
 
 module.exports = {
-  "East": {
-    "Bugesera": {
-		" Ruhuha ":{
-			" Gikundamvura " :[],
-			" Kindama " :[],
-			" Gatanga " :[],
-			" Ruhuha " :[],
-			" Bihari " :[]
-			},
+	"Iburasirazuba": {
+	  "Bugesera": {
+		" Gashora ":{
+			" Biryogo " :[],
+			" Kabuye G " :[],
+			" Kagomasi " :[],
+			" Mwendo " :[],
+			" Ramiro " :[]
+		 },
 		" Mayange ":{
-			" Kibenga " :[],
 			" Gakamba " :[],
 			" Kagenge " :[],
-			" Mbyo " :[],
-			" Kibirizi " :[]
-			},
-		" Gashora ":{
-			" Mwendo " :[],
-			" Kabuye " :[],
-			" Kagomasi " :[],
-			" Ramiro " :[],
-			" Biryogo " :[]
-			},
-	},
-    "Gatsibo": {
+			" Kibenga " :[],
+			" Kibirizi " :[],
+			" Mbyo " :[]
+		 },
+		" Mwogo ":{
+			" Kagasa " :[],
+			" Rugunga " :[],
+			" Rurenge " :[]
+		 },
+		" Ngeruka ":{
+			" Murama " :[],
+			" Rutonde " :[]
+		 },
+		" Nyarugenge ":{
+			" Gihinga " :[],
+			" Kabuye N " :[],
+			" Murambi " :[],
+			" Ngenda " :[],
+			" Rugando " :[]
+		 },
+		" Ruhuha ":{
+			" Bihari " :[],
+			" Gatanga " :[],
+			" Gikundamvura " :[],
+			" Kindama " :[],
+			" Ruhuha " :[]
+		 },
+		" Shyara ":{
+			" Kabagugu " :[],
+			" Kamabuye " :[],
+			" Nziranziza " :[],
+			" Rebero " :[],
+			" Rutare " :[]
+		 }
+	  },
+	  "Gatsibo": {
+		" Kabarore ":{
+			" Bukomane 2 " :[],
+			" Rebero " :[]
+		},
+		" Kageyo ":{
+			" Nyagisozi B " :[]
+		 },
+		" Rugarama ":{
+			" Bugarama 2 " :[],
+			 " Murambi A 2 " :[]
+		 },
+		" Rwimbogo ":{
+			" Munini 2 " :[]
+		 },
+		" Zone 1 ":{
+			" Bukomane " :[],
+			" Bukomane B " :[],
+			" Cyabusheshe " :[],
+			" Karubungo A " :[],
+			" Karubungo B " :[],
+			" Nyamirama " :[],
+			" Rubira " :[],
+			" T " :[],
+		 },
 		" Zone 2 ":{
-			" Rwimitereri A " :[],
+			" Bibare " :[],
+			" Bugamba " :[],
+			" Gakorokombe " :[],
+			" Gitinda " :[],
+			" Karambi " :[],
+			" Kibare " :[],
 			" Kigabiro GAT " :[],
-			" Rwimitereri B " :[],
-			" Murambi B " :[],
-			" Rwankuba B " :[],
+			" Kigasha " :[],
+			" Kimana " :[],
+			" Mamfu " :[],
+			" Mayange " :[],
+			" Murambi " :[],
 			" Murambi A " :[],
-			" Rwankuba A " :[],
+			" Murambi B " :[],
+			" Ngarama " :[],
+			" Nyagitabire " :[],
 			" Nyamiyaga " :[],
-			" Teme " :[]
-			},
+			" Nyarubungo " :[],
+			" Rumuli " :[],
+			" Rwankuba A " :[],
+			" Rwankuba B " :[],
+			" Rwimitereri A " :[],
+			" Rwimitereri B " :[],
+			" Taba " :[],
+			" Teme " :[],
+			" Viro " :[]
+		 },
 		" Zone 3 ":{
 			" Busetsa " :[],
+			" Bushobora " :[],
+			" Butiruka " :[],
+			" Gituza " :[],
+			" Kabeza B " :[],
+			" Kigabiro REM GAT " :[],
+			" Kintu " :[],
 			" Nyagakombe " :[],
 			" Nyagisozi " :[],
-			" Kintu " :[],
-			" Butiruka " :[],
-			" Kigabiro REM GAT " :[],
 			" Rurenge GAT " :[],
-			" Gituza " :[],
-			" Bushobora " :[],
-			" Rwarenga " :[]
-			},
+			" Rwarenga " :[],
+			" Simbwa B " :[]
+		 },
+		" Zone 4 ":{
+			" Kiburara " :[],
+			" Munini " :[],
+			" Nyamatete A GAT " :[],
+			" Nyamatete B GAT " :[],
+			" Rwikiniro A " :[],
+			" Rwikiniro B " :[]
+		 },
+		" Zone 5 ":{
+			" Bugarama " :[],
+			" Kanyangese A " :[],
+			" Kanyangese B " :[],
+			" Matare A " :[],
+			" Matare B " :[],
+			" Matunguru A " :[],
+			" Matunguru B " :[],
+			" Remera " :[]
+		 },
+		" Zone 6 ":{
+			" Akabuga B " :[],
+			" Kabarore " :[],
+			" Kabeza " :[],
+			" Karenge GAT " :[],
+			" Marimba A " :[],
+			" Marimba B " :[],
+			" Nyabikiri " :[],
+			" Simbwa " :[]
+		 },
+		" Zone 7 ":{
+			" Gatsibo " :[],
+			" Gatsibo B " :[],
+			" Manishya " :[],
+			" Mpondwa " :[],
+			" Mugera " :[],
+			" Mugera B " :[],
+			" Nyabicwamba " :[],
+			" Nyagahanga " :[]
+		 },
 		" Zone 8 ":{
+			" Agakomeye " :[],
+			" Akabuga " :[],
+			" Gakenke " :[],
+			" Gakoni " :[],
+			" Kigabiro B " :[],
 			" Mbogo " :[],
 			" Ndatemwa A " :[],
 			" Ndatemwa B " :[],
-			" Akabuga " :[],
 			" Nyabisindu A " :[],
 			" Nyabisindu B " :[],
-			" Gakoni " :[],
-			" Gakenke " :[],
-			" Rubona " :[],
-			" Agakomeye " :[]
-			},
-		" Zone 7 ":{
-			" Gatsibo " :[],
-			" Mugera " :[],
-			" Nyagahanga " :[],
-			" Nyabicwamba " :[],
-			" Manishya " :[]
-			},
-		" Zone 6 ":{
-			" Kabeza " :[],
-			" Marimba B " :[],
-			" Marimba A " :[],
-			" Simbwa " :[],
-			" Kabarore " :[],
-			" Karenge GAT " :[],
-			" Nyabikiri " :[]
-			},
-		" Zone 5 ":{
-			" Kanyangese B " :[],
-			" Kanyangese A " :[],
-			" Matunguru A " :[],
-			" Matare A " :[],
-			" Matare B " :[],
-			" Matunguru B " :[],
-			" Remera " :[],
-			" Bugarama " :[]
-			},
+			" Nyamiyaga B " :[],
+			" Rubona " :[]
+		 }
+	  },
+	  "Kayonza": {
+		" Gahini ":{
+			" A " :[],
+			" B " :[],
+			" C " :[],
+			" D1 " :[],
+			" E " :[],
+			" urugarama a " :[]
+		 },
+		" Rukara ":{
+			" MABANDA " :[]
+		 },
+		" Rwinkwavu ":{
+			" NYARUSHISHI " :[]
+		 },
 		" Zone 1 ":{
-			" Bukomane " :[],
-			" Nyamirama " :[],
-			" Cyabusheshe " :[],
-			" Rubira " :[],
-			" Karubungo A " :[],
-			" Karubungo B " :[],
-			" Mpondwa " :[],
-			" Trial " :[]
-			},
-		" Zone 4 ":{
-			" Nyamatete A GAT " :[],
-			" Rwikiniro A " :[],
-			" Kiburara " :[],
-			" Nyamatete B GAT " :[],
-			" Rwikiniro B " :[],
-			" Munini " :[]
-			}
-	},
-    "Kayonza": {
-		" Zone 4 ":{
-			" Murama " :[],
-			" Muko " :[],
-			" RUBUMBA " :[],
-			" Bunyetongo " :[],
-			" Rusave " :[],
-			" RUBIMBA " :[],
-			" Kirehe " :[],
-			" GITARA " :[],
-			" CYARUBARE " :[],
-			" Nyakanazi " :[]
-			},
-		" Zone 6 ":{
-			" Rukara A " :[],
-			" Kawangire B " :[],
-			" Kawangire A " :[],
-			" Murundi " :[],
-			" Rwimishinya " :[],
-			" Rukara B " :[],
-			" Ryamanyoni " :[],
-			" Karambi M " :[],
-			" Buhabwa " :[]
-			},
-		" Zone 1 ":{
+			" Bugambira " :[],
+			" Cyabajwa " :[],
 			" Cyinzovu " :[],
 			" Kabura " :[],
-			" Rusera " :[],
-			" Cyabajwa " :[],
-			" Ruyonza " :[],
-			" Umubuga " :[],
 			" Nkamba " :[],
-			" Bugambira " :[]
-			},
+			" Rusera " :[],
+			" Ruyonza " :[],
+			" Umubuga " :[]
+		 },
 		" Zone 2 ":{
+			" Bwiza " :[],
+			" Gikaya " :[],
+			" Kayonza " :[],
+			" Mburabuturo " :[],
+			" Musumba " :[],
+			" Nyagatovu " :[],
+			" Rugendabari " :[],
 			" Rurambi A " :[],
 			" Rurambi B " :[],
-			" Musumba " :[],
-			" Gikaya " :[],
-			" Shyogo " :[],
-			" Rugendabari " :[],
-			" Nyagatovu " :[],
-			" Bwiza " :[],
-			" Kayonza " :[],
-			" Mburabuturo " :[]
-			},
-		" Zone 5 ":{
-			" Urugarama " :[],
-			" Kiyenzi " :[],
-			" Nyamugari " :[],
-			" Juru " :[],
-			" Kahi " :[],
-			" Kageyo " :[],
-			" Nyawera " :[],
-			" Migera " :[]
-			},
+			" Shyogo " :[]
+		 },
 		" Zone 3 ":{
-			" Nkondo " :[],
-			" Mbarara " :[],
-			" Gihinga " :[],
 			" Byimana " :[],
-			" Mukoyoyo " :[],
+			" f " :[],
+			" Gihinga " :[],
+			" Isangano " :[],
 			" Karambi N " :[],
 			" Kiyovu " :[],
-			" Isangano " :[]
-			}
-	},
-    "Ngoma": {
+			" Mbarara " :[],
+			" Mukoyoyo " :[],
+			" Nkondo " :[]
+		 },
+		" Zone 4 ":{
+			" Bunyetongo " :[],
+			" CYARUBARE " :[],
+			" GITARA " :[],
+			" Kirehe " :[],
+			" Muko " :[],
+			" Murama " :[],
+			" Nyakanazi " :[],
+			" RUBIMBA " :[],
+			" RUBUMBA " :[],
+			" Rusave " :[]
+		 },
+		" Zone 5 ":{
+			" Juru " :[],
+			" Kageyo " :[],
+			" Kahi " :[],
+			" Kiyenzi " :[],
+			" Migera " :[],
+			" Nyamugari " :[],
+			" Nyawera " :[],
+			" Urugarama " :[]
+		 },
+		" Zone 6 ":{
+			" Buhabwa " :[],
+			" Karambi M " :[],
+			" Kawangire A " :[],
+			" Kawangire B " :[],
+			" Murundi " :[],
+			" Rukara A " :[],
+			" Rukara B " :[],
+			" Rwimishinya " :[],
+			" Ryamanyoni " :[]
+		 }
+	  },
+	  "Ngoma": {
+		" Kazo ":{
+			" AMAHORO " :[]
+		 },
 		" Zone 1 ":{
-			" Nyinya " :[],
 			" Buriba " :[],
-			" Sakara A " :[],
-			" Kibatsi " :[],
-			" Nyaruvumu " :[],
-			" Sakara B " :[],
+			" C " :[],
+			" Cyasemakamba " :[],
 			" Gitaraga " :[],
+			" Kibatsi " :[],
 			" Kigabiro " :[],
 			" Mvumba " :[],
+			" Nyaruvumu " :[],
+			" Nyinya " :[],
 			" Rurenge " :[],
-			" Trial " :[]
-			},
-		" Zone 4 ":{
-			" Gafunzo " :[],
-			" Karenge JAR OMA " :[],
-			" Rukoma " :[],
-			" Jarama " :[],
-			" Ihanika " :[],
-			" Kibonde " :[],
-			" Kibimba " :[],
-			" Kigoma " :[]
-			},
-		" Zone 5 ":{
-			" Mahango " :[],
-			" Gahurire " :[],
-			" Karama " :[],
-			" Umukamba " :[],
-			" Gatonde " :[],
-			" Karenge KIB OMA " :[],
-			" Gahima " :[]
-			},
+			" Sakara A " :[],
+			" Sakara B " :[]
+		 },
 		" Zone 2 ":{
 			" Akagarama " :[],
-			" Rwikubo " :[],
-			" Rugese " :[],
-			" Musya " :[],
 			" Bugera " :[],
-			" Rujambara " :[],
-			" Muhurire " :[],
-			" Ndekwe " :[],
 			" Kinunga " :[],
-			" Nyamagana " :[]
-			},
+			" Muhurire " :[],
+			" Musya " :[],
+			" Ndekwe " :[],
+			" Nyamagana " :[],
+			" Nyamugari " :[],
+			" Rugese " :[],
+			" Rujambara " :[],
+			" Rwikubo " :[]
+		 },
+		" Zone 3 ":{
+			" Gituza " :[],
+			" Ntovi " :[],
+			" Rubago " :[],
+			" Rubona " :[],
+			" Rwintashya " :[]
+		 },
+		" Zone 4 ":{
+			" Gafunzo " :[],
+			" Ihanika " :[],
+			" Jarama " :[],
+			" Karenge JAR OMA " :[],
+			" Kibimba " :[],
+			" Kibonde " :[],
+			" Kigoma " :[],
+			" Nkanga " :[],
+			" Rukoma " :[]
+		 },
+		" Zone 5 ":{
+			" Gahima " :[],
+			" Gahurire " :[],
+			" Gatonde " :[],
+			" Karama " :[],
+			" Karenge KIB OMA " :[],
+			" Mahango " :[],
+			" Muzingira B " :[],
+			" Umukamba " :[]
+		 },
 		" Zone 6 ":{
-			" Muzingira " :[],
-			" Mutenderi B " :[],
-			" Mutenderi A " :[],
-			" Kibare OMA " :[],
-			" Nyagasozi OMA " :[],
-			" Kinyonzo B " :[],
-			" Birenga B " :[],
 			" Birenga A " :[],
+			" Birenga B " :[],
 			" Karwema " :[],
+			" Kibare B OMA " :[],
+			" Kibare OMA " :[],
 			" Kinyonzo A " :[],
-			" Kibare B OMA " :[]
-			},
+			" Kinyonzo B " :[],
+			" Mutenderi A " :[],
+			" Mutenderi B " :[],
+			" Muzingira " :[],
+			" Nyagasozi OMA " :[]
+		 },
+		" Zone 8 ":{
+			" Akabungo " :[],
+			" Mugatare " :[],
+			" Ntaga " :[],
+			" Nyagasozi " :[],
+			" Nyagatugunda " :[],
+			" Nyagisozi " :[],
+			" Nyange " :[],
+			" Ruhembe " :[],
+			" Ruhinga " :[]
+		 },
 		" Zone 9 ":{
-			" Munege " :[],
-			" Giseri " :[],
-			" MUTSINDO A " :[],
-			" MUTSINDO B " :[],
 			" Akaziba " :[],
 			" Cyerwa A " :[],
 			" Cyerwa B " :[],
-			" Nkanga " :[],
-			" Nyamirambo " :[],
-			" Karaba " :[]
-			},
-		" Zone 8 ":{
-			" Ruhinga " :[],
-			" Nyagatugunda " :[],
-			" Nyamugari " :[],
-			" Nyagasozi " :[],
-			" Nyange " :[],
-			" Akabungo " :[],
-			" Mugatare " :[],
-			" Ruhembe " :[],
-			" Ntaga " :[]
-			},
-		" Zone 3 ":{
-			" Rubago " :[],
-			" Rwintashya " :[],
-			" Rubona " :[],
-			" Gituza " :[],
-			" Ntovi " :[]
-			}
-	},
-    "Nyagatare": {
-		" Zone 3 ":{
-			" Gitengure " :[],
-			" Gashenyi A " :[],
-			" Nyakagarama " :[],
-			" Rukomo II " :[],
-			" Nyabitekeri " :[],
-			" Gashenyi B " :[]
-			},
+			" Giseri " :[],
+			" Karaba " :[],
+			" Munege " :[],
+			" MUTSINDO A " :[],
+			" MUTSINDO B " :[],
+			" Nyamirambo " :[]
+		 }
+	  },
+	  "Nyagatare": {
+		" Nyagatare ":{
+			" KAVUMU " :[]
+		 },
 		" Zone 1 ":{
-			" Cyenjojo " :[],
+			" Bayigaburire " :[],
+			" Bibare " :[],
+			" Bushoga " :[],
+			" Bwera " :[],
 			" Cyabayaga A " :[],
 			" Cyabayaga B " :[],
+			" Cyagaju " :[],
+			" Cyembogo " :[],
+			" Cyenjojo " :[],
+			" Gacundezi " :[],
+			" Gahurura " :[],
 			" Gakirage " :[],
-			" Bushoga " :[],
-			" Rukorota " :[]
-			},
+			" Gakoma " :[],
+			" Kaduha " :[],
+			" Kanyeganyege " :[],
+			" Kanyoza " :[],
+			" Karama " :[],
+			" Mahoro " :[],
+			" Mbare " :[],
+			" Musheri " :[],
+			" Nkoma " :[],
+			" Ntoma " :[],
+			" Nyagatoma " :[],
+			" Nyamirembe " :[],
+			" Nyendo " :[],
+			" Rubagabaga " :[],
+			" Rugarama I " :[],
+			" Rugarama II " :[],
+			" Rukorota " :[],
+			" Rutungu " :[],
+			" Rwentanga " :[],
+			" Rwenyemera " :[],
+			" Shonga " :[]
+		 },
 		" Zone 2 ":{
-			" Nsheke " :[],
 			" Kabeza " :[],
+			" Nsheke " :[],
 			" Nyarupfubire " :[],
 			" Rwimiyaga " :[],
 			" Ryabega " :[]
-			}
-	},
-    "Kirehe": {
+		 },
+		" Zone 3 ":{
+			" Gashenyi A " :[],
+			" Gashenyi B " :[],
+			" Gitengure " :[],
+			" Nyabitekeri " :[],
+			" Nyakagarama " :[],
+			" Rukomo II " :[]
+		 }
+	  },
+	  "Kirehe": {
 		" Kigarama ":{
-			" Kiremera " :[],
-			" Kigarama " :[],
-			" Nyakerera " :[],
 			" Cyanya " :[],
+			" Kigarama " :[],
+			" Kiremera " :[],
+			" Nyakerera " :[],
 			" Nyankurazo " :[]
-			},
+		 },
+		" Kigina ":{
+			" Gatarama " :[],
+			" Rugarama Kig " :[],
+			" Ruhanga " :[]
+		 },
+		" Kirehe ":{
+			" Kirehe " :[],
+			" Rwesero " :[]
+		 },
+		" Mahama ":{
+			" Kamombo " :[],
+			" Munini " :[],
+			" Mwoga " :[],
+			" Saruhembe " :[]
+		 },
+		" Mpanga ":{
+			" Bwiyorere " :[],
+			" Kankobwa " :[],
+			" Nyakabungo " :[],
+			" Rubaya " :[]
+		 },
+		" Musaza ":{
+			" Gasarabwayi " :[],
+			" Kabuga " :[],
+			" Mubuga " :[]
+		 },
+		" Mushikiri ":{
+			" Rugarama Mus " :[],
+			" Rwanyamuhanga " :[]
+		 },
 		" Nyamugari ":{
+			" Bukora " :[],
 			" Kagasa " :[],
 			" Kazizi " :[],
 			" Kiyanzi " :[],
-			" Nyamugari " :[],
-			" Bukora " :[]
-			},
-		" Mahama ":{
-			" Kamombo " :[],
-			" Mwoga " :[],
-			" Munini " :[],
-			" Saruhembe " :[]
-			},
-		" Kigina ":{
-			" Ruhanga " :[]
-			}
-	},
-    "Rwamagana": {
-		" Zone 3 ":{
-			" Murehe " :[],
-			" Bujyujyu " :[],
-			" Ntebe " :[],
+			" Nyamugari " :[]
+		 },
+		" Nyarubuye ":{
+			" Nyabitare " :[],
+			" Nyarutunga " :[]
+		 }
+	  },
+	  "Rwamagana": {
+		" Zone 1 ":{
 			" Akinyambo " :[],
-			" Nyarukombe " :[]
-			},
-		" Zone 9 ":{
-			" Nyarusange " :[],
+			" Bujyujyu " :[],
+			" Bwiza " :[],
+			" Byeza " :[],
+			" Change " :[],
+			" Cyanya " :[],
+			" Kaduha " :[],
+			" Kagezi " :[],
+			" Kavumu " :[],
+			" Kitazigurwa " :[],
+			" Murambi " :[],
+			" Murehe " :[],
+			" Nkungu " :[],
+			" Ntebe " :[],
+			" Nyabubare B " :[],
+			" Nyagasenyi " :[],
+			" Nyamatete B RMG " :[],
+			" Nyarukombe " :[],
+			" Rweru " :[],
+			" Sibagire " :[],
+			" Sovu " :[],
+			" Zinga " :[] 
+		},
+		" Zone 2 ":{
+			" Bicaca " :[],
+			" Byimana " :[],
+			" Kabasore " :[],
+			" Kangamba " :[],
+			" Karenge RMG " :[],
+			" Nyabubare " :[],
+			" Nyamatete RMG " :[]
+		 },
+		" Zone 3 ":{
+			" Bicumbi " :[],
+			" Bushenyi " :[],
+			" Byinza " :[],
+			" Kabatasi " :[],
+			" Kabuye " :[],
+			" Karambi R " :[],
+			" Mabare " :[],
+			" Mwulire " :[],
+			" Nawe " :[],
+			" Ntunga " :[]
+		 },
+		" Zone 4 ":{
+			" Binunga M " :[],
+			" Bwana " :[],
+			" Cyarukamba " :[],
+			" Cyimbazi " :[],
+			" Cyinyana " :[],
+			" Gati " :[],
+			" Nyarubuye M " :[],
+			" Ruhimbi " :[]
+		 },
+		" Zone 5 ":{
+			" Mununu " :[],
+			" Nyagasambu " :[],
+			" Nyakabanda " :[],
+			" Nyakagunga " :[],
+			" Nyamirama " :[],
+			" Nyarubuye F " :[],
+			" Sasabirago " :[]
+		},
+		" Zone 6 ":{
 			" Binunga G " :[],
-			" Karitutu " :[],
 			" Bwisanga " :[],
 			" Kabare " :[],
 			" Karambi M " :[],
+			" Karitutu " :[],
 			" Nsinda " :[],
+			" Nyarusange " :[],
 			" Ruhunda " :[]
-			},
-		" Zone 5 ":{
-			" Ntunga " :[],
-			" Bicumbi " :[],
-			" Byinza " :[],
-			" Karambi R " :[],
-			" Mwulire " :[],
-			" Bushenyi " :[],
-			" Kabuye " :[],
-			" Mabare " :[],
-			" Kabatasi " :[],
-			" Nawe " :[]
-			},
-		" Zone 2 ":{
-			" Bihembe " :[],
-			" Murama " :[],
-			" Rugarama N " :[],
-			" Akanzu " :[],
-			" Gishore " :[],
-			" Rwimbogo " :[],
-			" Munini " :[],
-			" Kigarama " :[],
-			" Gatare " :[]
-			},
-		" Zone 4 ":{
+		 },
+		" Zone 7 ":{
 			" Gihumuza " :[],
+			" Kanyangese " :[],
 			" Kibare " :[],
 			" Mutamwa " :[],
-			" Rweri " :[],
+			" Rugarama G " :[],
 			" Runyinya " :[],
-			" Kanyangese " :[],
-			" Rugarama G " :[]
-			},
-		" Zone 1 ":{
-			" Nyabubare " :[],
-			" Nyamatete RMG " :[],
-			" Bicaca " :[],
-			" Kabasore " :[],
-			" Karenge RMG " :[],
-			" Kangamba " :[],
-			" Byimana " :[]
-			},
-		" Zone 6 ":{
-			" Sasabirago " :[],
-			" Nyamirama " :[],
-			" Nyarubuye F " :[],
-			" Mununu " :[],
-			" Nyagasambu " :[],
-			" Nyakagunga " :[]
-			},
+			" Rweri " :[]
+		},
 		" Zone 8 ":{
-			" Ruhimbi " :[],
-			" Nyarubuye M " :[],
-			" Nkomangwa " :[],
-			" Binunga M " :[],
-			" Bwana " :[],
-			" Cyimbazi " :[],
-			" Cyarukamba " :[],
-			" Gati " :[],
-			" Cyinyana " :[]
-			},
-		" Zone 7 ":{
-			" Kagarama " :[],
-			" Nyakabanda " :[],
-			" Musha " :[],
-			" Budahanda " :[],
 			" Akabare " :[],
-			" Nyabisindu " :[]
-			}
-	}
-  },
-  "South": {
-    "Gisagara": {
-		" Zone 3 ":{
-			" Kimana " :[],
-			" Mukande " :[],
-			" Bukinanyana " :[],
-			" Gatovu " :[],
-			" Gasagara " :[],
+			" Budahanda " :[],
+			" Kagarama " :[],
+			" Musha " :[],
+			" Nkomangwa " :[],
+			" Nyabisindu " :[],
+			" Ruhimbi A " :[]
+		},
+			" Zone 9 ":{
+			" Akanzu " :[],
+			" Bihembe " :[],
+			" Gatare " :[],
+			" Gishore " :[],
 			" Kigarama " :[],
-			" Mbogo " :[]
-			},
-		" Zone 5 ":{
-			" Nyabisagara A " :[],
-			" Baziro B " :[],
-			" Rwamiko " :[],
-			" Baziro A " :[],
-			" Saga A " :[],
-			" Nyabisagara B " :[],
-			" Saga B " :[],
-			" Runyinya " :[],
-			" Gitega " :[]
-			},
-		" Zone 4 ":{
-			" Mugombwa B " :[],
-			" Muganza " :[],
-			" Mugombwa A " :[],
-			" Cyumba " :[],
-			" Nyakibungo " :[],
-			" Ruturo " :[],
-			" Kibirizi " :[],
-			" Nyabitare " :[]
-			},
-		" Zone 6 ":{
-			" Cyamukuza " :[],
-			" Gisagara " :[],
-			" Dahwe " :[],
-			" Bweya " :[],
-			" Gabiro " :[],
-			" Duwani " :[],
-			" Muyira " :[]
-			},
-		" Zone 2 ":{
-			" Gikonko " :[],
-			" Cyiri " :[],
-			" Nyeranzi " :[],
-			" Kabumbwe " :[],
-			" Muyaga " :[],
-			" Mamba " :[],
-			" Gakoma B " :[],
-			" Gakoma A " :[],
-			" Ramba " :[]
-			},
-		" Zone 7 ":{
-			" Akaboti A " :[],
-			" Umunini " :[],
-			" Rusagara " :[],
-			" Akaboti B " :[],
-			" Bwiza " :[],
-			" Agahabwa " :[],
-			" Sabusaro " :[],
-			" Rubona " :[]
-			},
+			" Munini " :[],
+			" Murama " :[],
+			" Murehe B " :[],
+			" Rugarama N " :[],
+			" Rwimbogo " :[]
+		}
+	  }
+	},
+	"Amajyepfo": {
+	  "Gisagara": {
+		" Cansilde ":{
+			" gako " :[]
+		 },
+		" Gishubi ":{
+			" Nyabitaree " :[]
+		 },
+		" Kansi ":{
+			" GAKWERERE " :[],
+			" Sabusar " :[]
+		 },
+		" Mamba ":{
+			" Mamba B " :[]
+		 },
+		" Muganza ":{
+			" Remera " :[],
+			" Rwamiko B " :[],
+			" Theoooo " :[]
+		 },
+		" Mugombwa ":{
+			" Kibayi " :[]
+		 },
+		" Musha ":{
+			" Bukinanyana B 2 T " :[],
+			" Cooperative " :[]
+		 },
+		" Ndora ":{
+			" Dahwe B " :[]
+		 },
+		" Nyanza ":{
+			" Rwanyanza " :[]
+		 },
 		" Zone 1 ":{
+			" Gatovu Kigembe " :[],
+			" Gisakura " :[],
 			" Higiro " :[],
+			" Impinga " :[],
+			" Kibu " :[],
+			" Mukindo " :[],
+			" Mukomacara " :[],
 			" Nyabikenke A " :[],
 			" Nyabikenke B " :[],
-			" Gatovu Kigembe " :[],
-			" Umubanga " :[],
+			" Nyamugari " :[],
+			" Nyangazi " :[],
+			" Nyanza " :[],
 			" Nyaruteja " :[],
-			" Impinga " :[],
-			" Nyamugari " :[], },
-	},
-    "Huye": {
+			" Umubanga " :[]
+		},
+		" Zone 2 ":{
+			" Bweya B " :[],
+			" Cyiri " :[],
+			" Gakoma A " :[],
+			" Gakoma B " :[],
+			" Gikonko " :[],
+			" Kabumbwe " :[],
+			" Mamba " :[],
+			" Muyaga " :[],
+			" Nyeranzi " :[],
+			" Ramba " :[]
+		 },
 		" Zone 3 ":{
-			" Gatobotobo " :[],
+			" Bukinanyana " :[],
+			" Gasagara " :[],
+			" Gasagara B " :[],
 			" Gatovu " :[],
-			" Gafumba " :[],
-			" Kabuga M " :[],
-			" rusagara " :[],
-			" Rugango " :[],
-			" Cyimana " :[]
-			},
-		" Zone 10 ":{
-			" Gisakura " :[],
-			" Ruhashya " :[],
-			" Kabusanza B " :[],
-			" Kabusanza A " :[],
-			" Mugobore " :[],
-			" Karama " :[],
-			" Nyangazi " :[]
-			},
+			" Gatovu A " :[],
+			" Kigarama " :[],
+			" Kimana " :[],
+			" Mbogo " :[],
+			" Mukande " :[]
+		 },
+		" Zone 4 ":{
+			" Cyumba " :[],
+			" CyumbaA " :[],
+			" Kibirizi " :[],
+			" Muganza " :[],
+			" Mugombwa A " :[],
+			" Mugombwa B " :[],
+			" Nyabitare " :[],
+			" Nyakibungo " :[],
+			" Ruturo " :[]
+		 },
+		" Zone 5 ":{
+			" Baziro A " :[],
+			" Baziro B " :[],
+			" Bukinanyana B " :[],
+			" Gitega " :[],
+			" Nyabisagara A " :[],
+			" Nyabisagara B " :[],
+			" Runyinya " :[],
+			" Rwamiko " :[],
+			" Saga A " :[],
+			" Saga B " :[]
+		 },
+		" Zone 6 ":{
+			" Bweya " :[],
+			" Cyamukuza " :[],
+			" Dahwe " :[],
+			" Duwani " :[],
+			" Gabiro " :[],
+			" Gabiro A " :[],
+			" Gisagara " :[],
+			" Gisagara B " :[],
+			" Muyira " :[]
+		 },
 		" Zone 7 ":{
-			" Shyanda B " :[],
-			" Musebeya " :[],
-			" Shanga K " :[],
-			" Shyanda A " :[],
-			" Munazi " :[],
-			" MWURIRE " :[],
-			" Rugarama " :[],
-			" Karambi " :[],
-			" Muhororo " :[],
-			" Kabuga K " :[],
-			" Rwanza " :[],
+			" Agahabwa " :[],
+			" Akaboti A " :[],
+			" Akaboti B " :[],
+			" Bwiza " :[],
+			" Rubona " :[],
+			" Rusagara " :[],
+			" Sabusaro " :[],
+			" Umunini " :[]
+		 }
+	  },
+	  "Huye": {
+		" e ":{
+			" Rugango A " :[],
+			" Rugango A double " :[],
+			" Rugango B " :[],
+			" Rugango B double " :[],
+			" Rwesero " :[]
+		 },
+		" Euphrasie ":{
+			" Rugogwe " :[]
+		 },
+		" I ":{
+			" 1 " :[],
+			" mwurile " :[]
+		 },
+		" Kigoma ":{
+			" Karambi 2 T " :[]
+		 },
+		" Maraba ":{
+			" Abatinjiye " :[]
+		},
+		" Mbazi ":{
+			" Gatobotobo A " :[],
+			" RugangoA " :[]
+		 },
+		" Rusatira ":{
+			" Kimuna 2 T " :[],
+			" Kimuna B " :[],
+			" Mugogwe " :[]
+		},
+		" Rwaniro ":{
+			" Nyaruhombo B " :[]
+		 },
+		" Zone 1 ":{
 			" Gasumba " :[],
 			" Gishihe " :[],
-			" Gatoki " :[],
-			" Zivu " :[],
-			" Nyabisindu " :[]
-			},
+			" Kabuga K " :[],
+			" Karambi " :[],
+			" Kibiraro " :[],
+			" Kimirehe " :[],
+			" Musebeya " :[],
+			" Nyabisindu " :[],
+			" Nyumba " :[],
+			" Rango A " :[],
+			" Rugarama " :[],
+			" Shanga K " :[]
+		 },
+		" Zone 10 ":{
+			" Gisakura " :[],
+			" Kabusanza A " :[],
+			" Kabusanza B " :[],
+			" Karama " :[],
+			" Mugobore " :[],
+			" Nyangazi " :[],
+			" Ruhashya " :[]
+		 },
+		" Zone 11 ":{
+			" Buremera " :[],
+			" Cyarwa " :[],
+			" Cyendajuru " :[],
+			" Kabuye " :[],
+			" Kanyinya " :[],
+			" Shanga M A " :[],
+			" Shanga M B " :[],
+			" Shyembe " :[],
+			" Sovu " :[],
+			" Tare " :[]
+		 },
+		" Zone 3 ":{
+			" Cyimana " :[],
+			" Gafumba " :[],
+			" Gatobotobo " :[],
+			" Gatovu " :[],
+			" Kabuga M " :[],
+			" Rugango " :[],
+			" rusagara " :[]
+		 },
+		" Zone 4 ":{
+			" Bukomeye " :[],
+			" Bukomeye 2 " :[],
+			" Buvumu " :[],
+			" Buvumu 2 " :[],
+			" Buvumu2 " :[],
+			" Icyeru " :[],
+			" Mutunda " :[],
+			" Nyakibanda " :[],
+			" Rango B " :[],
+			" Rukira " :[],
+			" Ryakibogo " :[],
+			" Shori " :[]
+		 },
 		" Zone 5 ":{
 			" Busheshi " :[],
 			" Gatwaro " :[],
-			" Mara " :[],
-			" Kimuna " :[],
-			" Nyaruhombo " :[],
-			" nyamabuye " :[],
-			" Kamwambi " :[],
 			" Kabatwa " :[],
-			" Mwendo " :[]
-			},
+			" Kamwambi " :[],
+			" Kimuna " :[],
+			" Mara " :[],
+			" Mwendo " :[],
+			" nyamabuye " :[],
+			" Nyaruhombo " :[]
+		 },
+		" Zone 7 ":{
+			" Gatoki " :[],
+			" Muhororo " :[],
+			" Munazi " :[],
+			" MWURIRE " :[],
+			" Rwanza " :[],
+			" Shyanda A " :[],
+			" Shyanda B " :[],
+			" Zivu " :[]
+		 },
 		" Zone 8 ":{
-			" Kiruhura " :[],
 			" Buhimba " :[],
-			" Kabona " :[],
-			" Sazange B " :[],
-			" Sazange A " :[],
 			" Byinza " :[],
+			" Gahana " :[],
 			" Gitovu " :[],
-			" Gahana " :[]
-			},
-		" Zone 11 ":{
-			" Shyembe " :[],
-			" Kabuye " :[],
-			" Shanga M A " :[],
-			" Cyendajuru " :[],
-			" Kanyinya " :[],
-			" Shanga M B " :[],
-			" Tare " :[],
-			" Buremera " :[],
-			" Sovu " :[],
-			" Cyarwa " :[]
-			},
-		" Zone 4 ":{
-			" Mutunda " :[],
-			" Rango B " :[],
-			" Buvumu " :[],
-			" Rukira " :[],
-			" Ryakibogo " :[],
-			" Icyeru " :[],
-			" Bukomeye " :[],
-			" Shori " :[],
-			" Nyakibanda " :[]
-			},
+			" Kabona " :[],
+			" Kiruhura " :[],
+			" Sazange A " :[],
+			" Sazange B " :[]
+		 },
 		" Zone 9 ":{
-			" Mpare " :[],
-			" Kaburemera " :[],
-			" Muyogoro " :[],
-			" Nyakagezi " :[],
-			" Bunazi " :[],
-			" Kibingo " :[],
 			" Buhoro " :[],
+			" Bunazi " :[],
+			" Gahororo " :[],
+			" Kaburemera " :[],
+			" Kibingo " :[],
+			" Mpare " :[],
+			" Mpare 2 " :[],
 			" Muhembe " :[],
-			" Gahororo " :[]
-			},
-	},
-    "Kamonyi": {
+			" Muyogoro " :[],
+			" Nyakagezi " :[]
+		 }
+	  },
+	  "Kamonyi": {
+		" Gacurabwenge ":{
+			" Gihinga " :[],
+			" Gihira " :[],
+			" Kigembe " :[],
+			" Nkingo " :[]
+		 },
+		" Karama ":{
+			" Bitare " :[]
+		 },
+		" Kayenzi ":{
+			" Bugarama " :[],
+			" Nyamirama " :[]
+		 },
+		" Kayumbu ":{
+			" Busoro " :[],
+			" Gaseke " :[],
+			" Giko " :[],
+			" Muyange " :[]
+		 },
+		" Mugina ":{
+			" Nteko " :[]
+		 },
+		" Musambira ":{
+			" Karengera " :[],
+			" Kivumu " :[],
+			" Rukambura " :[]
+		 },
+		" Rugarika ":{
+			" Bihembe " :[],
+			" Kigese " :[],
+			" Masaka " :[],
+			" Nyarubuye " :[],
+			" Sheri " :[]
+		 },
 		" Rukoma ":{
-			" Mwirute " :[],
-			" Remera " :[],
 			" Bugoba " :[],
 			" Buguri " :[],
 			" Gishyeshye " :[],
-			" Taba " :[]
-			},
-		" Gacurabwenge ":{
-			" Gihira " :[],
-			" Nkingo " :[],
-			" Gihinga " :[],
-			" Kigembe " :[]
-			},
-		" Rugarika ":{
-			" Bihembe " :[],
-			" Sheri " :[],
-			" Masaka " :[],
-			" Kigese " :[],
-			" Nyarubuye " :[]
-			},
-		" Trial ":{
-			" Trial " :[]
-			}
-	},
-    "Nyamagabe":{
-		" Zone 10 ":{
-			" Kavumu " :[],
-			" Gatovu M " :[],
-			" Rugano " :[],
-			" Kibibi " :[],
-			" Gakanka " :[],
-			" Musenyi " :[],
-			" Nyamiyaga " :[],
-			" Nyabisindu " :[],
-			" Murambi " :[]
-			},
-		" Zone 8 ":{
-			" Nzega " :[],
-			" Nyamugari " :[],
-			" Ngiryi " :[],
-			" Bwama " :[],
-			" Kigeme " :[],
-			" Gitega " :[],
-			" Nyarusiza " :[],
-			" Kirehe " :[],
-			" Kamegeri " :[],
-			" Nyanzoga " :[]
-			},
-		" Zone 9 ":{
-			" Kaganza " :[],
-			" Ngoma " :[],
-			" Bwenda " :[],
-			" Kiyumba " :[],
-			" Mutiwingoma " :[],
-			" Ngara " :[],
-			" Nyakiza " :[],
+			" Murehe " :[],
+			" Mwirute " :[],
 			" Remera " :[],
-			" Ngambi " :[]
-			},
-		" Zone 6 ":{
-			" Gahira A " :[],
-			" Gahira B " :[],
-			" Kibyagira B " :[],
-			" Munyege " :[],
-			" Kibyagira A " :[],
-			" Mudasomwa " :[],
-			" Nyanza " :[],
-			" Bigumira " :[],
-			" Rugogwe " :[]
-			},
+			" Taba " :[]
+		 }
+	  },
+	  "Nyamagabe":{
+		" Cyanika ":{
+			" Karama " :[]
+		 },
+		" Kibirizi ":{
+			" Bugarama 2 T " :[],
+			" Ruhunga B " :[]
+		 },
+		" Kitabi ":{
+			" Uwingugu 2 T " :[]
+		 },
+		" Musebeya ":{
+			" Gatovu MB " :[]
+		 },
+		" Tare ":{
+			" Gatovu T " :[],
+			" Nkumbure A " :[],
+			" Nkumbure D " :[],
+			" Nkumure B1 " :[]
+		 },
+		" Zone 1 ":{
+			" Bugarama " :[],
+			" Bugarura " :[],
+			" Buhoro " :[],
+			" Gashiha " :[],
+			" Gifurwe " :[],
+			" Karambo " :[],
+			" Kizi " :[],
+			" Manwari " :[],
+			" Nyabivumu " :[],
+			" Nyarurambi " :[],
+			" Ruhunga " :[],
+			" Rususa " :[],
+			" Uwindekezi " :[],
+			" Uwindekezi B " :[]
+		 },
+		" Zone 10 ":{
+			" Gakanka " :[],
+			" Gatovu M " :[],
+			" Kavumu " :[],
+			" Kibibi " :[],
+			" Murambi " :[],
+			" Musenyi " :[],
+			" Nyabisindu " :[],
+			" Nyamiyaga " :[],
+			" Rugano " :[]
+		 },
 		" Zone 2 ":{
-			" Munini B " :[],
+			" Bushigishigi " :[],
 			" Byimana " :[],
-			" Rusekera " :[],
-			" Rambya " :[],
 			" Kizimyamuriro " :[],
+			" Kizimyamuriro A " :[],
 			" Munini A " :[],
-			" Bushigishigi " :[]
-			},
+			" Munini B " :[],
+			" Rambya " :[],
+			" Rusekera " :[]
+		 },
+		" Zone 4 ":{
+			" Gasave " :[],
+			" Gitondorero " :[],
+			" Jenda " :[],
+			" Masagara " :[],
+			" Masangano " :[],
+			" Masizi " :[],
+			" Nyagisozi " :[],
+			" Ruhinga " :[],
+			" Sovu " :[],
+			" Suti " :[]
+		 },
 		" Zone 5 ":{
 			" Gasarenda " :[],
 			" Gatovu " :[],
+			" Kagano " :[],
+			" Mujuga " :[],
+			" Mujuga A " :[],
+			" Mukungu " :[],
 			" Nkumbure B " :[],
 			" Nkumbure C " :[],
-			" Mujuga " :[],
-			" Uwingugu " :[],
-			" Kagano " :[],
+			" Nyamigina " :[],
 			" Shaba " :[],
-			" Mukungu " :[],
-			" Nyamigina " :[]
-			},
-		" Zone 1 ":{
-			" Uwindekezi " :[],
-			" Ruhunga " :[],
-			" Bugarama " :[],
-			" Karambo " :[],
-			" Gifurwe " :[],
-			" Gashiha " :[],
-			" Bugarura " :[],
-			" Trial " :[],
-			" Trial 2 " :[]
-			},
-		" Zone 4 ":{
-			" Ruhinga " :[],
-			" Gitondorero " :[],
-			" Sovu " :[],
-			" Suti " :[],
-			" Jenda " :[],
-			" Nyagisozi " :[],
-			" Masangano " :[],
-			" Masagara " :[],
-			" Gasave " :[],
-			" Masizi " :[]
-			},
+			" Uwingugu " :[]
+		 },
+		" Zone 6 ":{
+			" Bigumira " :[],
+			" Gahira A " :[],
+			" Gahira B " :[],
+			" Kibyagira A " :[],
+			" Kibyagira B " :[],
+			" Mudasomwa " :[],
+			" Munyege " :[],
+			" Nyanza " :[],
+			" Rugogwe " :[],
+			" Rugogwe B " :[]
+		 },
 		" Zone 7 ":{
-			" Runege " :[],
-			" Mukongoro " :[],
-			" Sekera " :[],
-			" Gashwati " :[],
 			" Bakopfu " :[],
-			" Gatare " :[],
-			" Cyobe " :[],
-			" Shyeru " :[],
 			" Buteteri " :[],
-			" Ruganda " :[]
-			},
-		" Cyanika ":{
-			" Karama " :[]
-		}
-	},
-    "Nyanza":{
-		" Zone 5 ":{
-			" Migina " :[],
-			" Bugari " :[],
-			" Cyotamakara " :[],
-			" Katarara A " :[],
-			" Katarara B " :[],
-			" Kagunga " :[]
-		},
-		" Zone 7 ":{
-			" Gahondo " :[],
-			" Kibinja " :[],
-			" Kavumu " :[],
-			" Kiruri " :[],
-			" Mpanga " :[],
-			" Gatagara " :[],
-			" Cyerezo " :[],
-			" Nkomero " :[]
-		},
-		" Zone 4 ":{
-			" Nyundo " :[],
-			" Shyira " :[],
-			" Munyinya " :[],
-			" Masangano " :[],
-			" Gitovu " :[],
-			" Kimirama " :[]
+			" Cyobe " :[],
+			" Gashwati " :[],
+			" Gatare " :[],
+			" Mukongoro " :[],
+			" Ruganda " :[],
+			" Runege " :[],
+			" Sekera " :[],
+			" Shyeru " :[]
+		 },
+		" Zone 8 ":{
+			" Bwama " :[],
+			" Gitega " :[],
+			" Kamegeri " :[],
+			" Kigeme " :[],
+			" Kirehe " :[],
+			" Ngiryi " :[],
+			" Nyamugari " :[],
+			" Nyanzoga " :[],
+			" Nyarusiza " :[],
+			" Nzega " :[]
+		 },
+		" Zone 9 ":{
+			" Bwenda " :[],
+			" Kaganza " :[],
+			" Kiyumba " :[],
+			" Mutiwingoma " :[],
+			" Ngambi " :[],
+			" Ngara " :[],
+			" Ngoma " :[],
+			" Nyakiza " :[],
+			" Remera " :[]
+		 }
+	  },
+	  "Nyanza":{
+		" Busoro ":{
+			" Masangano B " :[],
+			" Rukingiro B " :[]
+		 },
+		" Kibilizi ":{
+			" Cyeru A 2 " :[],
+			" Cyeru B " :[],
+			" Rwesero " :[]
+		 },
+		" Kigoma ":{
+			" Butansinda 2 " :[],
+			" Murinja 2 T " :[],
+			" Mututu 2 T " :[]
+		 },
+		" Muyira ":{
+			" Gati A " :[],
+			" Nyamure " :[]
+		 },
+		" Ntyazo ":{
+			" Bugari B " :[],
+			" Kagunga A " :[],
+			" Kagunga B " :[]
+		 },
+		" Rwabicuma ":{
+			" Nyarusange B " :[]
 		},
 		" Zone 1 ":{
-			" Ngwa " :[],
+			" Gacu " :[],
 			" Gati " :[],
-			" Nyamiyaga " :[],
-			" Nyabinyenga " :[],
-			" Rubona " :[],
-			" Nyarurama " :[],
+			" Gishike " :[],
+			" Kadaho " :[],
 			" Karama " :[],
-			" Kadaho " :[]
-		},
-		" Muyira ":{
-			" Nyamure " :[]
-		},
+			" Ngwa " :[],
+			" Nyabinyenga " :[],
+			" Nyamiyaga " :[],
+			" Nyarurama " :[],
+			" Rubona " :[],
+			" Runga " :[]
+		 },
 		" Zone 2 ":{
 			" Gahunga " :[],
-			" Mubuga " :[],
 			" Kabirizi " :[],
-			" Rurangazi " :[],
+			" Kabuga " :[],
+			" Kirambi " :[],
+			" Mubuga " :[],
 			" Mushirarungu " :[],
 			" Nyarusange " :[],
-			" Kirambi " :[],
-			" Kabuga " :[]
+			" Rurangazi " :[]
+		 },
+		" Zone 4 ":{
+			" Gitovu " :[],
+			" Gitovu B " :[],
+			" Kimirama " :[],
+			" Masangano " :[],
+			" Munyinya " :[],
+			 " Nyundo " :[],
+			 " Shyira " :[]
 		},
-		" Zone 8 ":{
-			" Butansinda " :[],
-			" Murinja A " :[],
-			" Murinja B " :[],
-			" Gahombo " :[],
-			" Rukingiro " :[],
-			" Butara " :[],
-			" Gasoro " :[]
+		" Zone 5 ":{
+			" Bugari " :[],
+			" Cyotamakara " :[],
+			" Kagunga " :[],
+			" Katarara A " :[],
+			" Katarara B " :[],
+			" Migina " :[]
 		},
 		" Zone 6 ":{
 			" Cyeru " :[],
-			" Rwotso B " :[],
 			" Mbuye A " :[],
 			" Mbuye B " :[],
-			" Rwotso A " :[],
+			" Mututu A " :[],
 			" Mututu B " :[],
-			" Mututu A " :[]
-		}
-	},
-	"Nyaruguru": {
-		"Busanze":[],
-		"Zone5": {
-			"Mariba":[],
-			"Mpanda":[],
-			"Bunge":[],
-			"Raranzige A":[],
-			"Raranzige B":[],
-			"Gikunzi":[],
-			"Kibeho":[],
-			"Gakoma":[],
-			"Cyuna":[] 
+			" Rwotso A " :[],
+			" Rwotso B " :[]
+		 },
+		" Zone 7 ":{
+			" Cyerezo " :[],
+			" Gahondo " :[],
+			" Gatagara " :[],
+			" Kavumu " :[],
+			" Kibinja " :[],
+			" Kiruri " :[],
+			" Mpanga " :[],
+			" Nkomero " :[]
+		 },
+		" Zone 8 ":{
+			" Butansinda " :[],
+			" Butara " :[],
+			" Gahombo " :[],
+			" Gasoro " :[],
+			" Murinja A " :[],
+			" Murinja B " :[],
+			" Rukingiro " :[]
+		 }
+	  },
+	  "Nyaruguru": {
+		" Busanze ":{
+			" TRIAL " :[]
+		 },
+		" Cyahinda ":{
+			" Coko 2 T " :[],
+			" Coko B " :[],
+			" Cyahinda B " :[],
+			" Ibyasigaye " :[]
 		},
-		"Zone3":{
-			"Nyange":[],
-			"Nyagisozi B":[],
-			"Mubuga":[],
-			"Mwoya B":[],
-			"Nkakwa A":[],
-			"Nkakwa B":[],
-			"Nyagisozi A":[],
-			"Mwoya A":[],
-			"Maraba":[]
+		" Kibeho ":{
+			" Cyahinda 2 T " :[]
+		 },
+		" Mata ":{
+			" Ramba " :[]
 		},
-		"Zone1":{
-			"Kiyonza":[],
-			"Mukuge":[],
-			"Yaramba":[],
-			"Kibangu":[],
-			"Rubona":[],
-			"Mbuye":[],
-			"Fugi":[],
-			"Nyamirama":[],
-			"yanza":[],
-			"Murama":[]
-			},
-		"Zone4":{
-			"Nteko":[],
-			"Kirarangombe":[],
-			"Kabere":[],
-			"Runyombyi":[],
-			"Shororo":[],
-			"Gitita":[],
-			"Uwumusebeya":[],
-			"Remera":[],
-			"Nkanda":[]
-			},
-		"Zone7":{
-			"Muganza":[],
-			"Ngarurira":[],
-			"Samiyonga B":[],
-			"Uwacyiza":[],
-			"Samiyonga A":[],
-			"Rukore":[],
-			"Ntwali":[],
-			"Giheta":[] 
+		" Ngoma ":{
+			" Kibangu 2 " :[]
 		},
-		"Zone2":{
-			"Rutobwe A":[],
-			"Muhambara B":[],
-			"Muhambara A":[],
-			"Rutobwe B":[],
-			"Cyahinda":[],
-			"Coko":[],
-			"Gasasa":[],
-			"Ngeli":[],
-			'Nyarure':[]
-			},
-		"Zone6":{
-			"Nyamabuye":[],
-			"Ruramba":[],
-			"Gorwe":[],
-			"Nyarugano":[],
-			"Giseke":[],
-			"Rugogwe":[],
-			"Rwamiko":[],
-			"Gabiro":[],
-			"Murambi":[]
-			}
-	},
-    "Muhanga": {
-		" Trial ":{
-			" Trial " :[],
-			" Trial 2 " :[]
+		" Rusenge ":{
+			" Bunge 2 " :[],
+			" Rusenge " :[]
+		 },
+		" Zone 1 ":{
+			" Cyanyirankora " :[],
+			" Fugi " :[],
+			" Gahurizo " :[],
+			" Gihemvu " :[],
+			" Kibangu " :[],
+			" Kimina " :[],
+			" Kivu " :[],
+			" Kiyonza " :[],
+			" Mbuye " :[],
+			" Mishungero " :[],
+			" Mukuge " :[],
+			" Murama " :[],
+			" Nyabimata " :[],
+			" Nyamirama " :[],
+			" Nyanza " :[],
+			" Rubona " :[],
+			" Rugerero " :[],
+			" Ruhinga " :[],
+			" Yaramba " :[]
+		 },
+		" Zone 2 ":{
+			" Coko " :[],
+			" Coko 2 " :[],
+			" Cyahinda " :[],
+			" Gasasa " :[],
+			" Muhambara A " :[],
+			" Muhambara B " :[],
+			" Ngeli " :[],
+			" Nyarure " :[],
+			" Rutobwe A " :[],
+			" Rutobwe B " :[]
+		 },
+		" Zone 3 ":{
+			" Maraba " :[],
+			" Mubuga " :[],
+			" Mwoya A " :[],
+			" Mwoya B " :[],
+			" Nkakwa A " :[],
+			" Nkakwa B " :[],
+			" Nyagisozi A " :[],
+			" Nyagisozi B " :[],
+			" Nyange " :[]
+		 },
+		" Zone 4 ":{
+			" Gitita " :[],
+			" Kabere " :[],
+			" Kirarangombe " :[],
+			" Nkanda " :[],
+			" Nteko " :[],
+			" Remera " :[],
+			" Runyombyi " :[],
+			" Shororo " :[],
+			" Uwumusebeya " :[]
+		 },
+		" Zone 5 ":{
+			" Bunge " :[],
+			" Cyuna " :[],
+			" Gakoma " :[],
+			" Gikunzi " :[],
+			" Kibeho " :[],
+			" Mariba " :[],
+			" Mpanda " :[],
+			" Raranzige A " :[],
+			" Raranzige B " :[]
 		},
+		" Zone 6 ":{
+			" Gabiro " :[],
+			" Giseke " :[],
+			" Gorwe " :[],
+			" Murambi " :[],
+			" Nyamabuye " :[],
+			" Nyarugano " :[],
+			" Rugogwe " :[],
+			" Ruramba " :[],
+			" Rwamiko " :[]
+		},
+		" Zone 7 ":{
+			" Giheta " :[],
+			" Muganza " :[],
+			" Ngarurira " :[],
+			" Ntwali " :[],
+			" Rukore " :[],
+			" Samiyonga A " :[],
+			" Samiyonga B " :[],
+			" Uwacyiza " :[]
+		 }
+	  },
+	  "Muhanga": {
+		" Kabacuzi ":{
+			" Buramba " :[],
+			" Kabuye " :[],
+			" Kavumu " :[],
+			" Kibyimba " :[],
+			" Ngarama " :[],
+			" Sholi " :[]
+		 },
+		" Kibangu ":{
+			" Jurwe " :[],
+			" Mubuga " :[],
+			" Ryakanimba " :[]
+		 },
+		" Kiyumba ":{
+			" Budende " :[],
+			" Ndago " :[],
+			" Rukeri " :[]
+		 },
+		" Mushishiro ":{
+			" Matyazo " :[],
+			" Munazi " :[],
+			" Nyagasozi " :[],
+			" Rukaragata " :[],
+			" Rwasare " :[],
+			" Rwigerero " :[]
+		 },
 		" Nyarusange ":{
-			" Musongati " :[],
 			" Mbiriri " :[],
+			" Musongati " :[],
 			" Ngaru " :[],
 			" Rusovu " :[]
-			},
-		" Mushishiro ":{
-			" Rukaragata " :[],
-			" Rwigerero " :[],
-			" Rwasare " :[],
-			" Nyagasozi " :[],
-			" Matyazo " :[],
-			" Munazi " :[]
-			},
+		 },
 		" Rugendabari ":{
-			" Nsanga " :[],
 			" Gasave " :[],
-			" Mpinga " :[],
+			" Kanyana " :[],
 			" Kibaga " :[],
-			" Kanyana " :[]
-			}
-	}
-  },
-  "Southwest": {
-    "Bugarama": {
+			" Mpinga " :[],
+			" Nsanga " :[]
+		 }
+	  }
+	},
+	"Iburengerazuba bwamajyepfo": {
+	  "Bugarama": {
+		" Bugarama ":{
+			" Pera B " :[],
+			" Ryankana " :[],
+		},
+		" Karengera ":{
+			" Higiro " :[],
+			" Higiro B " :[]
+		},
+		" Muganza ":{
+			" Cyarukara C " :[],
+			" Gakoni C " :[],
+			" Shara B " :[]
+		},
+		" Nyakabuye ":{
+			" Gasebeya A " :[],
+			" Gasebeya B " :[]
+		},
+		" Rwimbogo ":{
+			" Karenge " :[],
+		},
 		" Zone 1 ":{
-			" Shara " :[],
-			" Gahungeri B " :[],
-			" Hangabashi " :[],
-			" Cyingwa A " :[],
-			" Gakoni " :[],
 			" Cyarukara " :[],
-			" Mashesha " :[],
+			" Cyarukara B " :[],
+			" Cyingwa A " :[],
+			" Cyingwa B " :[],
 			" Gahungeri A " :[],
-			" Cyingwa B " :[]
-			},
-		" Zone 7 ":{
-			" Ruganda A " :[],
-			" Nyange " :[],
-			" Ruganda B " :[],
-			" Muhehwe " :[],
-			" Rubugu " :[],
-			" Pera " :[],
-			" Mushaka " :[]
-			},
+			" Gahungeri B " :[],
+			" Gakoni " :[],
+			" Gakoni B " :[],
+			" Hangabashi " :[],
+			" Mashesha " :[],
+			" Shara " :[]
+		},
+		" Zone 2 ":{
+			" Butanda A " :[],
+			" Butanda B " :[],
+			" Gatereri A " :[],
+			" Gatereri B " :[],
+			" Nyamihanda " :[],
+			" Rwambogo A " :[],
+			" Rwambogo B " :[],
+			" Rwambogo C " :[],
+			" Rwambogo D " :[]
+		 },
+		" Zone 3 ":{
+			" Butambamo " :[],
+			" Kigenge A " :[],
+			" Kigenge B " :[],
+			" Muryaa " :[],
+			" Nyenji A " :[],
+			" Nyenji B " :[],
+			" Rebero " :[],
+			" Rwinzuki " :[],
+			" Rwinzuki B " :[]
+		 },
 		" Zone 5 ":{
 			" Kizura A " :[],
 			" Kizura B " :[],
-			" Mpinga C " :[],
 			" Mpinga A " :[],
-			" Nyamigina A " :[],
 			" Mpinga B " :[],
+			" Mpinga C " :[],
+			" Nyamigina A " :[],
 			" Nyamigina B " :[]
-			},
-		" Zone 3 ":{
-			" Kigenge A " :[],
-			" Kigenge B " :[],
-			" Rebero " :[],
-			" Nyenji A " :[],
-			" Nyenji B " :[],
-			" Muryaa " :[],
-			" Rwinzuki " :[],
-			" Butambamo " :[]
-			},
+		 },
 		" Zone 6 ":{
-			" Kamanu B " :[],
-			" Kiziho " :[],
-			" Kamanu A " :[],
+			" Gasebeya " :[],
 			" Gaseke " :[],
-			" Nyabintare A " :[],
-			" Nyabintare B " :[],
-			" Mashyuza " :[],
-			" Gasebeya " :[]
-			},
-		" Zone 2 ":{
-			" Gatereri B " :[],
-			" Butanda B " :[],
-			" Butanda A " :[],
-			" Rwambogo C " :[],
-			" Gatereri A " :[],
-			" Rwambogo A " :[],
-			" Rwambogo B " :[],
-			" Rwambogo D " :[]
-			}
-	},
-    "Giheke": {
-		" Zone 2 ":{
-			" Karambi " :[],
-			" Ruganda " :[],
-			" Kabasigirira " :[],
-			" Tara " :[],
-			" Miko " :[],
-			" Kabahinda " :[]
-			},
-		" Zone 5 ":{
-			" Burunga A " :[],
-			" Shagasha A " :[],
-			" Shagasha B " :[],
-			" Burunga B " :[],
-			" Kagara " :[],
-			" Gatsiro A " :[]
-			},
+			 " Kamanu A " :[],
+			 " Kamanu B " :[],
+			 " Kiziho " :[],
+			 " Kiziho B " :[],
+			 " Mashyuza " :[],
+			 " Nyabintare A " :[],
+			 " Nyabintare B " :[]
+			 },
+		" Zone 7 ":{
+			" Muhehwe " :[],
+			" Mushaka " :[],
+			" Nyange " :[],
+			" Pera " :[],
+			" Rubugu " :[],
+			" Ruganda A " :[],
+			 " Ruganda B " :[]
+			 },
+		" Zone 8 ":{
+			" Gikungu " :[],
+			" Kiyabo " :[],
+			" Murwa " :[],
+			" Nyamuzi " :[],
+			" Rasano " :[]
+		 }
+		},
+	  "Giheke": {
+		" Bushenge ":{
+			" Kagatamu A " :[],
+			 " Kagatamu B " :[]
+			 },
+		" Gashonga ":{
+			" Buhokoro " :[],
+			" Kabakobwa " :[]
+		},
+		" Giheke ":{
+			" Kamukobe " :[],
+			" Rwega " :[]
+		 },
+		" Mururu ":{
+			" Gahinga " :[]
+		 },
+		" Nkungu ":{
+			" Gatare A " :[],
+			" Gatare B " :[],
+			" Ryamuhirwa " :[],
+			" Ryamuhirwa B " :[]
+		 },
+		" Nyakarenzo ":{
+			" Rusambu " :[]
+		 },
+		" Ruharambuga ":{
+			" Save " :[]
+		 },
 		" Zone 1 ":{
-			" Turambi " :[],
-			" Giheke " :[],
 			" Cyendajuru " :[],
-			" Ntura " :[],
-			" Kigenge " :[],
+			" Gakomeye " :[],
+			" Giheke " :[],
 			" Kamashangi " :[],
-			" Gakomeye " :[]
-			},
+			" Kigenge " :[],
+			" Ntura " :[],
+			" Turambi " :[]
+		 },
+		" Zone 2 ":{
+			" Kabahinda " :[],
+			" Kabasigirira " :[],
+			" Karambi " :[],
+			" Miko " :[],
+			" Ruganda " :[],
+			" Tara " :[]
+		 },
+		" Zone 3 ":{
+			" Kacyuma " :[],
+			" Kamurehe " :[],
+			" Karemereye " :[],
+			" Muti A " :[],
+			" Muti B " :[],
+			" Rusayo A " :[],
+			" Rusayo B " :[]
+		 },
 		" Zone 4 ":{
-			" Kabagina " :[],
 			" Gatare Nya " :[],
+			" Kabagina " :[],
 			" Kabuye " :[],
 			" Kanoga " :[],
 			" Karangiro " :[],
 			" Murambi " :[]
-			},
-		" Zone 3 ":{
-			" Karemereye " :[],
-			" Kacyuma " :[],
-			" Kamurehe " :[],
-			" Rusayo A " :[],
-			" Muti B " :[],
-			" Muti A " :[],
-			" Rusayo B " :[]
-			}
-	},
-    "Kibogora": {
-		" Zone 2 ":{
-			" Nyarusange Kir A " :[],
-			" Muhororo " :[],
-			" Karengera B " :[],
-			" Karengera A " :[],
-			" Cyimpindu A " :[],
-			" Cyimpindu B " :[],
-			" Nyarusange Kir B " :[]
-			},
-		" Zone 3 ":{
-			" Nyakabingo A " :[],
-			" Gatare B " :[],
-			" Vugangoma A " :[],
-			" Vugangoma B " :[],
-			" Gatare A " :[],
-			" Nyakabingo B " :[],
-			" Mutongo M " :[],
-			" Rugali M " :[]
-			},
-		" Zone 1 ":{
-			" Kabuga C " :[],
-			" Rushyarara B " :[],
-			" Gitwe A " :[],
-			" Gitwe B " :[],
-			" Rushyarara A " :[],
-			" Kabuga A " :[],
-			" Kagarama B " :[],
-			" Kagarama A " :[],
-			" Kabuga B " :[],
-			" Gasovu A " :[],
-			" Gasovu B " :[],
-			" Trial " :[]
-			},
-		" Zone 4 ":{
-			" Gakenke B " :[],
-			" Gakenke A " :[],
-			" Banda A " :[],
-			" Jurwe B " :[], 
-			" Jurwe A " :[],
-			" Murambi Ran B " :[],
-			" Banda B " :[],
-			" Murambi Ran A " :[]
-		}
-	},
-    "Nyamasheke": {
-		" Zone 2 ":{
-			" Ninzi " :[],
-			" Rwesero A " :[],
-			" Rwesero B " :[],
-			" Mubumbano " :[],
+		 },
+		" Zone 5 ":{
+			" Burunga A " :[],
+			" Burunga B " :[],
+			" Gatsiro A " :[],
+			" Gatsiro B " :[],
+			" Kagara " :[],
+			" Shagasha A " :[],
+			" Shagasha B " :[]
+		 }
+	  },
+	  "Kibogora": {
+		" Bushekeri ":{
+			" Buvungira A " :[],
+			" Mpumbu A " :[],
+			" Mpumbu B " :[],
+			" Ngoma A " :[],
+			" Ngoma B " :[],
+			" Nyarusange Bus " :[]
+		 },
+		" Bushenge ":{
+			" Impala A " :[],
+			 " Impala B " :[],
+			 " Bushenge Marché " :[]
+			 },
+		" Cyato ":{
+			" Bisumo A " :[],
+			" Bisumo B " :[],
+			" Murambi Cya A " :[],
+			" Murambi Cya B " :[],
+			" Mutongo Cya A " :[],
+			" Mutongo Cya B " :[],
+			" Rugali Cya A " :[],
+			" Rugali Cya B " :[]
+		 },
+		" Gihombo ":{
+			" Jarama A " :[],
+			" Jarama B " :[]
+		 },
+		" Kagano ":{
 			" Gako A " :[],
 			" Gako B " :[],
-			" Shara " :[]
-			},
-		" Zone 3 ":{
-			" Susa B " :[],
-			" Susa A " :[],
+			" Mubumbano " :[],
+			" Ninzi " :[],
+			" Rwesero " :[],
+			" Rwesero Marché " :[],
+			" Shara " :[],
+			" Shara B " :[]
+		 },
+		" Kanjongo ":{
+			" Kanazi (duplicate) " :[],
+			" Kibogora A " :[],
+			" Kibogora B " :[],
+			" Kigarama A " :[],
+			" Kigarama B " :[],
+			" Kigoya " :[],
+			" Kirambo Marché " :[],
+			" Ntendezi F " :[],
 			" Raro A " :[],
 			" Raro B " :[],
-			" Kigoya " :[],
-			" Kigarama B " :[],
-			" Kibogora B " :[],
-			" Kibogora A " :[],
-			" Kigarama A " :[]
-			},
-		" Zone 4 ":{
-			" Rugali Cy A " :[],
-			" Bisumo B " :[],
-			" Bisumo A " :[],
-			" Rugali Cy B " :[],
-			" Murambi Cya B " :[],
-			" Murambi Cya A " :[],
-			" Mutongo Cya B " :[],
-			" Mutongo Cya A " :[]
-			},
-		" Zone 1 ":{
-			" Mpumbu " :[],
+			" Susa A " :[],
+			" Susa B " :[]
+		 },
+		" Karambi ":{
+			" Karambi Marché " :[]
+		 },
+		" Macuba A ":{
+			" Bitabi Marché " :[],
+			" Rugali Mac B " :[]
+		 },
+		" Mahembe ":{
 			" Buvungira B " :[],
-			" Ngoma " :[],
-			" Buvungira A " :[],
-			" Nyarusange Bus " :[],
-			" Trial 1 " :[]
-			},
-		" Zone 5 ":{
+			" Kagarama M(B) " :[],
+			" Staff " :[]
+		 },
+		" Ruharambuga ":{
 			" Kanazi " :[],
 			" Ntendezi A " :[],
-			" Ntendezi B " :[],
-			" Wimana C " :[],
-			" Save " :[],
-			" Wimana B " :[],
-			" Wimana A " :[]
-			}
-	},
-    "Rusizi": {
+			" Ntendezi B " :[]
+		 },
+		" Zone 1 ":{
+			" Gasovu A " :[],
+			" Gasovu B " :[],
+			" Gitwe A " :[],
+			" Gitwe B " :[],
+			" Kabuga A " :[],
+			" Kabuga B " :[],
+			" Kabuga C " :[],
+			" Kagarama A " :[],
+			" Kagarama B " :[],
+			" Rushyarara A " :[],
+			" Rushyarara B " :[]
+		 },
+		" Zone 2 ":{
+			" Cyimpindu A " :[],
+			" Cyimpindu B " :[],
+			" Karengera A " :[],
+			" Karengera B " :[],
+			" Muhororo " :[],
+			" Muhororo B " :[],
+			" Nyarusange Kir A " :[],
+			" Nyarusange Kir B " :[]
+		 },
 		" Zone 3 ":{
-			" Rugabano " :[],
+			" Gatare A " :[],
+			" Gatare B " :[],
+			" Mutongo M " :[],
+			" Mutongo M B " :[],
+			" Nyakabingo A " :[],
+			" Nyakabingo B " :[],
+			" Rugali M " :[],
+			" Vugangoma A " :[],
+			" Vugangoma B " :[]
+		 },
+		" Zone 4 ":{
+			" Banda A " :[],
+			" Banda B " :[],
+			" Gakenke A " :[],
+			" Gakenke B " :[],
+			" Jurwe A " :[],
+			" Jurwe B " :[],
+			" Murambi Ran A " :[],
+			" Murambi Ran B " :[]
+		 }
+	  },
+	  "Nyamasheke": {
+		  " Zone 2 ":{
+			  " Ninzi " :[],
+			  " Rwesero A " :[],
+			  " Rwesero B " :[],
+			  " Mubumbano " :[],
+			  " Gako A " :[],
+			  " Gako B " :[],
+			  " Shara " :[]
+			  },
+		  " Zone 3 ":{
+			  " Susa B " :[],
+			  " Susa A " :[],
+			  " Raro A " :[],
+			  " Raro B " :[],
+			  " Kigoya " :[],
+			  " Kigarama B " :[],
+			  " Kibogora B " :[],
+			  " Kibogora A " :[],
+			  " Kigarama A " :[]
+			  },
+		  " Zone 4 ":{
+			  " Rugali Cy A " :[],
+			  " Bisumo B " :[],
+			  " Bisumo A " :[],
+			  " Rugali Cy B " :[],
+			  " Murambi Cya B " :[],
+			  " Murambi Cya A " :[],
+			  " Mutongo Cya B " :[],
+			  " Mutongo Cya A " :[]
+			  },
+		  " Zone 1 ":{
+			  " Mpumbu " :[],
+			  " Buvungira B " :[],
+			  " Ngoma " :[],
+			  " Buvungira A " :[],
+			  " Nyarusange Bus " :[]
+			  },
+		  " Zone 5 ":{
+			  " Kanazi " :[],
+			  " Ntendezi A " :[],
+			  " Ntendezi B " :[],
+			  " Wimana C " :[],
+			  " Save " :[],
+			  " Wimana B " :[],
+			  " Wimana A " :[]
+			  }
+	  },
+	  "Rusizi": {
+		" Gashonga ":{
+			" Birembo " :[],
+			" Buhokoro " :[],
+			" Kabakobwa " :[],
+			" Kacyuma " :[],
+			" Kamurehe " :[],
+			" Kamurehe B " :[],
+			" Karemereye " :[],
+			" Muti A " :[],
+			" Muti B " :[],
+			" Rusayo A " :[],
+			" Rusayo B " :[]
+		 },
+		" Giheke ":{
+			" Cyendajuru " :[],
+			" Gakomeye " :[],
+			" Giheke " :[],
+			" Kamashangi " :[],
+			" Kigenge " :[],
+			" Ntura " :[],
+			" Rwega " :[],
+			" Turambi " :[]
+		 },
+		" Gihundwe ":{
+			" Burunga A " :[],
+			" Burunga B " :[],
+			" Gatsiro A " :[],
+			" Gatsiro B " :[],
+			" Kagara " :[],
+			" Kamatita " :[],
+			" Shagasha A " :[],
+			" Shagasha B " :[]
+		 },
+		" Kamembe ":{
+			" Cyangugu " :[],
+			" Kamashangi K " :[],
+			" Kamashangi Kam " :[],
+			" Kamurera " :[],
+			" Ruganda " :[]
+		 },
+		" Karengera ":{
+			" Gashashi " :[],
+			" Miko K " :[],
+			" Mwezi C " :[]
+		 },
+		" Mururu ":{
+			" Gahinga " :[],
+			" Kabahinda " :[],
+			" Kabasigirira " :[],
+			" Kagarama " :[],
+			" Karambi " :[],
+			" Miko " :[],
+			" Tara " :[]
+		 },
+		" Nkungu ":{
+			" Mataba N " :[],
+			" Ryamuhirwa " :[]
+		 },
+		" Nyabitekeri ":{
+			" Kinunga O " :[],
+			" Mariba B " :[],
+			" Muyange A " :[],
+			" Muyange B " :[],
+			" Ntango2 " :[]
+		 },
+		" Nyakabuye ":{
+			" Gasebeya " :[]
+		 },
+		" Nyakarenzo ":{
+			" Gatare Nya " :[],
+			" Kabagina " :[],
+			" Kabuye " :[],
+			" Kanoga " :[],
+			" Karangiro " :[],
+			" Murambi " :[],
+			" Rusambu " :[]
+		 },
+		" Ruharambuga ":{
+			" Save " :[],
+			" Wimana A " :[],
+			" Wimana B " :[],
+			" Wimana C " :[],
+		},
+		" Zone 1 ":{
+			" Kigabiro " :[],
+			" Kigabiro B " :[],
+			" Kinunga " :[],
+			" Mariba A " :[],
+			" Muyange " :[],
+			" Ntango " :[],
+			" Ntango B " :[],
+		},
+		" Zone 2 ":{
+			" Burimba " :[],
+			" Mataba S " :[],
+			" Mataba S B " :[],
+			" Mugera " :[],
+			" Nyamugari " :[],
+			" Nyamugari A " :[],
+			" Shangi " :[],
+			" Shangi B " :[]
+		 },
+		" Zone 3 ":{
+			" Bigoga " :[],
+			" Bugarura " :[],
+			" Gitwa " :[],
 			" Kamanyenga " :[],
 			" Kangazi " :[],
 			" Kinyaga " :[],
-			" Gitwa " :[],
-			" Bigoga " :[],
-			" Bugarura " :[]
-			},
+			" Rugabano " :[]
+		 },
 		" Zone 4 ":{
 			" Gasheke A " :[],
 			" Gasheke B " :[],
-			" Karusimbi " :[],
 			" Impala " :[],
-			" Kagatamu " :[]
-			},
-		" Zone 1 ":{
-			" Ntango " :[],
-			" Kinunga " :[],
-			" Muyange " :[],
-			" Mariba A " :[],
-			" Kigabiro " :[],
-			" Trial 1 " :[]
-			},
-		" Zone 2 ":{
-			" Burimba " :[],
-			" Nyamugari " :[],
-			" Mugera " :[],
-			" Mataba S " :[],
-			" Shangi " :[]
-			},
+			" Kagatamu " :[],
+			" Kagatamu B " :[],
+			" Karusimbi " :[]
+		},
 		" Zone 5 ":{
-			" Ryamuhirwa B " :[],
 			" Gatare A " :[],
 			" Gatare B " :[],
 			" Kiziguro " :[],
-			" Ryamuhirwa A " :[],
+			" Kiziguro B " :[],
+			" Mataba A " :[],
 			" Mataba B " :[],
-			" Mataba A " :[]
-			},
+			" Ryamuhirwa A " :[],
+			" Ryamuhirwa B " :[]
+		 },
 		" Zone 6 ":{
-			" Gasayo D " :[],
 			" Gasayo A " :[],
+			" Gasayo B " :[],
 			" Gasayo C " :[],
+			" Gasayo D " :[],
+			" Gashashi A " :[],
+			" Gashashi B " :[],
+			" Higiro " :[],
 			" Miko A " :[],
 			" Miko B " :[],
-			" Mwezi B " :[],
 			" Mwezi A " :[],
-			" GashashI B " :[],
-			" Gashashi A " :[],
-			" Higiro " :[]
-		}
-	}
-  },
-  "West": {
-    "Karongi": {
-		" Zone 2 ":{
-			" Musasa " :[],
-			" Tyazo " :[],
-			" Gisiza " :[],
-			" Gasharu Git " :[],
-			" Gitega Rug " :[],
-			" Bubazi " :[],
-			" Rwungo " :[]
-			},
-		" Zone 6 ":{
-			" Gasata " :[],
-			" Rubazo " :[],
-			" Nyarusazi " :[],
-			" Kanunga " :[],
-			" Nyarusanga " :[],
-			" Gitarama " :[],
-			" Kiniha " :[]
-			},
-		" Zone 5 ":{
-			" Kayenzi " :[],
-			" Ruhinga B " :[],
-			" Ruhinga A " :[],
-			" Kirambo " :[],
-			" Munanira " :[],
-			" Gitega Git " :[],
-			" Kayenzi B " :[]
-			},
+			" Mwezi B " :[]
+		 }
+	  }
+	},
+	"Iburengerazuba": {
+	  "Karongi": {
+		" Bwishyura ":{
+			" Burunga " :[],
+			" Bwiza " :[],
+			" Ka " :[]
+		 },
+		" GASHARI ":{
+			" Birambo A " :[],
+			" Birambo B " :[],
+			" Mwendo Gas " :[],
+			" Rugobagoba " :[],
+			" Rugobagoba Gas " :[],
+			" Tongati " :[]
+		 },
+		" gitesi ":{
+			" Gi " :[],
+			" Gite " :[],
+			" Nyamir " :[],
+			" Ruhinga A 1 " :[]
+		 },
+		" MANIHIRA ":{
+			" MUYIRA " :[]
+		 },
+		" Mubuga ":{
+			" Kag " :[],
+			" Kagabiro " :[],
+			" Test " :[]
+		 },
+		" MUKANDAMAGE Albertine ":{
+			" Kaye " :[],
+			" National " :[]
+		 },
+		" Mukura ":{
+			" Bukiro " :[],
+			" K " :[],
+			" Ka D " :[],
+			" Kab " :[],
+			" Kabuga Muk " :[],
+			" Kag B " :[],
+			" Kagan " :[],
+			" Kage " :[],
+			" Kageyo " :[],
+			" Kageyo A " :[],
+			" Kageyo B " :[],
+			" Kageyo Grm " :[],
+			" Kagusa " :[],
+			" Kagusa D " :[],
+			" Karambo " :[],
+			" LWH Karongi " :[],
+			" Mwendo Muk A " :[],
+			" Mwendo Muk B " :[],
+			" Staff " :[]
+		 },
+		" Murambi ":{
+			" Mubuga A " :[],
+			" Mubuga B " :[],
+			" Mubuga Mur " :[],
+			" Muhororo " :[],
+			" Munyinya " :[],
+			" Nkoto " :[],
+			" Nyarunyinya " :[],
+			" Shyembe " :[]
+		 },
+		" Murundi ":{
+			" Kabaya " :[],
+			" Kamina " :[],
+			" Kareba " :[],
+			" Nyamush " :[],
+			" Nyamushishi " :[],
+			" Nzaratsi " :[]
+		 },
+		" RUBENGERA ":{
+			" Gacaca " :[],
+			" Gisanze " :[],
+			" Gitwa " :[],
+			" Kibirizi " :[],
+			" Mataba " :[],
+			" Munan " :[],
+			" Nyarugenge " :[],
+			" Ruragwe " :[]
+		 },
+		" Rugabano ":{
+			" Git " :[],
+			" GitB " :[],
+			" Gitovu A " :[],
+			" Gitovu B " :[],
+			" Kabuga Rug " :[],
+			" Mubuga R " :[],
+			" Mucyimba " :[],
+			" Mucyimba A " :[],
+			" Mucyimba LWH " :[],
+			" Rufungo " :[]
+		},
+		" Ruganda ":{
+			" Nyamug " :[],
+			" Rugobagoba Rug " :[]
+		 },
+		" RUSEBEYA ":{
+			" Mbeli A " :[],
+			" Mbeli B " :[]
+		 },
+		" Rwankuba ":{
+			" Bumba " :[]
+		 },
+		" Twumba ":{
+			" Kavb " :[],
+			" MuA " :[]
+		 },
 		" Zone 1 ":{
 			" Bigugu " :[],
 			" Munini A " :[],
 			" Munini B " :[],
 			" Nyakamira " :[],
-			" Rwariro " :[],
+			" Nyamiringa " :[],
 			" Rubumba " :[],
-			" Nyamiringa " :[]
-			},
+			" Rwariro " :[]
+		 },
+		" Zone 2 ":{
+			" Bubazi " :[],
+			" Gasharu Git " :[],
+			" Gisiza " :[],
+			" Gitega Rug " :[],
+			" Musasa " :[],
+			" Musasa B " :[],
+			" Rwungo " :[],
+			" Tyazo " :[]
+		 },
+		" Zone 3 ":{
+			" Biguhu " :[],
+			" Kabingo " :[],
+			" Kinyovu " :[],
+			" Kivumu " :[],
+			" Nyabikeri " :[],
+			" Nyamugwagwa " :[],
+			" Rubona " :[]
+		 },
 		" Zone 4 ":{
 			" Byogo " :[],
-			" Rutabi " :[],
-			" Gisayura " :[],
-			" Kavumu B " :[],
-			" Kavumu A " :[],
 			" Gasharu Mut " :[],
-			" Murengezo " :[]
-			},
-		" Zone 3 ":{
-			" Nyamugwagwa " :[],
-			" Nyabikeri " :[],
-			" Rubona " :[],
-			" Biguhu " :[],
-			" Kinyovu " :[],
-			" Kabingo " :[]
-			}
-	},
-    "Mugonero": {
-		" Zone 4 ":{
-			" Kibingo " :[],
-			" Butare " :[],
-			" Gitwa B " :[],
-			" Gitwa A " :[],
-			" Mubuga " :[],
-			" Jarama " :[],
-			" Kibingo B " :[]
-			},
-		" Zone 7 ":{
-			" Nyagatare A " :[],
-			" Nyagatare B " :[],
-			" Nyakavumu A " :[],
-			" Gisovu B " :[],
-			" Gitabura B " :[],
-			" Nyakavumu B " :[],
-			" Gisovu A " :[]
-			},
-		" Zone 8 ":{
-			" Gisoke " :[],
-			" Kagarama B " :[],
-			" Kagarama A " :[],
-			" Gitabura A " :[],
-			" Ngoma " :[],
-			" Kigarama " :[]
-			},
-		" Zone 6 ":{
-			" Cyanya B " :[],
-			" Ryaruhanga " :[],
-			" Cyanya A " :[],
-			" Musasa A " :[],
-			" Musasa B " :[],
+			" Gisayura " :[],
+			" Kavumu A " :[],
+			" Kavumu B " :[],
+			" Murengezo " :[],
+			" Rutabi " :[]
+		 },
+		" Zone 5 ":{
+			" Gitega Git " :[],
+			" Kayenzi " :[],
+			" Kayenzi B " :[],
+			" Kirambo " :[],
 			" Munanira " :[],
-			" Buhoro " :[]
-			},
+			" Ruhinga A " :[],
+			" Ruhinga B " :[]
+		 },
+		" Zone 6 ":{
+			" Gasata " :[],
+			" Gitarama " :[],
+			" Kanunga " :[],
+			" Kiniha " :[],
+			" Nyarusanga " :[],
+			" Nyarusazi " :[],
+			" Rubazo " :[]
+		 }
+	  },
+	  "Mugonero": {
+		" Bwishyura ":{
+			" Janviere test " :[],
+			" Janviere test 4 " :[],
+			" Janviere Test10 " :[],
+			" Janviere Test11 " :[],
+			" Janviere Test12 " :[],
+			" Janviere Test13 " :[],
+			" Janviere Test14 " :[],
+			" Janviere Test15 " :[],
+			" Janviere test16 " :[],
+			" Janviere Test17 " :[],
+			" Janviere Test18 " :[],
+			" Janviere Test2 " :[],
+			" Janviere test3 " :[],
+			" Janviere test5 " :[],
+			" Janviere Test6 " :[],
+			" Janviere Test7 " :[],
+			" Janviere Test8 " :[],
+			" Janviere Test9 " :[]
+		 },
+		" Gishyita ":{
+			" Buhoro 1550930 " :[],
+		 },
+		" Twumba ":{
+			" Gisovu " :[]
+		 },
 		" Zone 1 ":{
+			" Bihumbe C " :[],
+			" Bitandara " :[],
+			" Mutengeri " :[],
+			" Nkomane A " :[],
 			" Nkomane B " :[],
+			" Nkomane C " :[],
 			" Nyarwungo A " :[],
 			" Nyarwungo B " :[],
-			" Nkomane C " :[],
-			" Nkomane A " :[],
-			" Mutengeri " :[],
-			" Bitandara " :[],
 			" Twiya " :[]
-			},
+		 },
+		" Zone 2 ":{
+			" Kanyege A " :[],
+			" Kanyege B " :[],
+			" Kinyonzwe A " :[],
+			" Kinyonzwe B " :[],
+			" Musaraba " :[],
+			" Rwufi A " :[],
+			" Rwufi B " :[]
+		 },
+		" Zone 3 ":{
+			" Bihumbe A " :[],
+			" Bihumbe B " :[],
+			" Bisesero " :[],
+			" Gakuta A " :[],
+			" Gakuta B " :[],
+			" Murehe " :[],
+			" Nyakavumu C " :[]
+		 },
+		" Zone 4 ":{
+			" Butare " :[],
+			" Gitwa A " :[],
+			" Gitwa B " :[],
+			" Jarama " :[],
+			" Jarama B " :[],
+			" Kibingo " :[],
+			" Kibingo B " :[],
+			" Mubuga " :[]
+		 },
 		" Zone 5 ":{
+			" Bisesero B " :[],
 			" Gasura " :[],
 			" Kagabiro A " :[],
 			" Kagabiro B " :[],
 			" Kagabiro C " :[],
-			" Nyagatovu B " :[],
-			" Nyagatovu A " :[],
 			" Murangara " :[],
+			" Nyagatovu A " :[],
+			" Nyagatovu B " :[],
 			" Ryaruhanga B " :[]
-			},
-		" Zone 3 ":{
-			" Bihumbe B " :[],
-			" Bihumbe A " :[],
-			" Murehe " :[],
-			" Gakuta A " :[],
-			" Gakuta B " :[],
-			" Bisesero " :[]
-			},
-		" Zone 2 ":{
-			" Kinyonzwe B " :[],
-			" Kinyonzwe A " :[],
-			" Kanyege A " :[],
-			" Rwufi B " :[],
-			" Rwufi A " :[],
-			" Kanyege B " :[],
-			" Musaraba " :[]
-		}
-	},
-    "Ngororero": {
+		 },
+		" Zone 6 ":{
+			" Buhoro " :[],
+			" Cyanya A " :[],
+			" Cyanya B " :[],
+			" Munanira " :[],
+			" Musasa A " :[],
+			" Musasa B " :[],
+			" Ngoma B " :[],
+			" Ryaruhanga " :[]
+		 },
+		" Zone 7 ":{
+			" Gisovu A " :[],
+			" Gisovu B " :[],
+			" Gitabura B " :[],
+			" Nyagatare A " :[],
+			" Nyagatare B " :[],
+			" Nyakavumu A " :[],
+			" Nyakavumu B " :[]
+		 },
+		" Zone 8 ":{
+			" Gisoke " :[],
+			" Gisoke A " :[],
+			" Gitabura A " :[],
+			" Kagarama A " :[],
+			" Kagarama B " :[],
+			" Kigarama " :[],
+			" Ngoma " :[]
+		 },
+		" Zone 9 ":{
+			" Mubuga B " :[]
+		 }
+	  },
+	  "Ngororero": {
 		" Zone 1 ":{
+			" Bungwe " :[],
+			" Bweramana " :[],
 			" Cyahafi " :[],
 			" Kabarondo " :[],
-			" Bungwe " :[],
-			" Ruhindage " :[],
+			" Myiha " :[],
+			" Nsanza " :[],
 			" Rugogwe " :[],
-			" Bweramana " :[],
-			" Sanza " :[],
-			" Myiha " :[]
-			},
-		" Zone 7 ":{
-			" Kinyovi " :[],
-			" Gashubi A " :[],
-			" Gashubi B " :[],
-			" Kibanda A " :[],
-			" Kabageshi " :[],
-			" Bitabage " :[],
-			" Bijyojyo " :[],
-			" Kibanda B " :[]
-			},
+			" Ruhindage " :[],
+			" Sanza " :[]
+		 },
 		" Zone 2 ":{
-			" Karambo " :[],
-			" Kamasiga " :[],
-			" Rusumo " :[],
 			" Cyome A " :[],
 			" Cyome B " :[],
 			" Gatsibo " :[],
+			" Kamasiga " :[],
+			" Karambo " :[],
 			" Ruhanga " :[],
 			" Rusororo " :[],
-			" Trial " :[]
-			},
-		" Zone 8 ":{
-			" Musenyi " :[],
-			" Rutovu " :[],
-			" Kagano " :[],
-			" Nyabipfura " :[],
-			" Birembo Sov " :[],
-			" Kanyana " :[],
-			" Gitwa " :[],
-			" Rugeshi " :[],
-			" Murinzi " :[]
-			},
+			" Rusumo " :[]
+		 },
 		" Zone 3 ":{
 			" Kageshi A " :[],
+			" Kageshi B " :[],
+			" Kirwa " :[],
 			" Mukore A " :[],
 			" Mukore B " :[],
 			" Muramba " :[],
 			" Nyamata " :[],
 			" Rwamamara " :[],
-			" Kageshi B " :[],
-			" Kirwa " :[]
-			},
+			" Rweramana " :[]
+		 },
 		" Zone 4 ":{
 			" Kaseke " :[],
-			" Mubuga " :[],
-			" Torero " :[],
-			" Nyange " :[],
-			" Mugano " :[],
 			" Kazabe " :[],
-			" Rususa " :[]
-			},
-		" Zone 6 ":{
-			" Runyinya " :[],
-			" Kabaya " :[],
-			" Ngoma Kab " :[],
-			" Mwendo " :[],
-			" Busunzu " :[],
-			" Nyenyeri " :[],
-			" Kajinge " :[],
-			" Gaseke " :[]
-			},
-		" Zone 9 ":{
-			" Rutagara " :[],
-			" Nganzo " :[],
-			" Bugarura " :[],
-			" Gasiza " :[],
-			" Mashya " :[],
-			" Ngoma Muh " :[],
-			" Tetero " :[],
-			" Birembo Kav " :[],
-			" Nyamugeyo " :[]
-			},
+			" Mubuga " :[],
+			" Mugano " :[],
+			" Nyange " :[],
+			" Rususa " :[],
+			" Torero " :[]
+		 },
 		" Zone 5 ":{
+			" Binana " :[],
+			" Gatare " :[],
+			" Gatega " :[],
+			" Gitega " :[],
 			" Marantima " :[],
 			" Matare " :[],
 			" Rugendabare " :[],
-			" Gatare " :[],
-			" Gatega " :[],
-			" Binana " :[],
-			" Rwamiko " :[],
 			" Rutare " :[],
-			" Gitega " :[]
-			}
-	},
-    "Nyabihu": {
-		" Rambura ":{
-			" Nyundo " :[],
-			" Rugamba " :[],
-			" Kibisabo " :[],
-			" Guriro Ram " :[],
-			" Mutaho " :[],
-			" Birembo " :[]
-			},
+			" Rwamiko " :[],
+			" Terero " :[]
+		 },
+		" Zone 6 ":{
+			" Busunzu " :[],
+			" Gaseke " :[],
+			" Gasenyi " :[],
+			" Kabaya " :[],
+			" Kajinge " :[],
+			" Mwendo " :[],
+			" Ngoma Kab " :[],
+			" Nyenyeri " :[],
+			" Runyinya " :[]
+		 },
+		" Zone 7 ":{
+			" Bijyojyo " :[],
+			" Bitabage " :[],
+			" Gashubi A " :[],
+			" Gashubi B " :[],
+			" Kabageshi " :[],
+			" Kibanda A " :[],
+			" Kibanda B " :[],
+			" Kinyovi " :[]
+		 },
+		" Zone 8 ":{
+			" Birembo Sov " :[],
+			" Gitwa " :[],
+			" Kagano " :[],
+			" Kanyana " :[],
+			" Murinzi " :[],
+			" Musenyi " :[],
+			" Nyabipfura " :[],
+			" Rugeshi " :[],
+			" Rutovu " :[]
+		 },
+		" Zone 9 ":{
+			" Birembo Kav " :[],
+			" Bugarura " :[],
+			" Gasiza " :[],
+			" Mashya " :[],
+			" Nganzo " :[],
+			" Ngoma Muh " :[],
+			" Nyamugeyo " :[],
+			" Rutagara " :[],
+			" Tetero " :[]
+		 }
+	  },
+	  "Nyabihu": {
 		" Jomba ":{
-			" Nyamitanzi " :[],
+			" Gasiza " :[],
 			" Gasura " :[],
-			" Kavumu " :[],
+			" Gisizi Jom " :[],
 			" Guriro Jom " :[],
-			" Gisizi " :[]
-			},
+			" Kavumu " :[],
+			" Nyamitanzi " :[]
+		 },
+		" Karago ":{
+			" Busoro " :[],
+			" Gatagara " :[],
+			" Gihirwa " :[]
+		 },
+		" Mukamira ":{
+			" Rukoma " :[]
+		 },
+		" Muringa ":{
+			" Gisizi Mur " :[],
+			" Mulinga " :[],
+			" Mwiyanike " :[],
+			" Nkomane " :[],
+			" Nyamasheke " :[],
+			" Rwantobo " :[]
+		 },
+		" Rambura ":{
+			" Birembo " :[],
+			" Guriro Ram " :[],
+			" Kibisabo " :[],
+			" Mutaho " :[],
+			" Nyundo " :[],
+			" Rugamba " :[]
+		 },
 		" Rurembo ":{
+			" Gahondo " :[],
 			" Gitega " :[],
 			" Kirimbogo " :[],
-			" Rwaza " :[],
-			" Gahondo " :[]
-			}
-	},
-    "Rubengera": {
-		" Zone 5 ":{
-			" Mubuga R " :[],
-			" Gitovu A " :[],
-			" Rufungo " :[],
-			" Gitovu B " :[]
-			},
-		" Zone 6 ":{
-			" Rugobagoba Rug " :[],
-			" Birambo A " :[],
-			" Rugobagoba Gas " :[],
-			" Birambo B " :[],
-			" Tongati " :[],
-			" Mwendo Gas " :[],
-			},
-		" Zone 2 ":{
-			" Gisanze " :[],
-			" Mataba " :[],
-			" Kabuga R " :[],
-			" Kibirizi " :[],
-			" Ruragwe " :[],
-			" Kabuga M " :[]
-			},
-		" Zone 7 ":{
-			" Mucyimba " :[],
-			" Nyarugenge " :[],
-			" Gitwa A " :[],
-			" Gacaca " :[],
-			" Kagusa " :[],
-			" Kagano B " :[],
-			" Gitwa B " :[],
-			" Kagano A " :[]
-			},
+			" Murambi " :[],
+			" Mwana " :[],
+			" Rwaza " :[]
+		 },
+		" Shyira ":{
+			" Mutanda " :[],
+			" Shaki " :[]
+		 }
+	  },
+	  "Rubengera": {
+		" Rubengera ":{
+			" Kagarama tubura " :[]
+		 },
 		" Zone 1 ":{
+			" Kabaya " :[],
 			" Mubuga M " :[],
+			" Muhororo " :[],
 			" Nkoto " :[],
 			" Nyarunyinya " :[],
-			" Muhororo " :[],
-			" Shyembe " :[],
 			" Nzaratsi " :[],
-			" Kabaya " :[]
-			},
+			" Shyembe " :[]
+		 },
+		" Zone 2 ":{
+			" Gisanze " :[],
+			" Kabuga M " :[],
+			" Kabuga R " :[],
+			" Kibirizi " :[],
+			" Mataba " :[],
+			" Ruragwe " :[]
+		 },
+		" Zone 3 ":{
+			" Kageyo " :[],
+			" Kageyo B " :[],
+			" Karambo " :[],
+			" Mwendo A " :[],
+			" Mwendo B " :[],
+			" Mwendo C " :[],
+			" Vuganyana " :[]
+		 },
 		" Zone 4 ":{
-			" Kamina " :[],
-			" Nyamushishi " :[],
-			" Kareba " :[],
+			" Bambiro " :[],
 			" Bukiro " :[],
 			" Gaseke " :[],
-			" Bambiro " :[],
-			" Nsibo " :[]
-			},
-		" Zone 3 ":{
-			" Mwendo A " :[],
-			" Mwendo C " :[],
-			" Vuganyana " :[],
-			" Kageyo " :[],
-			" Mwendo B " :[],
-			" Karambo " :[]
-			}
-	},
-    "Ruhango": {
-		" Zone 3 ":{
-			" Kirwa " :[],
-			" Gitinda " :[],
-			" Bweramvura " :[]
-			},
+			" Kamina " :[],
+			" Kareba " :[],
+			" Nsibo " :[],
+			" Nyamushishi " :[]
+		 },
+		" Zone 5 ":{
+			" Gitovu A " :[],
+			" Gitovu B " :[],
+			" Mubuga R " :[],
+			" Rufungo " :[]
+		 },
+		" Zone 6 ":{
+			" Birambo A " :[],
+			" Birambo B " :[],
+			" Mwendo Gas " :[],
+			" Rugobagoba Gas " :[],
+			" Rugobagoba Rug " :[],
+			" Tongati " :[]
+		 },
+		" Zone 7 ":{
+			" Gacaca " :[],
+			" Gitwa A " :[],
+			" Gitwa B " :[],
+			" Kagano A " :[],
+			" Kagano B " :[],
+			" Kagusa " :[],
+			" Mucyimba " :[],
+			" Mucyimba A " :[],
+			" Nyarugenge " :[]
+		 }
+	  },
+	  "Ruhango": {
+		" Zone 1 ":{
+			" Munanira " :[],
+			" Rwesero " :[],
+			" Rwoga " :[]
+		 },
 		" Zone 2 ":{
 			" Kubutare " :[],
 			" Muyunzwe " :[],
 			" Rukina " :[]
-			},
-		" Zone 9 ":{
-			" Mutara " :[],
-			" Nyabibugu " :[],
-			" Gishweru " :[]
-			},
+		 },
+		" Zone 3 ":{
+			" Bweramvura " :[],
+			" Gitinda " :[],
+			" Kirwa " :[]
+		 },
 		" Zone 4 ":{
-			" Karambi " :[],
 			" Gafunzo " :[],
+			" Karambi " :[],
 			" Nyakogo " :[]
-		},
+		 },
 		" Zone 5 ":{
-			" Rubona " :[],
 			" Gitisi " :[],
+			" Rubona " :[],
 			" Rwinyana " :[]
-			},
-		" Zone 8 ":{
-			" Kigarama " :[],
-			" Saruheshyi " :[],
-			" Kamujisho " :[]
-			},
-		" Zone 1 ":{
-			" Munanira " :[],
-			" Rwoga " :[],
-			" Rwesero " :[],
-			" Trial " :[]
-			},
+		 },
 		" Zone 6 ":{
 			" Bihembe " :[],
 			" Remera " :[]
-			},
+		 },
 		" Zone 7 ":{
-			" Murama " :[],
-			" Buhanda " :[]
-			}
-	},
-    "Rutsiro": {
-		" Zone 6 ":{
-			" Twabugezi " :[],
-			" Rugeyo " :[],
-			" Kirwa " :[],
-			" Nyakarera " :[],
-			" Gatare " :[],
-			" Rugasa " :[],
-			" Mburamazi " :[],
-			" Gihira " :[]
-			},
-		" Zone 4 ":{
-			" Remera " :[],
-			" Kaguriro " :[],
-			" Nkira A " :[],
-			" Nkira B " :[],
-			" Rundoyi " :[],
-			" Rukaragata " :[],
-			" Bushaka " :[]
-			},
-		" Zone 7 ":{
-			" Teba " :[],
-			" Mataba " :[],
-			" Gisiza B " :[],
-			" Gisiza A " :[],
-			" Shyembe " :[],
-			" Nyarubuye " :[],
-			" Murambi Gih " :[],
-			" Congo Nil " :[]
+			" Buhanda " :[],
+			" Murama " :[]
+		 },
+		" Zone 8 ":{
+			" Kamujisho " :[],
+			" Kigarama " :[],
+			" Saruheshyi " :[]
+		 },
+		" Zone 9 ":{
+			" Gishweru " :[],
+			" Mutara " :[],
+			" Nyabibugu " :[]
+		 }
+	  },
+	  "Rutsiro": {
+		" Gihango ":{
+			" Mataba B " :[]
+		 },
+		" Kigeyo ":{
+			" Rukaragata A " :[],
+			" Rukaragata B " :[]
+		 },
+		" Murunda ":{
+			" Mburamazii " :[],
+			" other " :[],
+			" RUT1 " :[],
+			" Twabu " :[],
+			" Twabugezi B " :[]
 		},
-		" Zone 3 ":{
-			" Rurara " :[],
-			" Biruyi " :[],
-			" Murambi Mus " :[],
-			" Magaba " :[],
-			" Kavumu " :[],
-			" Kabihogo " :[],
-			" Nkora " :[],
-			" Buhindure " :[]
-			},
+		" Musasa ":{
+			" Gabiro " :[]
+		 },
+		" mushubati ":{
+			" Bumba 2 " :[],
+			" Mbeli 2 " :[]
+		 },
+		" ROSALIE ":{
+			" BUMBA double " :[]
+		 },
+		" Rusebeya ":{
+			" Mbeli B " :[],
+			" Mberi " :[],
+			" Mberi 2 " :[],
+			" Mberi A " :[],
+			" Mberi B " :[],
+			" Mura " :[]
+		 },
+		" Thaciana ":{
+			" Busuku A " :[]
+		},
+		" Virginie ":{
+			" 0 " :[],
+			" Congo-Nil " :[],
+			" Congo-Nil B " :[],
+			" Mataba double " :[]
+		 },
+		" Zone 1 ":{
+			" Haniro " :[],
+			" Kabona " :[],
+			" Mbeli " :[],
+			" Muyira A " :[],
+			" Muyira B " :[],
+			" Remera Rus A " :[],
+			" Remera Rus B " :[],
+			" Ruronde " :[]
+		 },
 		" Zone 2 ":{
-			" Nganzo A " :[],
-			" Nganzo B " :[],
+			" Bunyoni " :[],
 			" Kabere A " :[],
 			" Kabere B " :[],
 			" Kabujenje A " :[],
-			" Bunyoni " :[],
 			" Kabujenje B " :[],
 			" Karambi A " :[],
-			" Karambi B " :[]
-			},
+			" Karambi B " :[],
+			" Nganzo A " :[],
+			" Nganzo B " :[]
+		 },
+		" Zone 3 ":{
+			" Biruyi " :[],
+			" Buhindure " :[],
+			" Kabihogo " :[],
+			" Kavumu " :[],
+			" Magaba " :[],
+			" Murambi Mus " :[],
+			" Nkora " :[],
+			" Rurara " :[]
+		 },
+		" Zone 4 ":{
+			" Bushaka " :[],
+			" Kaguriro " :[],
+			" Nkira A " :[],
+			" Nkira B " :[],
+			" Remera " :[],
+			" Remera B " :[],
+			" Rukaragata " :[],
+			" Rundoyi " :[]
+		},
+		" Zone 6 ":{
+			" Gatare " :[],
+			" Gihira " :[],
+			" Kirwa " :[],
+			" Mburamazi " :[],
+			" Nyakarera " :[],
+			" Rugasa " :[],
+			" Rugeyo " :[],
+			" Twabugezi " :[]
+		},
+		" Zone 7 ":{
+			" Congo Nil " :[],
+			" Gisiza A " :[],
+			" Gisiza B " :[],
+			" Mataba " :[],
+			" Murambi Gih " :[],
+			" Nyarubuye " :[],
+			" Shyembe " :[],
+			" Teba " :[]
+		},
 		" Zone 8 ":{
-			" Nyagahinika " :[],
 			" Bunyunju " :[],
+			" Busuku " :[],
 			" Cyivugiza " :[],
-			" Terimbere " :[],
-			" Ngoma " :[],
 			" Mubuga A " :[],
 			" Mubuga B " :[],
-			" Busuku " :[]
+			" Ngoma " :[],
+			" Nyagahinika " :[],
+			" Terimbere " :[]
 		},
-		" Zone 1 ":{
-			" Mbeli " :[],
-			" Muyira A " :[],
-			" Kabona " :[],
-			" Muyira B " :[],
-			" Haniro " :[],
-			" Remera Rus A " :[],
-			" Remera Rus B " :[],
-			" Ruronde " :[],
-			" Trial " :[]
-			},
 		" Zone 9 ":{
-			" Sure " :[],
-			" Bumba " :[],
-			" Gitwa " :[],
 			" Bugina " :[],
+			" Bumba " :[],
 			" Cyarusera " :[],
+			" Gitwa " :[],
+			" Gitwa B " :[],
 			" Mageragere " :[],
-			" Tangabo " :[],
-			" Ruhingo " :[]
-			}
+			" Ruhingo " :[],
+			" Sure " :[],
+			" Tangabo " :[]
+		 }
+	  }
+	},
+	"Amajyaruguru": {
+	  "Burera": {
+		" Butaro ":{
+			" Gatsibo " :[],
+			" Mubuga " :[],
+			" Muhotora " :[],
+			" Nyamicucu " :[],
+			" Rusumo " :[]
+		  },
+		" Cyeru ":{
+			" Butare " :[],
+			" Ndongozi " :[],
+			" Ruyange " :[],
+		  },
+		" Gahunga ":{
+			" Buramba " :[],
+			" Gisizi " :[],
+			" Kidakama " :[],
+			" Nyangwe " :[],
+			" Rwasa " :[]
+		 },
+		" Kinoni ":{
+			" Gafuka " :[],
+			" Nkenke " :[],
+			" Nkumba " :[],
+			" Ntaruka " :[]
+		 },
+		" Rusarabuye ":{
+			" Kabona " :[],
+			" Ndago " :[],
+			" Ruhanga " :[]
+		 }
+	  },
+	  "Gakenke": {
+		" Busengo ":{
+			" Birambo " :[],
+			" Butereri " :[],
+			" Byibuhiro " :[],
+			" Kamina " :[],
+			" Kirabo " :[],
+			" Mwumba " :[],
+			" Ruhanga " :[]
+		 },
+		" Mugunga ":{
+			" Gahinga " :[],
+			" Munyana " :[],
+			" Mutego " :[],
+			" Nkomane " :[],
+			" Rutabo " :[],
+			" Rutenderi " :[],
+			" Rwamambe " :[]
+		 },
+		" Rusasa ":{
+			" Gataba " :[],
+			" Kamonyi " :[],
+			" Murambi " :[],
+			" Nyundo " :[],
+			" Rumbi " :[],
+			" Rurembo " :[]
+		 }
+	  },
+	  "Gicumbi": {
+		" Kaniga ":{
+			" Bugomba " :[],
+			" Gatomu " :[],
+			" Murindi " :[],
+			" Nyarwambu " :[],
+			" Rukurura " :[]
+		 },
+		" Manyagiro ":{
+			" Byaruyumba " :[],
+			" Kabuga " :[],
+			" Nyagifurumba " :[],
+			" Nyiravugiza " :[],
+			" Remera " :[],
+			" Rusekera " :[]
+		 },
+		" Mutete ":{
+			" Gaseke " :[],
+			" Kabeza " :[],
+			" Musenyi " :[],
+			" Mutandi " :[],
+			" Nyarubuye " :[]
+		 },
+		" Nyankenke ":{
+			" Butare " :[],
+			" Kigogo " :[],
+			" Kinishyi " :[],
+			" Rusasa " :[],
+			" Rutete " :[],
+			" Rwagihura " :[],
+			" Yaramba " :[]
+		 }
+	  },
+	  "Musanze": {
+		" Cyuve ":{
+			" Bukinanyana " :[],
+			" Buruba " :[],
+			" Cyanya " :[],
+			" Kabeza Cy " :[],
+			" Migeshi " :[],
+			" Rwebeya " :[]
+		 },
+		" Kinigi ":{
+			" Bisoke " :[],
+			" Kaguhu " :[],
+			" Kampanga " :[],
+			" Nyabigoma " :[],
+			" Nyonirima " :[]
+		 },
+		" Nyange ":{
+			" Kabeza Ny " :[],
+			" Kamwumba " :[],
+			" Kivugiza " :[],
+			" Muhabura " :[],
+			" Ninda " :[]
+		 },
+		" Shingiro ":{
+			" Gakingo " :[],
+			" Kibuguzo " :[],
+			" Mudende " :[],
+			" Mugari " :[],
+		}
+	  },
+	  "Rulindo": {
+		" Burega ":{
+			" Butangampundu " :[],
+			" Karengeli " :[],
+			" Taba " :[]
+		 },
+		" Bushoki ":{
+			" Gasiza " :[],
+			" Giko " :[],
+			" Kayenzi " :[],
+			" Mukoto " :[],
+			" Nyirangarama " :[]
+		 },
+		" Buyoga ":{
+			" Busoro " :[],
+			" Butare " :[],
+			" Gahororo " :[],
+			" Gitumba " :[],
+			" Karama " :[],
+			" Mwumba " :[],
+			" Ndarage " :[]
+		 },
+		" Cyungo ":{
+			" Burehe " :[],
+			" Marembo " :[],
+			" Rwili " :[]
+		 },
+		" Ntarabana ":{
+			" Kajevuba " :[],
+			" Kiyanza " :[],
+			" Mahaza " :[]
+		 }
+	  },
+	  "Rubavu": {
+		" Kanama ":{
+			" Kamuhoza " :[],
+			" Karambo " :[],
+			" Mahoko " :[],
+			" Musabike " :[],
+			" Nkomane " :[],
+			" Rusongati " :[],
+			" Yungwe " :[]
+		 },
+			" Mudende ":{
+			" Bihungwe " :[],
+			" Kanyundo " :[],
+			" Micinyiro " :[],
+			" Mirindi " :[],
+			" Ndoranyi " :[],
+			" Rungu " :[],
+			" Rwanyakayaga " :[]
+		 },
+		" Nyakiriba ":{
+			" Bisizi " :[],
+			" Gikombe " :[],
+			" Kanyepfurwe " :[],
+			" Nyarushyamba " :[]
+		 },
+		" Nyamyumba ":{
+			" Burushya " :[],
+			" Busoro " :[],
+			" Kinigi " :[],
+			" Kiraga " :[],
+			" Munanira " :[],
+			" Rubona " :[]
+		 }
+	  }
 	}
-  },
-  "North": {
-    "Burera": [],
-    "Gakenke": [],
-    "Gicumbi": [],
-    "Musanze": [],
-    "Rulindo": [],
-    "Rubavu": []
   }
-}
