@@ -12,12 +12,10 @@ const timeout_length = project.vars.timeout_length;
 
 
  global.main = function () {
-    //reinit();
-
-
+    if(!reinit()){
+    call.vars.phone_nbr = contact.phone_number;
     var getmenu = require('./lib/training-populate-menu');
     var surveys_obj= getmenu('Surveys',lang);
-    console.log("*****************"+ surveys_obj);
     if(surveys_obj != null){
        var menu;
         if (typeof (surveys_obj) == 'string') {
@@ -26,7 +24,6 @@ const timeout_length = project.vars.timeout_length;
             //sayText(surveys_obj);
             state.vars.multiple_input_menus = 0;
             state.vars.input_menu = menu;
-            console.log("----------------------------"+ surveys_obj);
             sayText(surveys_obj);
             promptDigits('surveyType_selection', { 'submitOnHash' : false,
             'maxDigits'    : max_digits,
@@ -39,10 +36,8 @@ const timeout_length = project.vars.timeout_length;
             state.vars.input_menu_length = Object.keys(surveys_obj).length; //this will be 1 greater than max possible loc
             state.vars.current_menu_str = surveys_obj[state.vars.input_menu_loc];
             console.log(state.vars.current_menu_str)
-            console.log("!!!!!!!!!!!!!!!!!!!"+surveys_obj[0])
-            sayText( surveys_obj[0]);
+            sayText(surveys_obj[state.vars.input_menu_loc]);
             state.vars.input_menu = JSON.stringify(surveys_obj);
-            console.log("^^^^^^^^^^^^^^^^^^^^^^" + surveys_obj);
             promptDigits('surveyType_selection', { 'submitOnHash' : false,
             'maxDigits'    : max_digits,
             'timeout'      : 180 });
@@ -54,6 +49,7 @@ const timeout_length = project.vars.timeout_length;
     else{
         sayText(msgs('no_quiz_menu',{},lang));
     }
+}
 
 };
 
@@ -253,7 +249,7 @@ addInputHandler('quiz_question', function(input){
         stopRules();
     }
     call.vars.status = state.vars.survey_type + state.vars.step;
-    var question = 'opt'+ String(state.vars.step);
+    var question = 'qn'+ String(state.vars.step);
     call.vars[question] = input;
     var survey_length = call.vars.number_of_questions ; 
 
