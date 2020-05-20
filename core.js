@@ -758,9 +758,28 @@ addInputHandler('enr_glus', function (input) {
         if (group_information != null) {
             var confirmation_menu = msgs('enr_confirmation_menu', {}, lang);
             var current_menu = msgs('enr_group_id_confirmation', { '$ENR_GROUP_ID': input, '$LOCATION_INFO': group_information, '$ENR_CONFIRMATION_MENU': confirmation_menu }, lang);
-            state.vars.current_menu_str = current_menu;
-            sayText(current_menu);
-            promptDigits('enr_group_id_confirmation', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
+            var splitMessage = require('./lib/enr-populate-menu.js');
+            splited_menu = splitMessage(current_menu);
+            if (typeof (splited_menu) == 'string') {
+                state.vars.current_menu_str = splited_menu;
+                sayText(splited_menu);
+                state.vars.multiple_input_menus = 0;
+                state.vars.input_menu = splited_menu;
+                promptDigits('enr_group_id_confirmation', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': 180 });
+            }
+            else if (typeof (splited_menu) == 'object') {
+                state.vars.input_menu_loc = 0; //watch for off by 1 errors - consider moving this to start at 1
+                state.vars.multiple_input_menus = 1;
+                state.vars.input_menu_length = Object.keys(splited_menu).length; //this will be 1 greater than max possible loc
+                state.vars.current_menu_str = splited_menu[state.vars.input_menu_loc];
+                sayText(splited_menu[state.vars.input_menu_loc]);
+                state.vars.input_menu = JSON.stringify(splited_menu);
+                promptDigits('enr_group_id_confirmation', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': 180 });
+            }
+            
+            // state.vars.current_menu_str = current_menu;
+            // sayText(current_menu);
+            // promptDigits('enr_group_id_confirmation', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
 
         }
         // if the group id is not valid, prompt them again
@@ -781,6 +800,32 @@ addInputHandler('enr_group_id_confirmation', function (input) { //enr group lead
         sayText(msgs('exit', {}, lang));
         stopRules();
         return null;
+    }
+    if (state.vars.multiple_input_menus) { //needs some serious cleanup here - this is messy
+        if (input == 44 && state.vars.input_menu_loc > 0) {
+            state.vars.input_menu_loc = state.vars.input_menu_loc - 1;
+            var menu = JSON.parse(state.vars.input_menu)[state.vars.input_menu_loc];
+            state.vars.current_menu_str = menu;
+            sayText(menu);
+            promptDigits('enr_group_id_confirmation', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
+            return;
+        }
+        else if (input == 77 && (state.vars.input_menu_loc < state.vars.input_menu_length - 1)) {
+            state.vars.input_menu_loc = state.vars.input_menu_loc + 1;
+            var menu = JSON.parse(state.vars.input_menu)[state.vars.input_menu_loc]
+            state.vars.current_menu_str = menu;
+            sayText(menu);
+            promptDigits('enr_group_id_confirmation', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
+            return;
+        }
+        else if (input == 44 && state.vars.input_menu_loc == 0) {
+            var splash_menu = populate_menu('enr_splash', lang, 300);
+            var menu = msgs('enr_splash', { '$ENR_SPLASH': splash_menu }, lang);
+            state.vars.current_menu_str = menu;
+            sayText(menu);
+            promptDigits('enr_splash', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
+            return;
+        }
     }
     state.vars.confirmation = input;
     if (input == 2) { // if the user chooses no, they will be prompt to enter the group code again
@@ -896,6 +941,28 @@ addInputHandler('enr_glvv_id', function (input) {
     state.vars.group_information = groupCheck(input, 'group_codes', lang);
 
     if (state.vars.group_information != null) {
+        var current_menu = msgs('enr_group_id_confirmation', { '$ENR_GROUP_ID': input, '$LOCATION_INFO': state.vars.group_information, '$ENR_CONFIRMATION_MENU': confirmation_menu }, lang);
+        var splitMessage = require('./lib/enr-populate-menu.js');
+        splited_menu = splitMessage(current_menu);
+        if (typeof (splited_menu) == 'string') {
+            state.vars.current_menu_str = splited_menu;
+            sayText(splited_menu);
+            state.vars.multiple_input_menus = 0;
+            state.vars.input_menu = splited_menu;
+            promptDigits('enr_glvv_id_confirmation', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
+
+        }
+        else if (typeof (splited_menu) == 'object') {
+            state.vars.input_menu_loc = 0; //watch for off by 1 errors - consider moving this to start at 1
+            state.vars.multiple_input_menus = 1;
+            state.vars.input_menu_length = Object.keys(splited_menu).length; //this will be 1 greater than max possible loc
+            state.vars.current_menu_str = splited_menu[state.vars.input_menu_loc];
+            sayText(splited_menu[state.vars.input_menu_loc]);
+            state.vars.input_menu = JSON.stringify(splited_menu);
+            promptDigits('enr_glvv_id_confirmation', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
+        }
+
+
         var confirmation_menu = msgs('enr_confirmation_menu', {}, lang);
         var current_menu = msgs('enr_group_id_confirmation', { '$ENR_GROUP_ID': input, '$LOCATION_INFO': state.vars.group_information, '$ENR_CONFIRMATION_MENU': confirmation_menu }, lang);
         state.vars.current_menu_str = current_menu;
@@ -915,6 +982,33 @@ addInputHandler('enr_glvv_id', function (input) {
 addInputHandler('enr_glvv_id_confirmation', function (input) {
 
     input = input.replace(/\W/g, '');
+
+    if (state.vars.multiple_input_menus) { //needs some serious cleanup here - this is messy
+        if (input == 44 && state.vars.input_menu_loc > 0) {
+            state.vars.input_menu_loc = state.vars.input_menu_loc - 1;
+            var menu = JSON.parse(state.vars.input_menu)[state.vars.input_menu_loc];
+            state.vars.current_menu_str = menu;
+            sayText(menu);
+            promptDigits('enr_glvv_id_confirmation', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
+            return;
+        }
+        else if (input == 77 && (state.vars.input_menu_loc < state.vars.input_menu_length - 1)) {
+            state.vars.input_menu_loc = state.vars.input_menu_loc + 1;
+            var menu = JSON.parse(state.vars.input_menu)[state.vars.input_menu_loc]
+            state.vars.current_menu_str = menu;
+            sayText(menu);
+            promptDigits('enr_glvv_id_confirmation', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
+            return;
+        }
+        else if (input == 44 && state.vars.input_menu_loc == 0) {
+            var splash_menu = populate_menu('enr_splash', lang, 300);
+            var menu = msgs('enr_splash', { '$ENR_SPLASH': splash_menu }, lang);
+            state.vars.current_menu_str = menu;
+            sayText(menu);
+            promptDigits('enr_splash', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
+            return;
+        }
+    }
     if (input == 1) {
         if (state.vars.group_information != null) {
             var gl_check = require('./lib/enr-group-leader-check');
@@ -926,8 +1020,6 @@ addInputHandler('enr_glvv_id_confirmation', function (input) {
                 row.vars.glus = state.vars.glus;
                 row.save();
             }
-
-
             console.log('is gl? : ' + is_gl);
             // return to enr_order_start - give the client their account number in the message?
             sayText(msgs('enr-group-constitution-approvement'),{},lang);
