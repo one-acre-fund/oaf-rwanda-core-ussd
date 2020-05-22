@@ -14,6 +14,7 @@ var geo_process = require('./lib/cta-geo-string-processer');
 var geo_mm_data = require('./dat/mm-agent-geography');
 var get_time = require('./lib/enr-timestamp');
 var get_client = require('./lib/enr-retrieve-client-row');
+var regSessionManager = require('./lib/enr-resume-registration');
 
 //options
 //var settings_table = project.getOrCreateDataTable('ussd_settings'); //removing this to account for project variable preference
@@ -32,14 +33,18 @@ const max_digits_for_nid = project.vars.max_digits_nid;
 const max_digits_for_pn = project.vars.max_digits_pn;
 const max_digits_for_glus = project.vars.max_digits_glvv;
 const max_digits_for_name = project.vars.max_digits_name;
+const inputHandlers = {}
 
 global.main = function () {
-    sayText(msgs('cor_enr_main_splash'));
-    promptDigits('account_number_splash', {
-        'submitOnHash': false,
-        'maxDigits': max_digits_for_account_number,
-        'timeout': timeout_length
-    });
+    const resumedSession = regSessionManager.resume(contact.phone_number, inputHandlers);
+    if(!resumedSession){
+        sayText(msgs('cor_enr_main_splash'));
+        promptDigits('account_number_splash', {
+            'submitOnHash': false,
+            'maxDigits': max_digits_for_account_number,
+            'timeout': timeout_length
+        });
+    }
 };
 
 /*
@@ -205,7 +210,7 @@ addInputHandler('cor_menu_select', function (input) {
         // translate variables into indices
         var district = Object.keys(geo_mm_data).indexOf(state.vars.client_district);
         var site = Object.keys(geo_select(district, geo_mm_data)).indexOf(state.vars.client_site);
-        // generate list of agents within client's site
+        // generate list of agents within client's sites
         var geo_data = geo_select(site, geo_select(district, geo_mm_data));
         var k = Object.keys(geo_data);
         var agent_display = '';
@@ -556,29 +561,32 @@ input handlers for registration steps
 */
 
 //prompt for national Id then Show them the national id they have entered and ask for confirmation
-addInputHandler('enr_reg_start', function (input) {
+inputHandlers['registration_start'] = function (input) {
     state.vars.current_step = 'enr_reg_start';
     input = String(input.replace(/\D/g, ''));
     var check_if_nid = require('./lib/enr-check-nid');
     if (input == 99) {
         sayText(msgs('exit', {}, lang));
         stopRules();
+        regSessionManager.clear(contact.phone_number)
         return null;
     }
     else if (!check_if_nid(input)) {
         sayText(msgs('enr_invalid_nid', {}, lang));
-        promptDigits('enr_reg_start', { 'submitOnHash': false, 'maxDigits': max_digits_for_nid, 'timeout': timeout_length })
+        promptDigits('enr_reg_start', { 'submitOnHash': false, 'maxDigits': max_digits_for_nid, 'timeout': timeout_length });
     }
     else {
+        regSessionManager.save(contact.phone_number,state.vars,'registration_start',input);
         state.vars.reg_nid = input;
         var confirmation_menu = msgs('enr_confirmation_menu', {}, lang);
         var current_menu = msgs('enr_nid_client_confirmation', { '$ENR_NID_CONFIRM': input, '$ENR_CONFIRMATION_MENU': confirmation_menu }, lang);
         state.vars.current_menu_str = current_menu;
         sayText(current_menu);
         promptDigits('enr_nid_client_confirmation', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
-
     }
-});
+};
+
+addInputHandler('enr_reg_start', inputHandlers['registration_start']);
 
 // Checking confirmation from the user
 addInputHandler('enr_nid_client_confirmation', function (input) {
@@ -588,11 +596,13 @@ addInputHandler('enr_nid_client_confirmation', function (input) {
     if (input == 99) {
         sayText(msgs('exit', {}, lang));
         stopRules();
+        regSessionManager.clear(contact.phone_number);
         return null;
     }
 
     // If the user does not confirm(chooses no)
     else if (input == 2) {
+        regSessionManager.clear(contact.phone_number);
         var current_menu = msgs('enr_reg_start', {}, lang);
         state.vars.current_menu_str = current_menu; // set the current menu to what the user choosed(yes/no)
         sayText(current_menu);
@@ -601,6 +611,7 @@ addInputHandler('enr_nid_client_confirmation', function (input) {
     //If the user confirms (chooses yes)
     else if (input == 1) {
         // Check if the client is already registered 
+        // TODO Add this handler to the resume checkpoint with this input
         var is_already_reg = require('./lib/enr-check-dup-nid');
         if (is_already_reg(state.vars.reg_nid, an_pool)) {
             var get_client_by_nid = require('./lib/dpm-get-client-by-nid');
@@ -671,63 +682,71 @@ addInputHandler('enr_nid_client_confirmation', function (input) {
 
 
 
-addInputHandler('enr_name_1', function (input) { //enr name 1 step
+inputHandlers['name1InputHandler'] = function (input) {
     state.vars.current_step = 'enr_name_1';
     if (input == 99) {
+        regSessionManager.clear(contact.phone_number);
         sayText(msgs('exit', {}, lang));
         stopRules();
         return null;
     }
     input = input.replace(/[^a-z_]/ig, '');
     if (contact.phone_number == '5550123') { // allows for testing on the online testing env
-        input = 'TEST1'
+        input = 'TestFirstName';
     }
     if (input === undefined || input == '') {
         sayText(msgs('enr_invalid_name_input', {}, lang));
         promptDigits('enr_name_1', { 'submitOnHash': false, 'maxDigits': max_digits_for_name, 'timeout': timeout_length });
     }
     else {
+        regSessionManager.save(contact.phone_number, state.vars, 'name1InputHandler', input);
         state.vars.reg_name_1 = input;
         sayText(msgs('enr_name_2', {}, lang));
         promptDigits('enr_name_2', { 'submitOnHash': false, 'maxDigits': max_digits_for_name, 'timeout': timeout_length });
     }
     get_time();
-});
+};
+addInputHandler('enr_name_1', inputHandlers['name1InputHandler']);
 
-addInputHandler('enr_name_2', function (input) { //enr name 2 step
+inputHandlers['name2InputHandler'] = function (input) {
     state.vars.current_step = 'enr_name_2';
     if (input == 99) {
+        regSessionManager.clear(contact.phone_number);
         sayText(msgs('exit', {}, lang));
         stopRules();
         return null;
     }
     input = input.replace(/[^a-z_]/ig, '');
     if (contact.phone_number == '5550123') { // allows for testing on the online testing env
-        input = 'TEST1'
+        input = 'TestSecondName';
     }
     if (input === undefined || input == '') {
         sayText(msgs('enr_invalid_name_input', {}, lang));
         promptDigits('enr_name_2', { 'submitOnHash': false, 'maxDigits': max_digits_for_name, 'timeout': timeout_length });
     }
     else {
+        regSessionManager.save(contact.phone_number, state.vars, 'name2InputHandler', input);
         state.vars.reg_name_2 = input;
         sayText(msgs('enr_pn', {}, lang));
         promptDigits('enr_pn', { 'submitOnHash': false, 'maxDigits': max_digits_for_pn, 'timeout': timeout_length });
     }
     get_time();
-});
+};
+addInputHandler('enr_name_2', inputHandlers['name2InputHandler']);
 
-addInputHandler('enr_pn', function (input) { //enr phone number step
+inputHandlers['phoneInputHandler'] = function (input) {
     state.vars.current_step = 'enr_pn';
     input = input.replace(/\D/g, '');
     var check_pn = require('./lib/phone-format-check');
     if (input == 99) {
+        regSessionManager.clear(contact.phone_number);
         sayText(msgs('exit', {}, lang));
         stopRules();
         return null;
     }
     if (check_pn(input)) {
         state.vars.reg_pn = input;
+        regSessionManager.save(contact.phone_number, state.vars, 'phoneInputHandler', input);
         sayText(msgs('enr_glus', {}, lang));
         promptDigits('enr_glus', { 'submitOnHash': false, 'maxDigits': max_digits_for_glus, 'timeout': timeout_length });
     }
@@ -736,13 +755,14 @@ addInputHandler('enr_pn', function (input) { //enr phone number step
         promptDigits('enr_pn', { 'submitOnHash': false, 'maxDigits': max_digits_for_pn, 'timeout': timeout_length });
     }
     get_time();
-});
+};
+addInputHandler('enr_pn', inputHandlers['phoneInputHandler']);
 
-addInputHandler('enr_glus', function (input) {
-
+inputHandlers['groupCodeInputHandler'] = function (input) {
     //input = input.replace(/\W/g, '');
     state.vars.current_step = 'enr_glus';
     if (input == 99) {
+        regSessionManager.clear(contact.phone_number);
         sayText(msgs('exit', {}, lang));
         stopRules();
         return null;
@@ -756,15 +776,14 @@ addInputHandler('enr_glus', function (input) {
         // checking and retreiving info about the entered id
         var groupCheck = require('./lib/enr-check-gid');
         var group_information = groupCheck(input, 'group_codes', lang);
-
         // if the info about the id is not null, ask for confirmation with the group info
         if (group_information != null) {
+            regSessionManager.save(contact.phone_number, state.vars, 'groupCodeInputHandler', input);
             var confirmation_menu = msgs('enr_confirmation_menu', {}, lang);
             var current_menu = msgs('enr_group_id_confirmation', { '$ENR_GROUP_ID': input, '$LOCATION_INFO': group_information, '$ENR_CONFIRMATION_MENU': confirmation_menu }, lang);
             state.vars.current_menu_str = current_menu;
             sayText(current_menu);
             promptDigits('enr_group_id_confirmation', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
-
         }
         // if the group id is not valid, prompt them again
         else {
@@ -773,8 +792,8 @@ addInputHandler('enr_glus', function (input) {
             promptDigits('enr_glus', { 'submitOnHash': false, 'maxDigits': max_digits_for_glus, 'timeout': timeout_length });
         }
     }
-
-});
+};
+addInputHandler('enr_glus', inputHandlers['groupCodeInputHandler']);
 
 addInputHandler('enr_group_id_confirmation', function (input) { //enr group leader / umudugudu support id step. last registration step
 
