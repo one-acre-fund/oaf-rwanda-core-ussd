@@ -1,6 +1,22 @@
 /*
 OAF RW core program
 */
+var defaultEnvironment;
+if(service.active){
+    defaultEnvironment = 'prod'
+}else{
+    defaultEnvironment = 'dev'
+}
+
+var env;
+if(service.vars.env === 'prod' || service.vars.env === 'dev'){
+    env = service.vars.env;
+}else{
+    env = defaultEnvironment;
+}
+
+service.vars.server_name = project.vars[env+'_server_name'];
+service.vars.roster_api_key = project.vars[env+'_roster_api_key'];
 
 //global functionss
 var msgs = require('./lib/msg-retrieve'); //global message handler
