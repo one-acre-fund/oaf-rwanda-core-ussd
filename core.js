@@ -832,6 +832,7 @@ addInputHandler('enr_group_id_confirmation', function (input) { //enr group lead
     state.vars.current_step = 'enr_glus';
     input = input.replace(/\W/g, '');
     if (input == 99) {
+        regSessionManager.clear(contact.phone_number);
         sayText(msgs('exit', {}, lang));
         stopRules();
         return null;
@@ -858,7 +859,8 @@ addInputHandler('enr_group_id_confirmation', function (input) { //enr group lead
 
 addInputHandler('reg_group_constitution_confirm',function(input){
     input = input.replace(/\W/g, '');
-    if (input == 99) {
+    if (input == 99) {        
+        regSessionManager.clear(contact.phone_number);
         sayText(msgs('exit', {}, lang));
         stopRules();
         return null;
