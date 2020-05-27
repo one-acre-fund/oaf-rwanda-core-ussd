@@ -18,6 +18,22 @@ if(service.vars.env === 'prod' || service.vars.env === 'dev'){
 service.vars.server_name = project.vars[env+'_server_name'];
 service.vars.roster_api_key = project.vars[env+'_roster_api_key'];
 
+if(env === 'prod'){
+    service.vars.season_clients_table = project.vars.season_clients_table;
+    service.vars.client_enrollment_table = project.vars.client_enrollment_data;
+    service.vars.input21ATable = project.vars.input21ATable;
+    service.vars.RegistrationSessions = project.vars.RegistrationSessions;
+}else{
+    service.vars.season_clients_table = 'dev_' + project.vars.season_clients_table;
+    service.vars.client_enrollment_table = 'dev_' + project.vars.client_enrollment_data;
+    service.vars.input21ATable = 'dev_' + project.vars.input21ATable;
+    service.vars.RegistrationSessions = 'dev_'+project.vars.RegistrationSessions;
+}
+console.log('###Env Info###');
+console.log(JSON.stringify(service.vars));
+console.log('### End Env Info###');
+
+
 //global functionss
 var msgs = require('./lib/msg-retrieve'); //global message handler
 var admin_alert = require('./lib/admin-alert'); //global admin alerter
@@ -41,7 +57,7 @@ const max_digits_for_account_number = project.vars.max_digits_an;
 //const max_digits_for_serial = 7;
 const core_splash_map = project.getOrCreateDataTable(project.vars.core_enr_splash_map);
 //const chicken_client_table = project.vars.chicken_client_table;
-const an_pool = project.vars.season_clients_table;
+const an_pool = service.vars.season_clients_table;
 const glus_pool = project.vars.glus_pool;
 const geo_menu_map = project.vars.geo_menu_map;
 const timeout_length = project.vars.max_digits_for_input_enrollement;
@@ -276,7 +292,7 @@ addInputHandler('cor_menu_select', function (input) {
             state.vars.client_geo = client.vars.geo;
             //var prod_menu_select = require('./lib/enr-select-product-menu');
             //var product_menu_table_name = prod_menu_select(state.vars.client_geo, geo_menu_map);
-            var product_menu_table_name = project.vars.input21ATable;
+            var product_menu_table_name = service.vars.input21ATable;
             state.vars.product_menu_table_name = product_menu_table_name;
             var populate_district_inputs_menu = require('./lib/populate-input-menu-by-district');
             var menu = populate_district_inputs_menu(lang);
@@ -314,7 +330,7 @@ addInputHandler('cor_menu_select', function (input) {
         else {
             var prod_menu_select = require('./lib/enr-select-product-menu');
             var gen_input_review = require('./lib/enr-gen-order-review'); //todo: add prepayment calc
-            var input_review_menu = gen_input_review(state.vars.account_number, project.vars.input21ATable, an_pool, lang);
+            var input_review_menu = gen_input_review(state.vars.account_number, service.vars.input21ATable, an_pool, lang);
             if (typeof (input_review_menu) == 'string') {
                 sayText(input_review_menu);
                 promptDigits('cor_continue', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
@@ -926,7 +942,7 @@ addInputHandler('reg_end_ordering_redirect',function(input){
             state.vars.client_geo = client.vars.geo;
             //var prod_menu_select = require('./lib/enr-select-product-menu');
             //var product_menu_table_name = prod_menu_select(state.vars.client_geo, geo_menu_map);
-            var product_menu_table_name = project.vars.input21ATable;
+            var product_menu_table_name = service.vars.input21ATable;
             state.vars.product_menu_table_name = product_menu_table_name;
             var populate_district_inputs_menu = require('./lib/populate-input-menu-by-district');
             var menu = populate_district_inputs_menu(lang);
@@ -1263,7 +1279,7 @@ addInputHandler('enr_finalize_verify', function (input) {
 
             //send an sms of orders once they choose to finalize
             var gen_sms_review = require('./lib/enr-send-order-sms');
-            gen_sms_review(state.vars.account_number, project.vars.input21ATable, an_pool, lang);
+            gen_sms_review(state.vars.account_number, service.vars.input21ATable, an_pool, lang);
         };
 
 
