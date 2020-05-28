@@ -1282,6 +1282,10 @@ addInputHandler('enr_finalize_verify', function (input) {
             //send an sms of orders once they choose to finalize
             var gen_sms_review = require('./lib/enr-send-order-sms');
             gen_sms_review(state.vars.account_number, service.vars.input21ATable, an_pool, lang);
+        }else{
+            sayText(msgs('enr_not_finalized', {}, lang));
+            promptDigits('cor_continue', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
+            get_time();           
         };
 
 
