@@ -29,9 +29,9 @@ if(env === 'prod'){
     service.vars.input21ATable = 'dev_' + project.vars.input21ATable;
     service.vars.RegistrationSessions = 'dev_'+project.vars.RegistrationSessions;
 }
-console.log('###Env Info###');
-console.log(JSON.stringify(service.vars));
-console.log('### End Env Info###');
+// console.log('###Env Info###');
+// console.log(JSON.stringify(service.vars));
+// console.log('### End Env Info###');
 
 
 //global functionss
@@ -68,15 +68,12 @@ const max_digits_for_name = project.vars.max_digits_name;
 const inputHandlers = {}
 
 global.main = function () {
-    const resumedSession = regSessionManager.resume(contact.phone_number, inputHandlers);
-    if(!resumedSession){
-        sayText(msgs('cor_enr_main_splash'));
-        promptDigits('account_number_splash', {
-            'submitOnHash': false,
-            'maxDigits': max_digits_for_account_number,
-            'timeout': timeout_length
-        });
-    }
+    sayText(msgs('cor_enr_main_splash'));
+    promptDigits('account_number_splash', {
+        'submitOnHash': false,
+        'maxDigits': max_digits_for_account_number,
+        'timeout': timeout_length
+    });
 };
 
 /*
@@ -85,10 +82,13 @@ input handlers - one per response variable
 addInputHandler('account_number_splash', function (input) { //acount_number_splash input handler - main input handler for initial splash
     var response = input.replace(/\D/g, '');
     if (response == 1) {
-        var current_menu = msgs('enr_reg_start', {}, lang);
-        state.vars.current_menu_str = current_menu;
-        sayText(current_menu);
-        promptDigits('enr_reg_start', { 'submitOnHash': false, 'maxDigits': max_digits_for_nid, 'timeout': timeout_length });
+        const resumedSession = regSessionManager.resume(contact.phone_number, inputHandlers);
+        if(!resumedSession){
+            var current_menu = msgs('enr_reg_start', {}, lang);
+            state.vars.current_menu_str = current_menu;
+            sayText(current_menu);
+            promptDigits('enr_reg_start', { 'submitOnHash': false, 'maxDigits': max_digits_for_nid, 'timeout': timeout_length });
+        }
     }
     else {
         try {
