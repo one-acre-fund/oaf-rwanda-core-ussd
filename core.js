@@ -1098,7 +1098,7 @@ addInputHandler('enr_input_splash', function (input) { //main input menu
             promptDigits('enr_splash', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
         }
         else {
-            var selection = get_menu_option(input, product_menu_table_name);
+            var selection = get_menu_option(input, product_menu_table_name,state.vars.client_districtId);
             if (selection == null) {
                 sayText(msgs('enr_invalid_product_selection', {}, lang))
                 promptDigits('invalid_input', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
@@ -1118,7 +1118,7 @@ addInputHandler('enr_input_splash', function (input) { //main input menu
         }
     }
     else {
-        var selection = get_menu_option(input, product_menu_table_name);
+        var selection = get_menu_option(input, product_menu_table_name,state.vars.client_districtId);
         if (selection == null) {
             sayText(msgs('enr_invalid_product_selection', {}, lang))
             promptDigits('invalid_input', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length })
