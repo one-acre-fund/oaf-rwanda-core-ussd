@@ -1516,52 +1516,87 @@ module.exports = {
 		 }
 	  },
 	  "Nyamasheke": {
-		  " Zone 2 ":{
-			  " Ninzi " :[],
-			  " Rwesero A " :[],
-			  " Rwesero B " :[],
-			  " Mubumbano " :[],
-			  " Gako A " :[],
-			  " Gako B " :[],
-			  " Shara " :[]
-			  },
-		  " Zone 3 ":{
-			  " Susa B " :[],
-			  " Susa A " :[],
-			  " Raro A " :[],
-			  " Raro B " :[],
-			  " Kigoya " :[],
-			  " Kigarama B " :[],
-			  " Kibogora B " :[],
-			  " Kibogora A " :[],
-			  " Kigarama A " :[]
-			  },
-		  " Zone 4 ":{
-			  " Rugali Cy A " :[],
-			  " Bisumo B " :[],
-			  " Bisumo A " :[],
-			  " Rugali Cy B " :[],
-			  " Murambi Cya B " :[],
-			  " Murambi Cya A " :[],
-			  " Mutongo Cya B " :[],
-			  " Mutongo Cya A " :[]
-			  },
-		  " Zone 1 ":{
-			  " Mpumbu " :[],
-			  " Buvungira B " :[],
-			  " Ngoma " :[],
-			  " Buvungira A " :[],
-			  " Nyarusange Bus " :[]
-			  },
-		  " Zone 5 ":{
-			  " Kanazi " :[],
-			  " Ntendezi A " :[],
-			  " Ntendezi B " :[],
-			  " Wimana C " :[],
-			  " Save " :[],
-			  " Wimana B " :[],
-			  " Wimana A " :[]
-			  }
+		" Bushekeri ":{
+			" Ngoma B " :[]
+		 },
+		" Bushenge ":{
+			" Impala " :[],
+			 " Impala B " :[]
+			 },
+		" Macuba ":{
+			" Mutongo M A " :[],
+			" Mutongo M B " :[],
+			" Rugali M A " :[],
+			" Rugali M B " :[]
+		 },
+		" Rangiro ":{
+			" Murambi R  A " :[],
+			 " Murambi R  B " :[]
+			 },
+		" Ruharambuga ":{
+			" Kanazi B " :[]
+		 },
+		" Zone 1 ":{
+			" Buvungira A " :[],
+			" Buvungira B " :[],
+			" Mpumbu " :[],
+			" Mpumbu B " :[],
+			" Ngoma " :[],
+			" Nyarusange Bus " :[]
+		 },
+		" Zone 2 ":{
+			" Gako A " :[],
+			" Gako B " :[],
+			" Mubumbano " :[],
+			" Mubumbano B " :[],
+			" Ninzi " :[],
+			" Rwesero A " :[],
+			" Rwesero B " :[],
+			" Shara " :[]
+		},
+		" Zone 3 ":{
+			" Kibogora A " :[],
+			" Kibogora B " :[],
+			" Kigarama A " :[],
+			" Kigarama B " :[],
+			" Kigoya " :[],
+			" Raro A " :[],
+			" Raro B " :[],
+			" Susa A " :[],
+			" Susa B " :[]
+		},
+		" Zone 4 ":{
+			" Bisumo A " :[],
+			" Bisumo B " :[],
+			" Murambi Cya A " :[],
+			" Murambi Cya B " :[],
+			" Mutongo Cya A " :[],
+			" Mutongo Cya B " :[],
+			" Rugali Cy A " :[],
+			" Rugali Cy B " :[]
+		},
+		" Zone 5 ":{
+			" Kanazi " :[],
+			" Ntendezi A " :[],
+			" Ntendezi B " :[],
+			" Save " :[],
+			" Wimana A " :[],
+			" Wimana B " :[],
+			" Wimana C " :[]
+		},
+		" Zone 6 ":{
+			" Gasayo A " :[],
+			" Gasayo C " :[],
+			" Gasayo D " :[],
+			" Gashashi A " :[],
+			" Gashashi B " :[],
+			" Higiro " :[],
+			" Miko A " :[],
+			" Miko B " :[],
+			" Mwezi A " :[],
+			" Mwezi B " :[]
+		}
+
 	  },
 	  "Rusizi": {
 		" Gashonga ":{
