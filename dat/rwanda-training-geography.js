@@ -560,6 +560,7 @@ module.exports = {
 	  }
 	},
 	"Amajyepfo": {
+		
 	  "Gisagara": {
 		" Cansilde ":{
 			" gako " :[]
@@ -674,6 +675,51 @@ module.exports = {
 			" Rusagara " :[],
 			" Sabusaro " :[],
 			" Umunini " :[]
+		 }
+	  },
+	  "Ruhango": {
+		" Zone 1 ":{
+			" Munanira " :[],
+			" Rwesero " :[],
+			" Rwoga " :[]
+		 },
+		" Zone 2 ":{
+			" Kubutare " :[],
+			" Muyunzwe " :[],
+			" Rukina " :[]
+		 },
+		" Zone 3 ":{
+			" Bweramvura " :[],
+			" Gitinda " :[],
+			" Kirwa " :[]
+		 },
+		" Zone 4 ":{
+			" Gafunzo " :[],
+			" Karambi " :[],
+			" Nyakogo " :[]
+		 },
+		" Zone 5 ":{
+			" Gitisi " :[],
+			" Rubona " :[],
+			" Rwinyana " :[]
+		 },
+		" Zone 6 ":{
+			" Bihembe " :[],
+			" Remera " :[]
+		 },
+		" Zone 7 ":{
+			" Buhanda " :[],
+			" Murama " :[]
+		 },
+		" Zone 8 ":{
+			" Kamujisho " :[],
+			" Kigarama " :[],
+			" Saruheshyi " :[]
+		 },
+		" Zone 9 ":{
+			" Gishweru " :[],
+			" Mutara " :[],
+			" Nyabibugu " :[]
 		 }
 	  },
 	  "Huye": {
@@ -2224,51 +2270,6 @@ module.exports = {
 			" Mucyimba " :[],
 			" Mucyimba A " :[],
 			" Nyarugenge " :[]
-		 }
-	  },
-	  "Ruhango": {
-		" Zone 1 ":{
-			" Munanira " :[],
-			" Rwesero " :[],
-			" Rwoga " :[]
-		 },
-		" Zone 2 ":{
-			" Kubutare " :[],
-			" Muyunzwe " :[],
-			" Rukina " :[]
-		 },
-		" Zone 3 ":{
-			" Bweramvura " :[],
-			" Gitinda " :[],
-			" Kirwa " :[]
-		 },
-		" Zone 4 ":{
-			" Gafunzo " :[],
-			" Karambi " :[],
-			" Nyakogo " :[]
-		 },
-		" Zone 5 ":{
-			" Gitisi " :[],
-			" Rubona " :[],
-			" Rwinyana " :[]
-		 },
-		" Zone 6 ":{
-			" Bihembe " :[],
-			" Remera " :[]
-		 },
-		" Zone 7 ":{
-			" Buhanda " :[],
-			" Murama " :[]
-		 },
-		" Zone 8 ":{
-			" Kamujisho " :[],
-			" Kigarama " :[],
-			" Saruheshyi " :[]
-		 },
-		" Zone 9 ":{
-			" Gishweru " :[],
-			" Mutara " :[],
-			" Nyabibugu " :[]
 		 }
 	  },
 	  "Rutsiro": {
