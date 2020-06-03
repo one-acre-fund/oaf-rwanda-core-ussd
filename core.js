@@ -1154,6 +1154,10 @@ addInputHandler('enr_input_order', function (input) { //input ordering function
         sayText(msgs('enr_input_out_of_bounds', {}, lang)); //this shoud include 1 to continue 99 to quite
         promptDigits('invalid_input', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length })
     }
+    else if(product_deets.acceptableQuantityList && product_deets.acceptableQuantityList.split(',').indexOf(input) == -1){
+        sayText(msgs('enr_quantity_not_in_the_list', {'$QUANTITY_LIST': product_deets.acceptableQuantityList}, lang)); 
+        promptDigits('invalid_input', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length })
+    }
     else if (input % product_deets.increment === 0) {
         var format_order_message = require('./lib/enr-format-input-message');
         state.vars.current_input_quantity = input;
