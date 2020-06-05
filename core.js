@@ -22,11 +22,13 @@ if(env === 'prod'){
     service.vars.season_clients_table = project.vars.season_clients_table;
     service.vars.client_enrollment_table = project.vars.client_enrollment_data;
     service.vars.input21ATable = project.vars.input21ATable;
+    service.vars.input21ATable_id = project.vars.input21ATable_id;
     service.vars.RegistrationSessions = project.vars.RegistrationSessions;
 }else{
     service.vars.season_clients_table = 'dev_' + project.vars.season_clients_table;
     service.vars.client_enrollment_table = 'dev_' + project.vars.client_enrollment_data;
     service.vars.input21ATable = 'dev_' + project.vars.input21ATable;
+    service.vars.input21ATable_id = project.vars.dev_input21ATable_id;
     service.vars.RegistrationSessions = 'dev_'+project.vars.RegistrationSessions;
 }
 // console.log('###Env Info###');
