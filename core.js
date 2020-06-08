@@ -22,13 +22,21 @@ if(env === 'prod'){
     service.vars.season_clients_table = project.vars.season_clients_table;
     service.vars.client_enrollment_table = project.vars.client_enrollment_data;
     service.vars.input21ATable = project.vars.input21ATable;
+    service.vars.input21ATable_id = project.vars.input21ATable_id;
     service.vars.RegistrationSessions = project.vars.RegistrationSessions;
+    service.vars['21a_client_data_id'] = project.vars['21a_client_data_id'];
+    service.vars.client_enrollment_table_id = project.vars.client_enrollment_data_id;
 }else{
     service.vars.season_clients_table = 'dev_' + project.vars.season_clients_table;
     service.vars.client_enrollment_table = 'dev_' + project.vars.client_enrollment_data;
     service.vars.input21ATable = 'dev_' + project.vars.input21ATable;
-    service.vars.RegistrationSessions = 'dev_'+project.vars.RegistrationSessions;
+    service.vars.input21ATable_id = project.vars.dev_input21ATable_id;
+    service.vars.RegistrationSessions = 'dev_'+ project.vars.RegistrationSessions;
+    service.vars['21a_client_data_id'] = project.vars['dev_21a_client_data_id'];
+    service.vars.client_enrollment_table_id = project.vars.dev_client_enrollment_data_id;
 }
+
+var client_table = project.initDataTableById(service.vars['21a_client_data_id']);
 // console.log('###Env Info###');
 // console.log(JSON.stringify(service.vars));
 // console.log('### End Env Info###');
@@ -1016,8 +1024,7 @@ addInputHandler('enr_glvv_id_confirmation', function (input) {
         if (state.vars.group_information != null) {
             var gl_check = require('./lib/enr-group-leader-check');
             var is_gl = gl_check(state.vars.account_number, state.vars.glus, an_pool);
-            var tableA = project.getOrCreateDataTable(an_pool);
-            var cursor = tableA.queryRows({ vars: { 'account_number': state.vars.account_number } });
+            var cursor = client_table.queryRows({ vars: { 'account_number': state.vars.account_number } });
             if (cursor.hasNext()) {
                 var row = cursor.next();
                 row.vars.glus = state.vars.glus;
