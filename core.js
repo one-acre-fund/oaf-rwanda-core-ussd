@@ -17,6 +17,7 @@ if(service.vars.env === 'prod' || service.vars.env === 'dev'){
 
 service.vars.server_name = project.vars[env+'_server_name'];
 service.vars.roster_api_key = project.vars[env+'_roster_api_key'];
+service.vars.ussd_settings_table_id = 'DT1f9908b578f65458';
 
 if(env === 'prod'){
     service.vars.season_clients_table = project.vars.season_clients_table;
@@ -57,7 +58,6 @@ var get_client = require('./lib/enr-retrieve-client-row');
 var regSessionManager = require('./lib/enr-resume-registration');
 
 //options
-//var settings_table = project.getOrCreateDataTable('ussd_settings'); //removing this to account for project variable preference
 const lang = project.vars.cor_lang;
 const max_digits_for_input = project.vars.max_digits; //only for testing
 //const max_digits_for_nid = parseInt(settings_table.queryRows({'vars' : {'settings' : 'max_digits_nid'}}).next().vars.value); 
