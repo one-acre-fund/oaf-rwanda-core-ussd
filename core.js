@@ -17,6 +17,7 @@ if(service.vars.env === 'prod' || service.vars.env === 'dev'){
 
 service.vars.server_name = project.vars[env+'_server_name'];
 service.vars.roster_api_key = project.vars[env+'_roster_api_key'];
+service.vars.ussd_settings_table_id = 'DT1f9908b578f65458';
 
 if(env === 'prod'){
     service.vars.season_clients_table = project.vars.season_clients_table;
@@ -57,17 +58,14 @@ var get_client = require('./lib/enr-retrieve-client-row');
 var regSessionManager = require('./lib/enr-resume-registration');
 
 //options
-//var settings_table = project.getOrCreateDataTable('ussd_settings'); //removing this to account for project variable preference
 const lang = project.vars.cor_lang;
 const max_digits_for_input = project.vars.max_digits; //only for testing
 //const max_digits_for_nid = parseInt(settings_table.queryRows({'vars' : {'settings' : 'max_digits_nid'}}).next().vars.value); 
 const max_digits_for_account_number = project.vars.max_digits_an;
 //const max_digits_for_serial = 7;
-const core_splash_map = project.getOrCreateDataTable(project.vars.core_enr_splash_map);
 //const chicken_client_table = project.vars.chicken_client_table;
 const an_pool = service.vars.season_clients_table;
 const glus_pool = project.vars.glus_pool;
-const geo_menu_map = project.vars.geo_menu_map;
 const timeout_length = project.vars.max_digits_for_input_enrollement;
 const max_digits_for_nid = project.vars.max_digits_nid;
 const max_digits_for_pn = project.vars.max_digits_pn;
@@ -105,11 +103,7 @@ addInputHandler('account_number_splash', function (input) { //acount_number_spla
             if (client_verified) {
                 sayText(msgs('account_number_verified'));
                 state.vars.account_number = response;
-                var splash = core_splash_map.queryRows({ 'vars': { 'district': state.vars.client_district } }).next().vars.splash_menu;
-                if (splash === null || splash === undefined) {
-                    admin_alert(state.vars.client_district + ' not found in district database');
-                    throw 'ERROR : DISTRICT NOT FOUND';
-                }
+                var splash = 'core_enr_splash_menu';
                 state.vars.splash = splash;
                 var menu = populate_menu(splash, lang);
                 if (typeof (menu) == 'string') {
@@ -671,7 +665,7 @@ addInputHandler('enr_nid_client_confirmation', function (input) {
                 if (client_verified) {
                     sayText(msgs('account_number_verified'));
                     state.vars.account_number = client.account_number;
-                    var splash = core_splash_map.queryRows({ 'vars': { 'district': state.vars.client_district } }).next().vars.splash_menu;
+                    var splash = 'core_enr_splash_menu';
                     if (splash === null || splash === undefined) {
                         admin_alert(state.vars.client_district + ' not found in district database');
                         throw 'ERROR : DISTRICT NOT FOUND';
@@ -1163,7 +1157,7 @@ addInputHandler('enr_input_order', function (input) { //input ordering function
     }
     else if(product_deets.acceptableQuantityList && product_deets.acceptableQuantityList.split(',').indexOf(String(input)) == -1){
         sayText(msgs('enr_quantity_not_in_the_list', {'$QUANTITY_LIST': product_deets.acceptableQuantityList}, lang)); 
-        promptDigits('invalid_input', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length })
+        promptDigits('enr_input_order', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length })
     }
     else if (input % product_deets.increment === 0) {
         var format_order_message = require('./lib/enr-format-input-message');

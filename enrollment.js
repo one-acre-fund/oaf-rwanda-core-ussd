@@ -14,7 +14,6 @@ var get_time = require('./lib/enr-timestamp');
 global options - feel free to refactor someday
 edited to use project vars as of 14 nov 2019 due to emergency api overage
 */
-//var settings_table = project.getOrCreateDataTable('ussd_settings');
 const lang = project.vars.enr_lang;
 const an_pool = project.vars.enr_client_pool;
 const glus_pool = project.vars.glus_pool;
