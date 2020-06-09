@@ -1277,7 +1277,7 @@ addInputHandler('enr_finalize_verify', function (input) {
     input = parseInt(input.replace(/\D/g, ''));
     if (input == 1) {
         var enroll_in_roster = require('./lib/enr-order-in-roster');
-        var success = enroll_in_roster(state.vars.session_account_number, state.vars.client_id, an_pool);
+        var success = enroll_in_roster(state.vars.session_account_number, state.vars.client_id, client_table);
         if (success) {
             sayText(msgs('enr_finalized', {}, lang));
             var client = get_client(state.vars.session_account_number, an_pool)
