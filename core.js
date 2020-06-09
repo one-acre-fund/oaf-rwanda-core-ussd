@@ -63,11 +63,9 @@ const max_digits_for_input = project.vars.max_digits; //only for testing
 //const max_digits_for_nid = parseInt(settings_table.queryRows({'vars' : {'settings' : 'max_digits_nid'}}).next().vars.value); 
 const max_digits_for_account_number = project.vars.max_digits_an;
 //const max_digits_for_serial = 7;
-const core_splash_map = project.getOrCreateDataTable(project.vars.core_enr_splash_map);
 //const chicken_client_table = project.vars.chicken_client_table;
 const an_pool = service.vars.season_clients_table;
 const glus_pool = project.vars.glus_pool;
-const geo_menu_map = project.vars.geo_menu_map;
 const timeout_length = project.vars.max_digits_for_input_enrollement;
 const max_digits_for_nid = project.vars.max_digits_nid;
 const max_digits_for_pn = project.vars.max_digits_pn;
@@ -105,11 +103,7 @@ addInputHandler('account_number_splash', function (input) { //acount_number_spla
             if (client_verified) {
                 sayText(msgs('account_number_verified'));
                 state.vars.account_number = response;
-                var splash = core_splash_map.queryRows({ 'vars': { 'district': state.vars.client_district } }).next().vars.splash_menu;
-                if (splash === null || splash === undefined) {
-                    admin_alert(state.vars.client_district + ' not found in district database');
-                    throw 'ERROR : DISTRICT NOT FOUND';
-                }
+                var splash = 'core_enr_splash_menu';
                 state.vars.splash = splash;
                 var menu = populate_menu(splash, lang);
                 if (typeof (menu) == 'string') {
@@ -671,7 +665,7 @@ addInputHandler('enr_nid_client_confirmation', function (input) {
                 if (client_verified) {
                     sayText(msgs('account_number_verified'));
                     state.vars.account_number = client.account_number;
-                    var splash = core_splash_map.queryRows({ 'vars': { 'district': state.vars.client_district } }).next().vars.splash_menu;
+                    var splash = 'core_enr_splash_menu';
                     if (splash === null || splash === undefined) {
                         admin_alert(state.vars.client_district + ' not found in district database');
                         throw 'ERROR : DISTRICT NOT FOUND';
