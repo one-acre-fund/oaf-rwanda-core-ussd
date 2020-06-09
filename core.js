@@ -1157,7 +1157,7 @@ addInputHandler('enr_input_order', function (input) { //input ordering function
     }
     else if(product_deets.acceptableQuantityList && product_deets.acceptableQuantityList.split(',').indexOf(String(input)) == -1){
         sayText(msgs('enr_quantity_not_in_the_list', {'$QUANTITY_LIST': product_deets.acceptableQuantityList}, lang)); 
-        promptDigits('invalid_input', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length })
+        promptDigits('enr_input_order', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length })
     }
     else if (input % product_deets.increment === 0) {
         var format_order_message = require('./lib/enr-format-input-message');
