@@ -18,6 +18,7 @@ if(service.vars.env === 'prod' || service.vars.env === 'dev'){
 service.vars.server_name = project.vars[env+'_server_name'];
 service.vars.roster_api_key = project.vars[env+'_roster_api_key'];
 service.vars.ussd_settings_table_id = 'DT1f9908b578f65458';
+service.vars.groupCodes_id = 'DTf1ac46f52abd0c5e';
 
 if(env === 'prod'){
     service.vars.season_clients_table = project.vars.season_clients_table;
@@ -27,6 +28,7 @@ if(env === 'prod'){
     service.vars.RegistrationSessions = project.vars.RegistrationSessions;
     service.vars['21a_client_data_id'] = project.vars['21a_client_data_id'];
     service.vars.client_enrollment_table_id = project.vars.client_enrollment_data_id;
+    service.vars.market_access_table_id = 'DT1aae6fdec1f4e2ea';
 }else{
     service.vars.season_clients_table = 'dev_' + project.vars.season_clients_table;
     service.vars.client_enrollment_table = 'dev_' + project.vars.client_enrollment_data;
@@ -35,6 +37,7 @@ if(env === 'prod'){
     service.vars.RegistrationSessions = 'dev_'+ project.vars.RegistrationSessions;
     service.vars['21a_client_data_id'] = project.vars['dev_21a_client_data_id'];
     service.vars.client_enrollment_table_id = project.vars.dev_client_enrollment_data_id;
+    service.vars.market_access_table_id = 'DT627b1e89d0150102';
 }
 
 var client_table = project.initDataTableById(service.vars['21a_client_data_id']);
@@ -100,6 +103,7 @@ addInputHandler('account_number_splash', function (input) { //acount_number_spla
         try {
             var verify = require('./lib/account-verify')
             var client_verified = verify(response);
+            state.vars.account_number = response;
             if (client_verified) {
 
                 var cursor = client_table.queryRows({ 'vars': { 'account_number': response}});
@@ -107,10 +111,10 @@ addInputHandler('account_number_splash', function (input) { //acount_number_spla
                     var row = cursor.next();
                     if (row.vars.group_leader ==1){
                         state.vars.group_leader = 'yes';
+                        state.vars.groupCodeForGL = row.vars.glus;
                     }
                 }
-                sayText(msgs('account_number_verified'));
-                state.vars.account_number = response;
+                sayText(msgs('account_number_verified'));    
                 var splash = 'core_enr_splash_menu';
                 state.vars.splash = splash;
                 var menu = populate_menu(splash, lang);
@@ -457,6 +461,21 @@ addInputHandler('harvest_timing_handler', function(input){
 addInputHandler('m_market_confirm_handler', function(input){
     input = String(input.replace(/\D/g, '')); 
     if(input == 0){
+
+        var groupsTable = project.initDataTableById(service.vars.groupCodes_id);
+        var cursor = groupsTable.queryRows({vars:{'group_code':state.vars.groupCodeForGL}});
+        if(cursor.hasNext())
+        {
+            var row = cursor.next();
+            var district = row.vars.district;
+            var site = row.vars.site;
+            var group = row.vars.group;
+        }
+        var table = project.initDataTableById(service.vars.market_access_table_id);
+        var row = table.createRow({ 
+            vars: {'district': district, 'site': site, 'group': group, 'account_number': state.vars.account_number, 'product': state.vars.crop_type, "amount" : state.vars.harvest_amount,"price_floor" :state.vars.lowest_price, "date_available" : state.vars.harvest_time }
+        });
+        row.save();
         sayText(msgs('market_access_final_message'),{},lang);
         promptDigits('backToMain',{'submitOnHash': false, 'maxDigits': 1, 'timeout': timeout_length })
     }
