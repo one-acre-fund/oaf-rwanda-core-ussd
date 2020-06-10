@@ -101,6 +101,14 @@ addInputHandler('account_number_splash', function (input) { //acount_number_spla
             var verify = require('./lib/account-verify')
             var client_verified = verify(response);
             if (client_verified) {
+
+                var cursor = client_table.queryRows({ 'vars': { 'account_number': response}});
+                if(cursor.hasNext()){
+                    var row = cursor.next();
+                    if (row.vars.group_leader ==1){
+                        state.vars.group_leader = 'yes';
+                    }
+                }
                 sayText(msgs('account_number_verified'));
                 state.vars.account_number = response;
                 var splash = 'core_enr_splash_menu';
@@ -135,6 +143,8 @@ addInputHandler('account_number_splash', function (input) { //acount_number_spla
         }
     }
 });
+
+
 
 addInputHandler('cor_menu_select', function (input) {
     input = String(input.replace(/\D/g, ''));
@@ -176,6 +186,14 @@ addInputHandler('cor_menu_select', function (input) {
         console.log('############################ I was called #####################');
         promptDigits('invalid_input', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
         return null;
+    }
+    else if(selection === 'cor_market_access'){
+        var menu = '';
+        if(lang == 'ki'){menu = '1) Ibigori bidahunguye(Bikiri ku mahundo)\n2) Ibigori bihunguye\n3) Ibishyimbo\n4) Imyumbati'}
+        else{ menu ='1) Shelled maize\n2) Unshelled maize\n3) Beans\n4) Cassava'}
+        state.vars.current_menu = menu;
+        sayText(menu);
+        promptDigits('market_access_handler', { 'submitOnHash': false, 'maxDigits': 1, 'timeout': timeout_length });
     }
     else if (selection === 'cor_get_balance') { //inelegant
         get_balance = require('./lib/cor-get-balance');
@@ -374,6 +392,105 @@ addInputHandler('cor_menu_select', function (input) {
         return null;
     }
 });
+
+
+addInputHandler('market_access_handler', function (input){
+    if(input == 1 ){if(lang == 'ki'){state.vars.crop_type = 'Ibigori bidahunguye(Bikiri ku mahundo)'}else{state.vars.crop_tye ='Shelled maize'}}
+    else if(input == 2 ){if(lang == 'ki'){state.vars.crop_type = 'Ibigori bihunguye'}else{state.vars.crop_tye ='Unshelled maize'}}
+    else if(input == 3 ){if(lang == 'ki'){state.vars.crop_type = 'Ibishyimbo'}else{state.vars.crop_tye ='Beans'}}
+    else if(input == 4 ){if(lang == 'ki'){state.vars.crop_type = 'Imyumbati'}else{state.vars.crop_tye ='Cassava'}}
+    else{
+        sayText(msgs('invalid_try_again', {}, lang));
+        promptDigits('market_access_handler', { 'submitOnHash': false, 'maxDigits': 1, 'timeout': timeout_length });   
+        stopRules();
+    }
+    sayText(msgs('crop_amount_menu',{},lang));
+    promptDigits('harvest_amount_handler', { 'submitOnHash': false, 'maxDigits': 9, 'timeout': timeout_length });
+
+});
+addInputHandler('harvest_amount_handler', function(amount){
+    amount = String(amount.replace(/\D/g, ''));
+    if(parseInt(amount) < 20 || parseInt(amount) > 1000000){
+        sayText(msgs('invalid_try_again', {}, lang));
+        promptDigits('harvest_amount_handler', { 'submitOnHash': false, 'maxDigits': 9, 'timeout': timeout_length });
+    }
+    else{
+        state.vars.harvest_amount = amount;
+        sayText(msgs('price_floor_menu',{},lang));
+        promptDigits('flow_price_handler', { 'submitOnHash': false, 'maxDigits': 9, 'timeout': timeout_length });
+
+    }
+
+});
+addInputHandler('flow_price_handler', function(input){
+    if(parseInt(input) <= 0){
+        sayText(msgs('invalid_try_again', {}, lang));
+        promptDigits('flow_price_handler', { 'submitOnHash': false, 'maxDigits': 9, 'timeout': timeout_length });
+    }
+    else{
+        state.vars.lowest_price = input;
+        var timing = '';
+        if(lang == 'ki'){timing = '1) Ubu birumye neza\n2) Nyuma y icyumeru\n3) Mu byumweru bibiri\n4) Hejuru y ibumweru bibiri'}
+        else{timing = '1)Now\n2) Next week\n3) In two weeks\n4) In more than 2 weeks'}
+        sayText(msgs('harvest_timing_menu',{'$HarvestTime':timing},lang));
+        promptDigits('harvest_timing_handler', { 'submitOnHash': false, 'maxDigits': 9, 'timeout': timeout_length });
+    }
+});
+
+addInputHandler('harvest_timing_handler', function(input){
+    input = String(input.replace(/\D/g, ''));
+    if(input == 1 ){if(lang == 'ki'){state.vars.harvest_time = 'Ubu birumye neza'}else{state.vars.crop_tye ='Now'}}
+    else if(input == 2 ){if(lang == 'ki'){state.vars.harvest_time = 'Nyuma y icyumeru'}else{state.vars.crop_tye ='Next week'}}
+    else if(input == 3 ){if(lang == 'ki'){state.vars.harvest_time = 'Mu byumweru bibiri'}else{state.vars.crop_tye ='In two weeks'}}
+    else if(input == 4 ){if(lang == 'ki'){state.vars.harvest_time = 'Hejuru y ibumweru bibiri'}else{state.vars.crop_tye ='In more than 2 weeks'}}
+    else{
+        sayText(msgs('invalid_try_again', {}, lang));
+        promptDigits('harvest_timing_handler', { 'submitOnHash': false, 'maxDigits': 9, 'timeout': timeout_length });
+        stopRules();
+    }
+    var menu ='';
+    menu = msgs('market_access_confirmation_menu',{'$Amount':state.vars.harvest_amount,'$TypeOfCrop': state.vars.crop_type,'$Price':state.vars.lowest_price,'$Timeline':state.vars.harvest_time},lang);
+    sayText(menu);
+    promptDigits('m_market_confirm_handler', { 'submitOnHash': false, 'maxDigits': 9, 'timeout': timeout_length });
+});
+
+addInputHandler('m_market_confirm_handler', function(input){
+    input = String(input.replace(/\D/g, '')); 
+    if(input == 0){
+        sayText(msgs('market_access_final_message'),{},lang);
+        promptDigits('backToMain',{'submitOnHash': false, 'maxDigits': 1, 'timeout': timeout_length })
+    }
+    else{
+        sayText(msgs('invalid_try_again', {}, lang));
+        promptDigits('m_market_confirm_handler', { 'submitOnHash': false, 'maxDigits': 9, 'timeout': timeout_length });
+    }
+
+});
+
+addInputHandler('backToMain', function(input){
+    var splash = 'core_enr_splash_menu';
+    state.vars.splash = splash;
+    var menu = populate_menu(splash, lang);
+    if (typeof (menu) == 'string') {
+        state.vars.current_menu_str = menu;
+        sayText(menu);
+        state.vars.multiple_input_menus = 0;
+        state.vars.input_menu = menu;
+        promptDigits('cor_menu_select', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
+    }
+    else if (typeof (menu) == 'object') {
+        state.vars.input_menu_loc = 0; //watch for off by 1 errors - consider moving this to start at 1
+        state.vars.multiple_input_menus = 1;
+        state.vars.input_menu_length = Object.keys(menu).length; //this will be 1 greater than max possible loc
+        state.vars.current_menu_str = menu[state.vars.input_menu_loc];
+        sayText(menu[state.vars.input_menu_loc]);
+        state.vars.input_menu = JSON.stringify(menu);
+        promptDigits('cor_menu_select', { 'submitOnHash': false, 'maxDigits': max_digits_for_input, 'timeout': timeout_length });
+    }
+
+});
+
+
 addInputHandler('chx_update', function (input) {
     input = parseInt(input.replace(/\D/g, ''));
     // if they want to update, ask them to place an order
