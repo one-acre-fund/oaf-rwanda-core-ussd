@@ -3,7 +3,7 @@ var geo_process = require('./lib/cta-geo-string-processer');
 var geo_data = require('./dat/rwanda-training-geography');
 var msgs = require('./lib/msg-retrieve');
 var reinit = require('./lib/training-reinitialization');
-
+var finalize_check = require('./lib/finalize-check');
 const max_digits_for_input = 2;
 
 const lang = project.vars.trainings_language;
@@ -12,6 +12,8 @@ const timeout_length = project.vars.timeout_length;
 
 
  global.main = function () {
+
+
     if(!reinit()){
     call.vars.phone_nbr = contact.phone_number;
     var getmenu = require('./lib/training-populate-menu');
@@ -96,7 +98,12 @@ addInputHandler('surveyType_selection',function(input){
         number_of_questions = row.vars.number_of_questions;
         call.vars.survey_code = survey_type;
         call.vars.number_of_questions = number_of_questions;
-       
+        //checks if the participant finalized the survey
+        if(finalize_check(survey_type)){
+            sayText(msgs("survey_finalized",{},lang));
+            stopRules();
+            return;
+        }
         var geo_list = geo_process(geo_data);
         state.vars.current_menu = JSON.stringify(geo_list);
         sayText(msgs('training_province_splash', geo_list,lang));
