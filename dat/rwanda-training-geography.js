@@ -6,6 +6,7 @@ module.exports = {
     "Amajyaruguru": {
         "Burera": {
             "Butaro": {
+                "Gatsibo":[],
                 "Mubuga": [],
                 "Muhotora": [],
                 "Nyamicucu": [],
